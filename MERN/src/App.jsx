@@ -1,13 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./features/Navbar/Navbar";
-import Product from "./features/Product-list/Product";
 import Homepage from "./pages/Homepage";
 import Loginpage from "./pages/Loginpage";
 import Signuppage from "./pages/Signuppage";
 import Cartpage from "./pages/Cartpage";
-import Temp from "./temp";
 import Checkoutpage from "./pages/Checkoutpage";
+import Productdetailspage from "./pages/Productdetailspage";
 
 function App() {
   return (
@@ -18,7 +16,7 @@ function App() {
         <Route path="/login" element={<Loginpage />} />
         <Route path="/cart" element={<Cartpage />} />
         <Route path="/checkout" element={<Checkoutpage />} />
-        <Route path="/temp" element={<Temp />} />
+        <Route path="/productdetails" element={<Productdetailspage />} />
       </Routes>
     </BrowserRouter>
   );

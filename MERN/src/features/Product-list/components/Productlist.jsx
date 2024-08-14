@@ -20,7 +20,8 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import Pagination from "../../Pagination";
+import Pagination from "../../../Pagination";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -103,7 +104,7 @@ const filters = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-const Product = () => {
+const Productlist = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   return (
     <div className="bg-white">
@@ -314,7 +315,7 @@ const Product = () => {
                     <div className="mt-2  grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                       {products.map((product) => (
                         <div key={product.id} className="group relative">
-                          <div className="aspect-h-1 aspect-w- w-full overflow-hidden rounded-md bg-gray-400 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                          <div className="aspect-h-1 aspect-w- w-full overflow-hidden rounded-md bg-gray-400 lg:aspect-none group-hover:opacity-80 lg:h-80">
                             <img
                               alt={product.imageAlt}
                               src={product.imageSrc}
@@ -324,13 +325,13 @@ const Product = () => {
                           <div className="mt-4 flex justify-between">
                             <div>
                               <h3 className="text-sm text-gray-700">
-                                <a href={product.href}>
+                                <Link to={"/productdetails"}>
                                   <span
                                     aria-hidden="true"
                                     className="absolute inset-0"
                                   />
-                                  {product.name}
-                                </a>
+                                  <p className="hover:under">{product.name}</p>
+                                </Link>
                               </h3>
                               <p className="mt-1 text-sm text-gray-500">
                                 {product.color}
@@ -356,4 +357,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Productlist;
