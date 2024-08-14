@@ -2582,3 +2582,26 @@ const C1products = [
       "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png",
   },
 ];
+const category = [
+  "women,men,kids,Electronics,Home Decoration,Fashion,Beauty Product,Equipments",
+  "Smart watch",
+  "Computer",
+  "Smart Phones",
+];
+const brand = [
+  "Canon",
+  "Apple",
+  "DJI",
+  "Vaseline",
+  "L'Oeal Paris",
+  "Acer",
+  "Free Asembly",
+  "Olay",
+  "SAMSUNG",
+  "OPPO",
+  "Lenovo",
+  "Uhomepro",
+  "ZARA",
+  "Zudio",
+  "Snitch",
+];

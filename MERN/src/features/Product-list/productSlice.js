@@ -1,12 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchAllProducts } from "./productAPI.js";
 
-const initialState = { value: 10, count: 0 };
+const initialState = { products: [], status: "idle" };
 
-const fetchUserById = createAsyncThunk("users/fetchById", async (userId) => {
-  const response = await fetch(`https://reqres.in/api/users/${userId}`);
-  // Inferred return type: Promise<MyData>
-  return await response.json();
-});
+export const fetchAllProductsAsync = createAsyncThunk(
+  "product/fetchAllProducts",
+  async () => {
+    const response = await fetchAllProducts();
+    return response.data;
+  }
+);
 const productSlice = createSlice({
   name: "product",
   initialState,
@@ -16,9 +19,14 @@ const productSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchUserById.fulfilled, (state, { payload }) => {
-      state.entities[payload.id] = payload;
-    });
+    builder
+      .addCase(fetchAllProductsAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.products = action.payload;
+      });
   },
 });
 
