@@ -48,6 +48,8 @@ const filters = [
       { value: "Lenovo", label: "Lenovo", checked: false },
       { value: "Zara", label: "Zara", checked: false },
       { value: "Levis", label: "Levis", checked: false },
+      { value: "Rolex", label: "Rolex", checked: false },
+      { value: "Nike", label: "Nike", checked: false },
       { value: "Zudio", label: "Zudio", checked: false },
       { value: "Snitch", label: "Snitch", checked: false },
       { value: "Vaseline", label: "Vaseline", checked: false },
@@ -64,6 +66,18 @@ const filters = [
     options: [
       { value: "women", label: "Women", checked: false },
       { value: "men", label: "Men", checked: false },
+      { value: "fragrances", label: "Fragrances", checked: false },
+      { value: "furniture", label: "Furniture", checked: false },
+      { value: "groceries", label: "Groceries", checked: false },
+      { value: "laptops", label: "laptops", checked: false },
+      { value: "mens-shirts", label: "Mens Shirts", checked: false },
+      { value: "mens-shoes", label: "Mens Shoes", checked: false },
+      { value: "mens-watches", label: "Mens Watches", checked: false },
+      {
+        value: "kitchen-accessories",
+        label: "kitchen-accessories",
+        checked: false,
+      },
       { value: "Fashion", label: "Fashion", checked: false },
       { value: "Beauty Product", label: "Beauty Product", checked: false },
       { value: "Electronics", label: "Electronics", checked: true },
@@ -74,18 +88,18 @@ const filters = [
       { value: "Smart Phones", label: "Smart Phones", checked: false },
     ],
   },
-  {
-    id: "size",
-    name: "Size",
-    options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
-    ],
-  },
+  // {
+  //   id: "size",
+  //   name: "Size",
+  //   options: [
+  //     { value: "2l", label: "2L", checked: false },
+  //     { value: "6l", label: "6L", checked: false },
+  //     { value: "12l", label: "12L", checked: false },
+  //     { value: "18l", label: "18L", checked: false },
+  //     { value: "20l", label: "20L", checked: false },
+  //     { value: "40l", label: "40L", checked: true },
+  //   ],
+  // },
 ];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -317,7 +331,7 @@ const Productlist = () => {
                           <div className="min-h-64  aspect-h-1 aspect-w- w-full overflow-hidden  bg-gray-400 lg:aspect-none group-hover:opacity-80 lg:h-64">
                             <img
                               alt={product.title}
-                              src={product.image}
+                              src={product.thumbnail}
                               className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                             />
                           </div>
@@ -344,7 +358,9 @@ const Productlist = () => {
                                 {product.price}
                               </p>
 
-                              <p className={`text-sm text-nowrap font-medium `}>
+                              <p
+                                className={`m-1 text-sm text-nowrap font-bold `}
+                              >
                                 {product.brand}
                               </p>
                             </div>
