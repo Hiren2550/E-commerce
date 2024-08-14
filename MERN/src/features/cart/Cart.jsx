@@ -40,11 +40,11 @@ const products = [
 const Cart = () => {
   const [open, setOpen] = useState(true);
   return (
-    <div className="my-8 mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8 bg-white">
-      <h1 className="text-4xl my-2 text-center font-bold tracking-tight text-gray-900">
+    <div className="my-8 mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8 bg-white border border-gray-200">
+      <h1 className="text-4xl my-2  font-semibold tracking-tight text-gray-900">
         Cart
       </h1>
-      <div className="mt-8">
+      <div className="mt-6">
         <div className="flow-root">
           <ul role="list" className=" divide-y divide-gray-200">
             {products.map((product) => (
@@ -104,12 +104,12 @@ const Cart = () => {
           Shipping and taxes calculated at checkout.
         </p>
         <div className="mt-6">
-          <a
-            href="#"
+          <Link
+            to={"/checkout"}
             className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
           >
             Checkout
-          </a>
+          </Link>
         </div>
         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
           <p>
