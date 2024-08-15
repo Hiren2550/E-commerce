@@ -24,7 +24,10 @@ import {
 } from "@heroicons/react/20/solid";
 import Pagination from "../../../Pagination";
 import { Link } from "react-router-dom";
-import { fetchAllProductsAsync } from "../productSlice";
+import {
+  fetchAllProductsAsync,
+  fetchAllProductsByFilterAsync,
+} from "../productSlice";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -55,7 +58,7 @@ const filters = [
       },
       { value: "Fashion", label: "Fashion", checked: false },
       { value: "Beauty", label: "Beauty", checked: false },
-      { value: "Electronics", label: "Electronics", checked: true },
+      { value: "Electronics", label: "Electronics", checked: false },
       { value: "Decoration", label: "Decoration", checked: false },
       { value: "Computer", label: "Computer", checked: false },
       { value: "Equipments", label: "Equipments", checked: false },
@@ -68,7 +71,7 @@ const filters = [
     options: [
       { value: "Canon", label: "Canon", checked: false },
       { value: "OPPO", label: "OPPO", checked: false },
-      { value: "Apple", label: "Apple", checked: true },
+      { value: "Apple", label: "Apple", checked: false },
       { value: "Acer", label: "Acer", checked: false },
       { value: "Lenovo", label: "Lenovo", checked: false },
       { value: "SAMSUNG", label: "SAMSUNG", checked: false },
@@ -101,14 +104,16 @@ const filters = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-const handleFilter = (e, section, option) => {
-  e.preventDefault();
-  console.log(section.id, option.value);
-};
 const Productlist = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [filter, setFilter] = useState({});
   const dispatch = useDispatch();
 
+  const handleFilter = (e, section, option) => {
+    const newFilter = { ...filter, [section.id]: option.value };
+    setFilter(newFilter);
+    dispatch(fetchAllProductsByFilterAsync(newFilter));
+  };
   useEffect(() => {
     async function fetchData() {
       dispatch(fetchAllProductsAsync());
@@ -184,7 +189,7 @@ const Productlist = () => {
                               name={`${section.id}[]`}
                               type="checkbox"
                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                              onClick={(e) => handleFilter(e, section, option)}
+                              onChange={(e) => handleFilter(e, section, option)}
                             />
                             <label
                               htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -305,7 +310,7 @@ const Productlist = () => {
                               name={`${section.id}[]`}
                               type="checkbox"
                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                              onClick={(e) => handleFilter(e, section, option)}
+                              onChange={(e) => handleFilter(e, section, option)}
                             />
                             <label
                               htmlFor={`filter-${section.id}-${optionIdx}`}
