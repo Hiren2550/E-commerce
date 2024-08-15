@@ -28,6 +28,7 @@ import {
   fetchAllProductsAsync,
   fetchAllProductsByFilterAsync,
 } from "../productSlice";
+import { ITEM_PER_PAGE } from "../../../../constant";
 
 const sortOptions = [
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
@@ -105,6 +106,8 @@ const Productlist = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
+  const [page, setPage] = useState(1);
+
   const dispatch = useDispatch();
 
   const handleFilter = (e, section, option) => {
@@ -121,17 +124,23 @@ const Productlist = () => {
       newFilter[section.id].splice(index, 1);
     }
     setFilter(newFilter);
+    console.log(newFilter);
   };
   const handleSort = (e, option) => {
     const newSort = { _sort: option.sort, _order: option.order };
-    setSort(sort);
+    setSort(newSort);
+  };
+  const handlePage = (page) => {
+    console.log(page);
+    setPage(page);
   };
   useEffect(() => {
     async function fetchData() {
-      dispatch(fetchAllProductsByFilterAsync({ filter, sort }));
+      const pagination = { _page: page, _limit: ITEM_PER_PAGE };
+      dispatch(fetchAllProductsByFilterAsync({ filter, sort, pagination }));
     }
     fetchData();
-  }, [dispatch, filter, sort]);
+  }, [dispatch, filter, sort, page]);
   const products = useSelector((state) => state.product.products);
 
   return (
@@ -343,7 +352,7 @@ const Productlist = () => {
             </div>
           </section>
           {/* Pagination */}
-          <Pagination />
+          <Pagination handlePage={handlePage} page={page} setPage={setPage} />
         </main>
       </div>
     </div>
