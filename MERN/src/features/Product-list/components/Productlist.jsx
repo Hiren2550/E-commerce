@@ -104,25 +104,34 @@ function classNames(...classes) {
 const Productlist = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
   const dispatch = useDispatch();
 
   const handleFilter = (e, section, option) => {
-    const newFilter = { ...filter, [section.id]: option.value };
+    console.log(e.target.checked);
+    const newFilter = { ...filter };
+    if (e.target.checked) {
+      if (newFilter[section.id]) {
+        newFilter[section.id].push(option.value);
+      } else {
+        newFilter[section.id] = [option.value];
+      }
+    } else {
+      const index = newFilter[section.id].findIndex((i) => (i = option.value));
+      newFilter[section.id].splice(index, 1);
+    }
     setFilter(newFilter);
-    dispatch(fetchAllProductsByFilterAsync(newFilter));
   };
   const handleSort = (e, option) => {
-    console.log(option);
-    const newFilter = { ...filter, _sort: option.sort, _order: option.order };
-    setFilter(newFilter);
-    dispatch(fetchAllProductsByFilterAsync(newFilter));
+    const newSort = { _sort: option.sort, _order: option.order };
+    setSort(sort);
   };
   useEffect(() => {
     async function fetchData() {
-      dispatch(fetchAllProductsAsync());
+      dispatch(fetchAllProductsByFilterAsync({ filter, sort }));
     }
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, filter, sort]);
   const products = useSelector((state) => state.product.products);
 
   return (
@@ -330,58 +339,7 @@ const Productlist = () => {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3">
-                <div className="bg-white">
-                  <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
-                    <div className="mt-2  grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
-                      {products.map((product) => (
-                        <div
-                          key={product._id || product.id}
-                          className="group relative border-2 p-2 border-gray-300 "
-                        >
-                          <div className="min-h-64  aspect-h-1 aspect-w- w-full overflow-hidden  bg-gray-400 lg:aspect-none group-hover:opacity-80 lg:h-64">
-                            <img
-                              alt={product.title}
-                              src={product.thumbnail}
-                              className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                            />
-                          </div>
-                          <div className="mt-2 flex justify-between">
-                            <div className=" px-2 py-2">
-                              <h3 className="text-sm text-gray-700">
-                                <Link to={"/productdetails"}>
-                                  <span
-                                    aria-hidden="true"
-                                    className="absolute inset-0"
-                                  />
-                                  <p className="hover:under text-wrap">
-                                    {product.title}
-                                  </p>
-                                </Link>
-                              </h3>
-                              <p className="mt-1 text-sm text-gray-500">
-                                {product.category}
-                              </p>
-                            </div>
-                            <div className="px-2 py-2 ">
-                              <p className="text-sm text-nowrap font-medium text-gray-900">
-                                <span className="m-1">$</span>
-                                {product.price}
-                              </p>
-
-                              <p
-                                className={`m-1 text-sm text-nowrap font-bold `}
-                              >
-                                {product.brand}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Productgrid />
             </div>
           </section>
           {/* Pagination */}
@@ -391,5 +349,57 @@ const Productlist = () => {
     </div>
   );
 };
+
+function Productgrid() {
+  const products = useSelector((state) => state.product.products);
+
+  return (
+    <div className="lg:col-span-3">
+      <div className="bg-white">
+        <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
+          <div className="mt-2  grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
+            {products.map((product) => (
+              <div
+                key={product._id || product.id}
+                className="group relative border-2 p-2 border-gray-300 "
+              >
+                <div className="min-h-64  aspect-h-1 aspect-w- w-full overflow-hidden  bg-gray-400 lg:aspect-none group-hover:opacity-80 lg:h-64">
+                  <img
+                    alt={product.title}
+                    src={product.thumbnail}
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  />
+                </div>
+                <div className="mt-2 flex justify-between">
+                  <div className=" px-2 py-2">
+                    <h3 className="text-sm text-gray-700">
+                      <Link to={"/productdetails"}>
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        <p className="hover:under text-wrap">{product.title}</p>
+                      </Link>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      {product.category}
+                    </p>
+                  </div>
+                  <div className="px-2 py-2 ">
+                    <p className="text-sm text-nowrap font-medium text-gray-900">
+                      <span className="m-1">$</span>
+                      {product.price}
+                    </p>
+
+                    <p className={`m-1 text-sm text-nowrap font-bold `}>
+                      {product.brand}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default Productlist;
