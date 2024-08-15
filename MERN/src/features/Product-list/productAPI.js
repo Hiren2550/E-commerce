@@ -14,7 +14,7 @@ export function fetchAllProductsByFilter(filter) {
   }
   return new Promise(async (resolve) => {
     const q = `http://localhost:8080/products?${queryString}`;
-    console.log(q);
+    //console.log(q);
     const response = await fetch(q);
     const data = await response.json();
     resolve({ data });

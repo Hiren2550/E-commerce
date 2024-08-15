@@ -30,11 +30,8 @@ import {
 } from "../productSlice";
 
 const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
-  { name: "Best Rating", href: "#", current: false },
-  { name: "Newest", href: "#", current: false },
-  { name: "Price: Low to High", href: "#", current: false },
-  { name: "Price: High to Low", href: "#", current: false },
+  { name: "Price: Low to High", sort: "price", order: "asc", current: false },
+  { name: "Price: High to Low", sort: "price ", order: "desc", current: false },
 ];
 
 const filters = [
@@ -111,6 +108,12 @@ const Productlist = () => {
 
   const handleFilter = (e, section, option) => {
     const newFilter = { ...filter, [section.id]: option.value };
+    setFilter(newFilter);
+    dispatch(fetchAllProductsByFilterAsync(newFilter));
+  };
+  const handleSort = (e, option) => {
+    console.log(option);
+    const newFilter = { ...filter, _sort: option.sort, _order: option.order };
     setFilter(newFilter);
     dispatch(fetchAllProductsByFilterAsync(newFilter));
   };
@@ -233,8 +236,8 @@ const Productlist = () => {
                   <div className="py-1">
                     {sortOptions.map((option) => (
                       <MenuItem key={option.name}>
-                        <a
-                          href={option.href}
+                        <p
+                          onClick={(e) => handleSort(e, option)}
                           className={classNames(
                             option.current
                               ? "font-medium text-gray-900"
@@ -243,7 +246,7 @@ const Productlist = () => {
                           )}
                         >
                           {option.name}
-                        </a>
+                        </p>
                       </MenuItem>
                     ))}
                   </div>
