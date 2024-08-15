@@ -36,31 +36,6 @@ const sortOptions = [
 
 const filters = [
   {
-    id: "Brand",
-    name: "Brand",
-    options: [
-      { value: "Canon", label: "Canon", checked: false },
-      { value: "OPPO", label: "OPPO", checked: false },
-      { value: "Apple", label: "Apple", checked: true },
-      { value: "Acer", label: "Acer", checked: false },
-      { value: "Lenovo", label: "Lenovo", checked: false },
-      { value: "SAMSUNG", label: "SAMSUNG", checked: false },
-      { value: "Lenovo", label: "Lenovo", checked: false },
-      { value: "Zara", label: "Zara", checked: false },
-      { value: "Levis", label: "Levis", checked: false },
-      { value: "Rolex", label: "Rolex", checked: false },
-      { value: "Nike", label: "Nike", checked: false },
-      { value: "Zudio", label: "Zudio", checked: false },
-      { value: "Snitch", label: "Snitch", checked: false },
-      { value: "Vaseline", label: "Vaseline", checked: false },
-      { value: "L'Oeal Paris", label: "L'Oeal Paris", checked: false },
-      { value: "Olay", label: "Olay", checked: false },
-      { value: "DJI", label: "DJI", checked: false },
-
-      { value: "Free Asembly", label: "Free Asembly", checked: false },
-    ],
-  },
-  {
     id: "category",
     name: "Category",
     options: [
@@ -70,22 +45,44 @@ const filters = [
       { value: "furniture", label: "Furniture", checked: false },
       { value: "groceries", label: "Groceries", checked: false },
       { value: "laptops", label: "laptops", checked: false },
-      { value: "mens-shirts", label: "Mens Shirts", checked: false },
-      { value: "mens-shoes", label: "Mens Shoes", checked: false },
-      { value: "mens-watches", label: "Mens Watches", checked: false },
+      { value: "shirts", label: "Shirts", checked: false },
+      { value: "shoes", label: "Shoes", checked: false },
+      { value: "watches", label: "Watches", checked: false },
       {
-        value: "kitchen-accessories",
-        label: "kitchen-accessories",
+        value: "kitchen",
+        label: "kitchen",
         checked: false,
       },
       { value: "Fashion", label: "Fashion", checked: false },
-      { value: "Beauty Product", label: "Beauty Product", checked: false },
+      { value: "Beauty", label: "Beauty", checked: false },
       { value: "Electronics", label: "Electronics", checked: true },
-      { value: "Home Decoration", label: "Home Decoration", checked: false },
-      { value: "Smart watch", label: "Smart watch", checked: false },
+      { value: "Decoration", label: "Decoration", checked: false },
       { value: "Computer", label: "Computer", checked: false },
       { value: "Equipments", label: "Equipments", checked: false },
-      { value: "Smart Phones", label: "Smart Phones", checked: false },
+      { value: "Phones", label: "Phones", checked: false },
+    ],
+  },
+  {
+    id: "brand",
+    name: "Brand",
+    options: [
+      { value: "Canon", label: "Canon", checked: false },
+      { value: "OPPO", label: "OPPO", checked: false },
+      { value: "Apple", label: "Apple", checked: true },
+      { value: "Acer", label: "Acer", checked: false },
+      { value: "Lenovo", label: "Lenovo", checked: false },
+      { value: "SAMSUNG", label: "SAMSUNG", checked: false },
+      { value: "Zara", label: "Zara", checked: false },
+      { value: "Levis", label: "Levis", checked: false },
+      { value: "Rolex", label: "Rolex", checked: false },
+      { value: "Nike", label: "Nike", checked: false },
+      { value: "Zudio", label: "Zudio", checked: false },
+      { value: "Snitch", label: "Snitch", checked: false },
+      { value: "Vaseline", label: "Vaseline", checked: false },
+      { value: "Olay", label: "Olay", checked: false },
+      { value: "DJI", label: "DJI", checked: false },
+
+      { value: "Asembly", label: "Asembly", checked: false },
     ],
   },
   // {
@@ -104,6 +101,10 @@ const filters = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+const handleFilter = (e, section, option) => {
+  e.preventDefault();
+  console.log(section.id, option.value);
+};
 const Productlist = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const dispatch = useDispatch();
@@ -183,6 +184,7 @@ const Productlist = () => {
                               name={`${section.id}[]`}
                               type="checkbox"
                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                              onClick={(e) => handleFilter(e, section, option)}
                             />
                             <label
                               htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -303,6 +305,7 @@ const Productlist = () => {
                               name={`${section.id}[]`}
                               type="checkbox"
                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                              onClick={(e) => handleFilter(e, section, option)}
                             />
                             <label
                               htmlFor={`filter-${section.id}-${optionIdx}`}
