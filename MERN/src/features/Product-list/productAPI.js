@@ -5,6 +5,13 @@ export function fetchAllProducts() {
     resolve({ data });
   });
 }
+export function fetchProductById(id) {
+  return new Promise(async (resolve) => {
+    const response = await fetch(`http://localhost:8080/products/${id}`);
+    const data = await response.json();
+    resolve({ data });
+  });
+}
 export function fetchAllBrands() {
   return new Promise(async (resolve) => {
     const response = await fetch("http://localhost:8080/brands");
@@ -47,10 +54,7 @@ export function fetchAllProductsByFilter(filter, sort, pagination) {
   });
 }
 // const test = async () => {
-//   const data = await fetchAllProductsByFilter({
-//     category: "men",
-//     brand: "Snitch",
-//   });
+//   const data = await fetchProductById(4);
 //   console.log(data);
 // };
 // test();

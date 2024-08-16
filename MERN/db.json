@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Essence Mascara Lash Princess",
       "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-      "category":"Beauty",
+      "category": "Beauty",
       "price": 9.99,
       "discountPercentage": 7.17,
       "rating": 4.94,
@@ -49,6 +49,9 @@
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
         "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
@@ -57,7 +60,7 @@
       "id": 2,
       "title": "Eyeshadow Palette with Mirror",
       "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
-      "category":"Beauty",
+      "category": "Beauty",
       "price": 19.99,
       "discountPercentage": 5.5,
       "rating": 3.28,
@@ -102,6 +105,9 @@
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
         "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
@@ -110,7 +116,7 @@
       "id": 3,
       "title": "Powder Canister",
       "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
-      "category":"Beauty",
+      "category": "Beauty",
       "price": 14.99,
       "discountPercentage": 18.14,
       "rating": 3.82,
@@ -155,7 +161,10 @@
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
     },
@@ -163,7 +172,7 @@
       "id": 4,
       "title": "Red Lipstick",
       "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
-      "category":"Beauty",
+      "category": "Beauty",
       "price": 12.99,
       "discountPercentage": 19.03,
       "rating": 2.51,
@@ -216,7 +225,7 @@
       "id": 5,
       "title": "Red Nail Polish",
       "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
-      "category":"Beauty",
+      "category": "Beauty",
       "price": 8.99,
       "discountPercentage": 2.46,
       "rating": 3.91,
@@ -261,7 +270,11 @@
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
+         "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png",
+          "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
+
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png"
     },
@@ -316,7 +329,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png",
         "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png",
-        "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/3.png"
+        "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/3.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
     },
@@ -371,7 +385,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png",
         "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png",
-        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png"
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png",
+         "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png"
     },
@@ -426,7 +441,9 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png",
         "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/2.png",
-        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/3.png"
+        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/3.png",
+         "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png"
+
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png"
     },
@@ -481,7 +498,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/1.png",
         "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/2.png",
-        "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/3.png"
+        "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/3.png",
+         "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png"
     },
@@ -536,7 +554,9 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/1.png",
         "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/2.png",
-        "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/3.png"
+        "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/3.png",
+         "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/thumbnail.png"
+
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/thumbnail.png"
     },
@@ -591,7 +611,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png",
         "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/2.png",
-        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/3.png"
+        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/3.png",
+         "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png"
     },
@@ -646,7 +667,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/1.png",
         "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/2.png",
-        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/3.png"
+        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/3.png",
+        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png"
     },
@@ -701,7 +723,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/1.png",
         "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/2.png",
-        "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png"
+        "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png",
+        "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png"
     },
@@ -756,7 +779,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/1.png",
         "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/2.png",
-        "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/3.png"
+        "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/3.png",
+        "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/thumbnail.png"
     },
@@ -811,7 +835,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/1.png",
         "https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/2.png",
-        "https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/3.png"
+        "https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/3.png",
+         "https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/thumbnail.png"
     },
@@ -821,7 +846,7 @@
       "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
       "category": "groceries",
       "price": 1.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 1.97,
       "rating": 2.96,
       "stock": 9,
@@ -864,7 +889,10 @@
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
-        "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
+        "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png",
+         "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png",
+          "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png",
+           "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png"
     },
@@ -873,7 +901,7 @@
       "title": "Beef Steak",
       "description": "High-quality beef steak, great for grilling or cooking to your preferred level of doneness.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 12.99,
       "discountPercentage": 17.99,
       "rating": 2.83,
@@ -926,7 +954,7 @@
       "title": "Cat Food",
       "description": "Nutritious cat food formulated to meet the dietary needs of your feline friend.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 8.99,
       "discountPercentage": 9.57,
       "rating": 2.88,
@@ -979,7 +1007,7 @@
       "title": "Chicken Meat",
       "description": "Fresh and tender chicken meat, suitable for various culinary preparations.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 9.99,
       "discountPercentage": 10.46,
       "rating": 4.61,
@@ -1033,7 +1061,7 @@
       "title": "Cooking Oil",
       "description": "Versatile cooking oil suitable for frying, sautéing, and various culinary applications.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 4.99,
       "discountPercentage": 18.89,
       "rating": 4.01,
@@ -1087,7 +1115,7 @@
       "description": "Crisp and hydrating cucumbers, ideal for salads, snacks, or as a refreshing side.",
       "category": "groceries",
       "price": 1.49,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 11.44,
       "rating": 4.71,
       "stock": 22,
@@ -1139,7 +1167,7 @@
       "title": "Dog Food",
       "description": "Specially formulated dog food designed to provide essential nutrients for your canine companion.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 10.99,
       "discountPercentage": 18.15,
       "rating": 2.74,
@@ -1192,7 +1220,7 @@
       "title": "Eggs",
       "description": "Fresh eggs, a versatile ingredient for baking, cooking, or breakfast.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 2.99,
       "discountPercentage": 5.8,
       "rating": 4.46,
@@ -1245,7 +1273,7 @@
       "title": "Fish Steak",
       "description": "Quality fish steak, suitable for grilling, baking, or pan-searing.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 14.99,
       "discountPercentage": 7,
       "rating": 4.83,
@@ -1298,7 +1326,7 @@
       "title": "Green Bell Pepper",
       "description": "Fresh and vibrant green bell pepper, perfect for adding color and flavor to your dishes.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 1.29,
       "discountPercentage": 15.5,
       "rating": 4.28,
@@ -1351,7 +1379,7 @@
       "title": "Green Chili Pepper",
       "description": "Spicy green chili pepper, ideal for adding heat to your favorite recipes.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 0.99,
       "discountPercentage": 18.51,
       "rating": 4.43,
@@ -1404,7 +1432,7 @@
       "title": "Honey Jar",
       "description": "Pure and natural honey in a convenient jar, perfect for sweetening beverages or drizzling over food.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 6.99,
       "discountPercentage": 1.91,
       "rating": 3.5,
@@ -1457,7 +1485,7 @@
       "title": "Ice Cream",
       "description": "Creamy and delicious ice cream, available in various flavors for a delightful treat.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 5.49,
       "discountPercentage": 7.58,
       "rating": 3.77,
@@ -1513,7 +1541,7 @@
       "title": "Juice",
       "description": "Refreshing fruit juice, packed with vitamins and great for staying hydrated.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 3.99,
       "discountPercentage": 5.45,
       "rating": 3.41,
@@ -1566,7 +1594,7 @@
       "title": "Kiwi",
       "description": "Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 2.49,
       "discountPercentage": 10.32,
       "rating": 4.37,
@@ -1619,7 +1647,7 @@
       "title": "Lemon",
       "description": "Zesty and tangy lemons, versatile for cooking, baking, or making refreshing beverages.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 0.79,
       "discountPercentage": 17.81,
       "rating": 4.25,
@@ -1672,7 +1700,7 @@
       "title": "Milk",
       "description": "Fresh and nutritious milk, a staple for various recipes and daily consumption.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 3.49,
       "discountPercentage": 15.09,
       "rating": 3.14,
@@ -1725,7 +1753,7 @@
       "title": "Mulberry",
       "description": "Sweet and juicy mulberries, perfect for snacking or adding to desserts and cereals.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 4.99,
       "discountPercentage": 16.35,
       "rating": 3.19,
@@ -1778,7 +1806,7 @@
       "title": "Nescafe Coffee",
       "description": "Quality coffee from Nescafe, available in various blends for a rich and satisfying cup.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 7.99,
       "discountPercentage": 11.65,
       "rating": 2.54,
@@ -1831,7 +1859,7 @@
       "title": "Potatoes",
       "description": "Versatile and starchy potatoes, great for roasting, mashing, or as a side dish.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 2.29,
       "discountPercentage": 4.05,
       "rating": 3.82,
@@ -1884,7 +1912,7 @@
       "title": "Protein Powder",
       "description": "Nutrient-packed protein powder, ideal for supplementing your diet with essential proteins.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 19.99,
       "discountPercentage": 1.58,
       "rating": 3.91,
@@ -1937,7 +1965,7 @@
       "title": "Red Onions",
       "description": "Flavorful and aromatic red onions, perfect for adding depth to your savory dishes.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 1.99,
       "discountPercentage": 17.89,
       "rating": 4.08,
@@ -1990,7 +2018,7 @@
       "title": "Rice",
       "description": "High-quality rice, a staple for various cuisines and a versatile base for many dishes.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 5.99,
       "discountPercentage": 12.02,
       "rating": 3.94,
@@ -2043,7 +2071,7 @@
       "title": "Soft Drinks",
       "description": "Assorted soft drinks in various flavors, perfect for refreshing beverages.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 1.99,
       "discountPercentage": 1.88,
       "rating": 4.59,
@@ -2096,7 +2124,7 @@
       "title": "Strawberry",
       "description": "Sweet and succulent strawberries, great for snacking, desserts, or blending into smoothies.",
       "category": "groceries",
-      "brand":"No",
+      "brand": "No",
       "price": 3.99,
       "discountPercentage": 19.59,
       "rating": 4.5,
@@ -2150,7 +2178,7 @@
       "description": "Convenient tissue paper box for everyday use, providing soft and absorbent tissues.",
       "category": "groceries",
       "price": 2.49,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 15.44,
       "rating": 4.55,
       "stock": 97,
@@ -2204,7 +2232,7 @@
       "description": "Pure and refreshing bottled water, essential for staying hydrated throughout the day.",
       "category": "groceries",
       "price": 0.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 13.71,
       "rating": 2.93,
       "stock": 95,
@@ -2256,7 +2284,7 @@
       "title": "Decoration Swing",
       "description": "The Decoration Swing is a charming addition to your home decor. Crafted with intricate details, it adds a touch of elegance and whimsy to any room.",
       "category": "home-decoration",
-      "brand":"No",
+      "brand": "No",
       "price": 59.99,
       "discountPercentage": 0.65,
       "rating": 3.56,
@@ -2311,7 +2339,7 @@
       "title": "Family Tree Photo Frame",
       "description": "The Family Tree Photo Frame is a sentimental and stylish way to display your cherished family memories. With multiple photo slots, it tells the story of your loved ones.",
       "category": "home-decoration",
-      "brand":"No",
+      "brand": "No",
       "price": 29.99,
       "discountPercentage": 1.53,
       "rating": 3.84,
@@ -2364,7 +2392,7 @@
       "title": "House Showpiece Plant",
       "description": "The House Showpiece Plant is an artificial plant that brings a touch of nature to your home without the need for maintenance. It adds greenery and style to any space.",
       "category": "home-decoration",
-      "brand":"No",
+      "brand": "No",
       "price": 39.99,
       "discountPercentage": 19.45,
       "rating": 3.61,
@@ -2419,7 +2447,7 @@
       "title": "Plant Pot",
       "description": "The Plant Pot is a stylish container for your favorite plants. With a sleek design, it complements your indoor or outdoor garden, adding a modern touch to your plant display.",
       "category": "home-decoration",
-      "brand":"No",
+      "brand": "No",
       "price": 14.99,
       "discountPercentage": 0.19,
       "rating": 3.33,
@@ -2475,7 +2503,7 @@
       "title": "Table Lamp",
       "description": "The Table Lamp is a functional and decorative lighting solution for your living space. With a modern design, it provides both ambient and task lighting, enhancing the atmosphere.",
       "category": "home-decoration",
-      "brand":"No",
+      "brand": "No",
       "price": 49.99,
       "discountPercentage": 0.59,
       "rating": 4.56,
@@ -2528,7 +2556,7 @@
       "title": "Bamboo Spatula",
       "description": "The Bamboo Spatula is a versatile kitchen tool made from eco-friendly bamboo. Ideal for flipping, stirring, and serving various dishes.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 7.99,
       "discountPercentage": 4.85,
       "rating": 4.4,
@@ -2581,7 +2609,7 @@
       "title": "Black Aluminium Cup",
       "description": "The Black Aluminium Cup is a stylish and durable cup suitable for both hot and cold beverages. Its sleek black design adds a modern touch to your drinkware collection.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 5.99,
       "discountPercentage": 9.22,
       "rating": 3.62,
@@ -2635,7 +2663,7 @@
       "title": "Black Whisk",
       "description": "The Black Whisk is a kitchen essential for whisking and beating ingredients. Its ergonomic handle and sleek design make it a practical and stylish tool.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 9.99,
       "discountPercentage": 16.87,
       "rating": 2.88,
@@ -2688,7 +2716,7 @@
       "title": "Boxed Blender",
       "description": "The Boxed Blender is a powerful and compact blender perfect for smoothies, shakes, and more. Its convenient design and multiple functions make it a versatile kitchen appliance.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 39.99,
       "discountPercentage": 7.36,
       "rating": 2.73,
@@ -2744,7 +2772,7 @@
       "title": "Carbon Steel Wok",
       "description": "The Carbon Steel Wok is a versatile cooking pan suitable for stir-frying, sautéing, and deep frying. Its sturdy construction ensures even heat distribution for delicious meals.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 29.99,
       "discountPercentage": 5.89,
       "rating": 2.94,
@@ -2797,7 +2825,7 @@
       "title": "Chopping Board",
       "description": "The Chopping Board is an essential kitchen accessory for food preparation. Made from durable material, it provides a safe and hygienic surface for cutting and chopping.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 12.99,
       "discountPercentage": 17.72,
       "rating": 4.82,
@@ -2850,7 +2878,7 @@
       "title": "Citrus Squeezer Yellow",
       "description": "The Citrus Squeezer in Yellow is a handy tool for extracting juice from citrus fruits. Its vibrant color adds a cheerful touch to your kitchen gadgets.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 8.99,
       "discountPercentage": 12.35,
       "rating": 4.18,
@@ -2903,7 +2931,7 @@
       "title": "Egg Slicer",
       "description": "The Egg Slicer is a convenient tool for slicing boiled eggs evenly. It's perfect for salads, sandwiches, and other dishes where sliced eggs are desired.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 6.99,
       "discountPercentage": 9.6,
       "rating": 2.91,
@@ -2956,7 +2984,7 @@
       "title": "Electric Stove",
       "description": "The Electric Stove provides a portable and efficient cooking solution. Ideal for small kitchens or as an additional cooking surface for various culinary needs.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 49.99,
       "discountPercentage": 16.64,
       "rating": 4.84,
@@ -3012,7 +3040,7 @@
       "title": "Fine Mesh Strainer",
       "description": "The Fine Mesh Strainer is a versatile tool for straining liquids and sifting dry ingredients. Its fine mesh ensures efficient filtering for smooth cooking and baking.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 9.99,
       "discountPercentage": 2.56,
       "rating": 3.7,
@@ -3065,7 +3093,7 @@
       "title": "Fork",
       "description": "The Fork is a classic utensil for various dining and serving purposes. Its durable and ergonomic design makes it a reliable choice for everyday use.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 3.99,
       "discountPercentage": 14.36,
       "rating": 4.18,
@@ -3118,7 +3146,7 @@
       "title": "Glass",
       "description": "The Glass is a versatile and elegant drinking vessel suitable for a variety of beverages. Its clear design allows you to enjoy the colors and textures of your drinks.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 4.99,
       "discountPercentage": 7.38,
       "rating": 3.06,
@@ -3172,7 +3200,7 @@
       "description": "The Grater in Black is a handy kitchen tool for grating cheese, vegetables, and more. Its sleek design and sharp blades make food preparation efficient and easy.",
       "category": "kitchen",
       "price": 10.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 3.29,
       "rating": 2.87,
       "stock": 80,
@@ -3224,7 +3252,7 @@
       "title": "Hand Blender",
       "description": "The Hand Blender is a versatile kitchen appliance for blending, pureeing, and mixing. Its compact design and powerful motor make it a convenient tool for various recipes.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 34.99,
       "discountPercentage": 6.44,
       "rating": 3.71,
@@ -3277,7 +3305,7 @@
       "title": "Ice Cube Tray",
       "description": "The Ice Cube Tray is a practical accessory for making ice cubes in various shapes. Perfect for keeping your drinks cool and adding a fun element to your beverages.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 5.99,
       "discountPercentage": 0.95,
       "rating": 3.27,
@@ -3331,7 +3359,7 @@
       "description": "The Kitchen Sieve is a versatile tool for sifting and straining dry and wet ingredients. Its fine mesh design ensures smooth results in your cooking and baking.",
       "category": "kitchen",
       "price": 7.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 9.23,
       "rating": 2.96,
       "stock": 33,
@@ -3390,7 +3418,7 @@
       "tags": ["kitchen tools", "cutlery"],
       "sku": "NHTTZ30W",
       "weight": 7,
-      "brand":"No",
+      "brand": "No",
       "dimensions": { "width": 11.63, "height": 23.99, "depth": 24.62 },
       "warrantyInformation": "1 year warranty",
       "shippingInformation": "Ships in 1 month",
@@ -3437,7 +3465,7 @@
       "description": "The Lunch Box is a convenient and portable container for packing and carrying your meals. With compartments for different foods, it's perfect for on-the-go dining.",
       "category": "kitchen",
       "price": 12.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 15.33,
       "rating": 2.84,
       "stock": 26,
@@ -3489,7 +3517,7 @@
       "title": "Microwave Oven",
       "description": "The Microwave Oven is a versatile kitchen appliance for quick and efficient cooking, reheating, and defrosting. Its compact size makes it suitable for various kitchen setups.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 89.99,
       "discountPercentage": 18.73,
       "rating": 2.71,
@@ -3546,7 +3574,7 @@
       "description": "The Mug Tree Stand is a stylish and space-saving solution for organizing your mugs. Keep your favorite mugs easily accessible and neatly displayed in your kitchen.",
       "category": "kitchen",
       "price": 15.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 15.21,
       "rating": 4.34,
       "stock": 93,
@@ -3599,7 +3627,7 @@
       "title": "Pan",
       "description": "The Pan is a versatile and essential cookware item for frying, sautéing, and cooking various dishes. Its non-stick coating ensures easy food release and cleanup.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 24.99,
       "discountPercentage": 6.55,
       "rating": 3.4,
@@ -3652,7 +3680,7 @@
       "title": "Plate",
       "description": "The Plate is a classic and essential dishware item for serving meals. Its durable and stylish design makes it suitable for everyday use or special occasions.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 3.99,
       "discountPercentage": 13.03,
       "rating": 3.07,
@@ -3705,7 +3733,7 @@
       "title": "Red Tongs",
       "description": "The Red Tongs are versatile kitchen tongs suitable for various cooking and serving tasks. Their vibrant color adds a pop of excitement to your kitchen utensils.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 6.99,
       "discountPercentage": 18.24,
       "rating": 3.22,
@@ -3758,7 +3786,7 @@
       "title": "Silver Pot With Glass Cap",
       "description": "The Silver Pot with Glass Cap is a stylish and functional cookware item for boiling, simmering, and preparing delicious meals. Its glass cap allows you to monitor cooking progress.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 39.99,
       "discountPercentage": 4.57,
       "rating": 3.86,
@@ -3812,7 +3840,7 @@
       "description": "The Slotted Turner is a kitchen utensil designed for flipping and turning food items. Its slotted design allows excess liquid to drain, making it ideal for frying and sautéing.",
       "category": "kitchen",
       "price": 8.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 7.24,
       "rating": 3.77,
       "stock": 36,
@@ -3864,7 +3892,7 @@
       "title": "Spice Rack",
       "description": "The Spice Rack is a convenient organizer for your spices and seasonings. Keep your kitchen essentials within reach and neatly arranged with this stylish spice rack.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 19.99,
       "discountPercentage": 13.78,
       "rating": 4.05,
@@ -3918,7 +3946,7 @@
       "description": "The Spoon is a versatile kitchen utensil for stirring, serving, and tasting. Its ergonomic design and durable construction make it an essential tool for every kitchen.",
       "category": "kitchen",
       "price": 4.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 0.93,
       "rating": 3.98,
       "stock": 51,
@@ -3970,7 +3998,7 @@
       "title": "Tray",
       "description": "The Tray is a functional and decorative item for serving snacks, appetizers, or drinks. Its stylish design makes it a versatile accessory for entertaining guests.",
       "category": "kitchen",
-      "brand":"No",
+      "brand": "No",
       "price": 16.99,
       "discountPercentage": 9.93,
       "rating": 3.2,
@@ -4027,7 +4055,7 @@
       "discountPercentage": 16.94,
       "rating": 4.99,
       "stock": 80,
-      "brand":"No",
+      "brand": "No",
       "tags": ["kitchen tools", "baking"],
       "sku": "WHUXD7N8",
       "weight": 7,
@@ -4077,7 +4105,7 @@
       "description": "The Yellow Peeler is a handy tool for peeling fruits and vegetables with ease. Its bright yellow color adds a cheerful touch to your kitchen gadgets.",
       "category": "kitchen",
       "price": 5.99,
-      "brand":"No",
+      "brand": "No",
       "discountPercentage": 17.09,
       "rating": 4.41,
       "stock": 86,
@@ -5399,7 +5427,7 @@
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
     }
   ],
-  "brands":[
+  "brands": [
     {
       "value": "Canon",
       "label": "Canon",
@@ -5486,7 +5514,7 @@
       "checked": false
     }
   ],
-  "categories":[
+  "categories": [
     {
       "value": "women",
       "label": "Women",
