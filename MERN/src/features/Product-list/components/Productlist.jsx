@@ -25,8 +25,13 @@ import {
 import Pagination from "../../../Pagination";
 import { Link } from "react-router-dom";
 import {
+  fetchAllBrandsAsync,
+  fetchAllCategoriesAsync,
   fetchAllProductsAsync,
   fetchAllProductsByFilterAsync,
+  selectAllProducts,
+  selectBrands,
+  selectCategories,
 } from "../productSlice";
 import { ITEM_PER_PAGE } from "../../../../constant";
 
@@ -35,71 +40,19 @@ const sortOptions = [
   { name: "Price: High to Low", sort: "price ", order: "desc", current: false },
 ];
 
-const filters = [
-  {
-    id: "category",
-    name: "Category",
-    options: [
-      { value: "women", label: "Women", checked: false },
-      { value: "men", label: "Men", checked: false },
-      { value: "fragrances", label: "Fragrances", checked: false },
-      { value: "furniture", label: "Furniture", checked: false },
-      { value: "groceries", label: "Groceries", checked: false },
-      { value: "laptops", label: "laptops", checked: false },
-      { value: "shirts", label: "Shirts", checked: false },
-      { value: "shoes", label: "Shoes", checked: false },
-      { value: "watches", label: "Watches", checked: false },
-      {
-        value: "kitchen",
-        label: "kitchen",
-        checked: false,
-      },
-      { value: "Fashion", label: "Fashion", checked: false },
-      { value: "Beauty", label: "Beauty", checked: false },
-      { value: "Electronics", label: "Electronics", checked: false },
-      { value: "Decoration", label: "Decoration", checked: false },
-      { value: "Computer", label: "Computer", checked: false },
-      { value: "Equipments", label: "Equipments", checked: false },
-      { value: "Phones", label: "Phones", checked: false },
-    ],
-  },
-  {
-    id: "brand",
-    name: "Brand",
-    options: [
-      { value: "Canon", label: "Canon", checked: false },
-      { value: "OPPO", label: "OPPO", checked: false },
-      { value: "Apple", label: "Apple", checked: false },
-      { value: "Acer", label: "Acer", checked: false },
-      { value: "Lenovo", label: "Lenovo", checked: false },
-      { value: "SAMSUNG", label: "SAMSUNG", checked: false },
-      { value: "Zara", label: "Zara", checked: false },
-      { value: "Levis", label: "Levis", checked: false },
-      { value: "Rolex", label: "Rolex", checked: false },
-      { value: "Nike", label: "Nike", checked: false },
-      { value: "Zudio", label: "Zudio", checked: false },
-      { value: "Snitch", label: "Snitch", checked: false },
-      { value: "Vaseline", label: "Vaseline", checked: false },
-      { value: "Olay", label: "Olay", checked: false },
-      { value: "DJI", label: "DJI", checked: false },
+// {
+//   id: "size",
+//   name: "Size",
+//   options: [
+//     { value: "2l", label: "2L", checked: false },
+//     { value: "6l", label: "6L", checked: false },
+//     { value: "12l", label: "12L", checked: false },
+//     { value: "18l", label: "18L", checked: false },
+//     { value: "20l", label: "20L", checked: false },
+//     { value: "40l", label: "40L", checked: true },
+//   ],
+// },
 
-      { value: "Asembly", label: "Asembly", checked: false },
-      { value: "No", label: "No", checked: false },
-    ],
-  },
-  // {
-  //   id: "size",
-  //   name: "Size",
-  //   options: [
-  //     { value: "2l", label: "2L", checked: false },
-  //     { value: "6l", label: "6L", checked: false },
-  //     { value: "12l", label: "12L", checked: false },
-  //     { value: "18l", label: "18L", checked: false },
-  //     { value: "20l", label: "20L", checked: false },
-  //     { value: "40l", label: "40L", checked: true },
-  //   ],
-  // },
-];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -109,10 +62,24 @@ const Productlist = () => {
   const [sort, setSort] = useState({});
   const [page, setPage] = useState(1);
 
+  const brands = useSelector(selectBrands);
+  const categories = useSelector(selectCategories);
+
   const dispatch = useDispatch();
 
+  const filters = [
+    {
+      id: "category",
+      name: "Category",
+      options: categories,
+    },
+    {
+      id: "brand",
+      name: "Brand",
+      options: brands,
+    },
+  ];
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
     const newFilter = { ...filter };
     if (e.target.checked) {
       if (newFilter[section.id]) {
@@ -125,14 +92,14 @@ const Productlist = () => {
       newFilter[section.id].splice(index, 1);
     }
     setFilter(newFilter);
-    console.log(newFilter);
+    //console.log(newFilter);
   };
   const handleSort = (e, option) => {
     const newSort = { _sort: option.sort, _order: option.order };
     setSort(newSort);
   };
   const handlePage = (page) => {
-    console.log(page);
+    //console.log(page);
     setPage(page);
   };
   useEffect(() => {
@@ -142,11 +109,15 @@ const Productlist = () => {
     }
     fetchData();
   }, [dispatch, filter, sort, page]);
-  const products = useSelector((state) => state.product.products);
   const totalItems = 160;
   useEffect(() => {
     setPage(1);
   }, [totalItems, sort]);
+
+  useEffect(() => {
+    dispatch(fetchAllBrandsAsync());
+    dispatch(fetchAllCategoriesAsync());
+  }, []);
 
   return (
     <div className="bg-white">
@@ -356,13 +327,12 @@ const Productlist = () => {
               <Productgrid />
             </div>
           </section>
-          {/* Pagination */}
-          {/* <Pagination
+          <Pagination
             handlePage={handlePage}
             page={page}
             setPage={setPage}
             totalItems={totalItems}
-          /> */}
+          />
         </main>
       </div>
     </div>
@@ -370,7 +340,7 @@ const Productlist = () => {
 };
 
 function Productgrid() {
-  const products = useSelector((state) => state.product.products);
+  const products = useSelector(selectAllProducts);
 
   return (
     <div className="lg:col-span-3">

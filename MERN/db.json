@@ -5398,5 +5398,179 @@
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
     }
+  ],
+  "brands":[
+    {
+      "value": "Canon",
+      "label": "Canon",
+      "checked": false
+    },
+    {
+      "value": "OPPO",
+      "label": "OPPO",
+      "checked": false
+    },
+    {
+      "value": "Apple",
+      "label": "Apple",
+      "checked": false
+    },
+    {
+      "value": "Acer",
+      "label": "Acer",
+      "checked": false
+    },
+    {
+      "value": "Lenovo",
+      "label": "Lenovo",
+      "checked": false
+    },
+    {
+      "value": "SAMSUNG",
+      "label": "SAMSUNG",
+      "checked": false
+    },
+    {
+      "value": "Zara",
+      "label": "Zara",
+      "checked": false
+    },
+    {
+      "value": "Levis",
+      "label": "Levis",
+      "checked": false
+    },
+    {
+      "value": "Rolex",
+      "label": "Rolex",
+      "checked": false
+    },
+    {
+      "value": "Nike",
+      "label": "Nike",
+      "checked": false
+    },
+    {
+      "value": "Zudio",
+      "label": "Zudio",
+      "checked": false
+    },
+    {
+      "value": "Snitch",
+      "label": "Snitch",
+      "checked": false
+    },
+    {
+      "value": "Vaseline",
+      "label": "Vaseline",
+      "checked": false
+    },
+    {
+      "value": "Olay",
+      "label": "Olay",
+      "checked": false
+    },
+    {
+      "value": "DJI",
+      "label": "DJI",
+      "checked": false
+    },
+    {
+      "value": "Asembly",
+      "label": "Asembly",
+      "checked": false
+    },
+    {
+      "value": "No",
+      "label": "No",
+      "checked": false
+    }
+  ],
+  "categories":[
+    {
+      "value": "women",
+      "label": "Women",
+      "checked": false
+    },
+    {
+      "value": "men",
+      "label": "Men",
+      "checked": false
+    },
+    {
+      "value": "fragrances",
+      "label": "Fragrances",
+      "checked": false
+    },
+    {
+      "value": "furniture",
+      "label": "Furniture",
+      "checked": false
+    },
+    {
+      "value": "groceries",
+      "label": "Groceries",
+      "checked": false
+    },
+    {
+      "value": "laptops",
+      "label": "laptops",
+      "checked": false
+    },
+    {
+      "value": "shirts",
+      "label": "Shirts",
+      "checked": false
+    },
+    {
+      "value": "shoes",
+      "label": "Shoes",
+      "checked": false
+    },
+    {
+      "value": "watches",
+      "label": "Watches",
+      "checked": false
+    },
+    {
+      "value": "kitchen",
+      "label": "kitchen",
+      "checked": false
+    },
+    {
+      "value": "Fashion",
+      "label": "Fashion",
+      "checked": false
+    },
+    {
+      "value": "Beauty",
+      "label": "Beauty",
+      "checked": false
+    },
+    {
+      "value": "Electronics",
+      "label": "Electronics",
+      "checked": false
+    },
+    {
+      "value": "Decoration",
+      "label": "Decoration",
+      "checked": false
+    },
+    {
+      "value": "Computer",
+      "label": "Computer",
+      "checked": false
+    },
+    {
+      "value": "Equipments",
+      "label": "Equipments",
+      "checked": false
+    },
+    {
+      "value": "Phones",
+      "label": "Phones",
+      "checked": false
+    }
   ]
 }

@@ -5,6 +5,20 @@ export function fetchAllProducts() {
     resolve({ data });
   });
 }
+export function fetchAllBrands() {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:8080/brands");
+    const data = await response.json();
+    resolve({ data });
+  });
+}
+export function fetchAllCategories() {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:8080/categories");
+    const data = await response.json();
+    resolve({ data });
+  });
+}
 
 export function fetchAllProductsByFilter(filter, sort, pagination) {
   // filter:{category:"Phones"}
@@ -26,7 +40,7 @@ export function fetchAllProductsByFilter(filter, sort, pagination) {
   }
   return new Promise(async (resolve) => {
     const q = `http://localhost:8080/products?${queryString}`;
-    console.log(q);
+    //console.log(q);
     const response = await fetch(q);
     const data = await response.json();
     resolve({ data });
