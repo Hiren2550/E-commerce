@@ -25,7 +25,7 @@ const items = [
     location: "Remote",
   },
 ];
-const Pagination = ({ handlePage, page, setPage, totalItem = 160 }) => {
+const Pagination = ({ handlePage, page, setPage, totalItems }) => {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -49,8 +49,13 @@ const Pagination = ({ handlePage, page, setPage, totalItem = 160 }) => {
             <span className="font-medium">
               {(page - 1) * ITEM_PER_PAGE + 1}
             </span>
-            to <span className="font-medium">{page * ITEM_PER_PAGE}</span> of{" "}
-            <span className="font-medium">{totalItem}</span> results
+            to{" "}
+            <span className="font-medium">
+              {page * ITEM_PER_PAGE > totalItems
+                ? totalItems
+                : page * ITEM_PER_PAGE > totalItems}
+            </span>{" "}
+            of <span className="font-medium">{totalItems}</span> results
           </p>
         </div>
         <div>
@@ -67,7 +72,7 @@ const Pagination = ({ handlePage, page, setPage, totalItem = 160 }) => {
             </a>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
 
-            {Array.from({ length: Math.ceil(totalItem / ITEM_PER_PAGE) }).map(
+            {Array.from({ length: Math.ceil(totalItems / ITEM_PER_PAGE) }).map(
               (el, index) => (
                 <div
                   key={index}

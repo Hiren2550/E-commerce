@@ -84,6 +84,7 @@ const filters = [
       { value: "DJI", label: "DJI", checked: false },
 
       { value: "Asembly", label: "Asembly", checked: false },
+      { value: "No", label: "No", checked: false },
     ],
   },
   // {
@@ -142,6 +143,10 @@ const Productlist = () => {
     fetchData();
   }, [dispatch, filter, sort, page]);
   const products = useSelector((state) => state.product.products);
+  const totalItems = 160;
+  useEffect(() => {
+    setPage(1);
+  }, [totalItems, sort]);
 
   return (
     <div className="bg-white">
@@ -352,7 +357,12 @@ const Productlist = () => {
             </div>
           </section>
           {/* Pagination */}
-          <Pagination handlePage={handlePage} page={page} setPage={setPage} />
+          {/* <Pagination
+            handlePage={handlePage}
+            page={page}
+            setPage={setPage}
+            totalItems={totalItems}
+          /> */}
         </main>
       </div>
     </div>
