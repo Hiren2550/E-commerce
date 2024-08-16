@@ -5,13 +5,8 @@ import { Radio, RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByIdAsync, selectProduct } from "../productSlice";
 import { useParams } from "react-router-dom";
+import profile from "../../../assets/profile.png";
 
-const images = [
-  "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-  "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
-  "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
-  "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-];
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
   { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
@@ -27,13 +22,13 @@ const sizes = [
   { name: "2XL", inStock: true },
   { name: "3XL", inStock: true },
 ];
-const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Productdetails = () => {
+  const [openReview, setOpenReview] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const product = useSelector(selectProduct);
@@ -165,10 +160,48 @@ const Productdetails = () => {
                   <p className="sr-only">
                     {product.reviews[0].rating} out of 5 stars
                   </p>
-                  <div className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                  <div
+                    onClick={(e) => setOpenReview(!openReview)}
+                    className=" cursor-pointer ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                  >
                     {product.reviews.length} reviews
                   </div>
                 </div>
+              </div>
+            )}
+
+            {openReview && (
+              <div className="mt-4">
+                {product.reviews &&
+                  product.reviews.map((review) => (
+                    <article className="p-6 m-1 text-base bg-white border-t rounded-md border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                      <footer className="flex justify-between items-center mb-2">
+                        <div className="flex items-center">
+                          <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
+                            <img
+                              className="mr-2 w-6 h-6 rounded-full"
+                              src={profile}
+                              alt={review.reviewerName}
+                            />
+                            {review.reviewerName}
+                          </p>
+                        </div>
+                      </footer>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        {review.comment}
+                      </p>
+
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <time
+                          pubdate=""
+                          dateTime="2022-06-23"
+                          title="June 23rd, 2022"
+                        >
+                          Date : {review.date}
+                        </time>
+                      </p>
+                    </article>
+                  ))}
               </div>
             )}
 
