@@ -37,13 +37,13 @@ const Productdetails = () => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const product = useSelector(selectProduct);
-  //console.log(product);
+  console.log(product);
   const dispatch = useDispatch();
   const params = useParams();
   //console.log(params.id);
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
-  }, [params.id]);
+  }, [dispatch, params.id]);
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -52,7 +52,7 @@ const Productdetails = () => {
             role="list"
             className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
           >
-            {product.breadcrumbs &&
+            {/* {product.breadcrumbs &&
               product.breadcrumbs.map((breadcrumb) => (
                 <li key={breadcrumb.id}>
                   <div className="flex items-center">
@@ -74,97 +74,113 @@ const Productdetails = () => {
                     </svg>
                   </div>
                 </li>
-              ))}
+              ))} */}
             <li className="text-sm">
-              <a
-                href={product.href}
+              <div
                 aria-current="page"
-                className="font-medium text-gray-500 hover:text-gray-600"
+                className="font-medium text-2xl text-gray-500 hover:text-gray-600"
               >
-                {product.title}
-              </a>
+                {product.category} / {product.title}
+              </div>
             </li>
           </ol>
         </nav>
 
         {/* Image gallery */}
-        <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-          <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-            <img
-              alt={product.title}
-              src={images[0]}
-              className="h-full w-full object-cover object-center"
-            />
-          </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+        {product.images && (
+          <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+            <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
               <img
                 alt={product.title}
-                src={images[1]}
+                src={product.images[0]}
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                <img
+                  alt={product.title}
+                  src={product.images[1]}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                <img
+                  alt={product.title}
+                  src={product.images[2]}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            </div>
+            <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
               <img
                 alt={product.title}
-                src={images[2]}
+                src={product.images[3]}
                 className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
-          <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-            <img
-              alt={product.title}
-              src={images[3]}
-              className="h-full w-full object-cover object-center"
-            />
-          </div>
-        </div>
+        )}
 
         {/* Product info */}
         <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+            <h1 className="text-2xl mb-2 font-bold tracking-tight text-gray-900 sm:text-3xl">
               {product.title}
             </h1>
+            {product.tags &&
+              product.tags.map((tag) => (
+                <span class="bg-blue-100 text-gray-700 text-xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400">
+                  {tag}
+                </span>
+              ))}
           </div>
 
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl tracking-tight text-gray-900">
-              {product.price}
+              $ {product.price}
             </p>
 
             {/* Reviews */}
-            <div className="mt-6">
-              <h3 className="sr-only">Reviews</h3>
-              <div className="flex items-center">
+            {product.reviews && (
+              <div className="mt-6">
+                <h3 className="sr-only">Reviews</h3>
                 <div className="flex items-center">
-                  {[0, 1, 2, 3, 4].map((rating) => (
-                    <StarIcon
-                      key={rating}
-                      aria-hidden="true"
-                      className={classNames(
-                        reviews.average > rating
-                          ? "text-gray-900"
-                          : "text-gray-200",
-                        "h-5 w-5 flex-shrink-0"
-                      )}
-                    />
-                  ))}
+                  <div className="flex items-center">
+                    {[0, 1, 2, 3, 4].map((rating) => (
+                      <StarIcon
+                        key={rating}
+                        aria-hidden="true"
+                        className={classNames(
+                          product.reviews[0].rating > rating
+                            ? "text-gray-900"
+                            : "text-gray-200",
+                          "h-5 w-5 flex-shrink-0"
+                        )}
+                      />
+                    ))}
+                  </div>
+                  <p className="sr-only">
+                    {product.reviews[0].rating} out of 5 stars
+                  </p>
+                  <div className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                    {product.reviews.length} reviews
+                  </div>
                 </div>
-                <p className="sr-only">{reviews.rating} out of 5 stars</p>
-                <a
-                  href={reviews.href}
-                  className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  {reviews.totalCount} reviews
-                </a>
               </div>
-            </div>
+            )}
 
-            <form className="mt-10">
+            <p
+              className={`mt-3 ${
+                product.stock > 10 ? "text-green-500" : "text-red-500"
+              }`}
+            >
+              {product.stock} available in stock
+            </p>
+
+            <form className="mt-5">
               {/* Colors */}
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Color</h3>
@@ -300,8 +316,76 @@ const Productdetails = () => {
             <div className="mt-10">
               <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
-              <div className="mt-4 space-y-6">
-                <p className="text-sm text-gray-600">{product.details}</p>
+              <div class=" mt-3 relative overflow-x-auto">
+                <table class="w-3/4 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                      <th scope="col" class="px-6 py-3">
+                        Product Details
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-white border-b  dark:bg-gray-800 dark:border-gray-700">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Category
+                      </th>
+                      <td class="px-6 py-4">{product.category}</td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Brand
+                      </th>
+                      <td class="px-6 py-4">{product.brand}</td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        SKU
+                      </th>
+                      <td class="px-6 py-4">{product.sku}</td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Warranty Information
+                      </th>
+                      <td class="px-6 py-4">{product.warrantyInformation}</td>
+                    </tr>
+
+                    <tr class="bg-white dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Shipping Information
+                      </th>
+                      <td class="px-6 py-4">{product.shippingInformation}</td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Return Policy
+                      </th>
+                      <td class="px-6 py-4">{product.returnPolicy}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
