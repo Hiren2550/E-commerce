@@ -13,17 +13,18 @@ const Login = () => {
     console.log(data);
   };
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-6 lg:px-8">
+    <div className="mt-10 flex min-h-full flex-1 flex-col justify-center items-center px-6 py-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img alt="Your Company" src={logo} className="mx-auto h-24 w-24" />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Log in to your account
         </h2>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
         <form
           noValidate
+          method="POST"
           className="space-y-6"
           onSubmit={handleSubmit(handleForm)}
         >
@@ -38,7 +39,11 @@ const Login = () => {
               <input
                 id="email"
                 {...register("email", {
-                  required: { value: true, message: "fill the email-id" },
+                  required: { value: true, message: "email is required" },
+                  pattern: {
+                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    message: "invalid email",
+                  },
                 })}
                 type="email"
                 autoComplete="off"
@@ -65,11 +70,18 @@ const Login = () => {
                 </a>
               </div>
             </div>
-            <div className="mt-2">
+            <div className="mt-1">
               <input
                 id="password"
                 {...register("password", {
-                  required: { value: true, message: "fill the password" },
+                  required: { value: true, message: "password is required" },
+                  pattern: {
+                    value:
+                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                    message: `- at least 8 characters\n
+                   - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n
+                   - Can contain special characters`,
+                  },
                 })}
                 type="password"
                 autoComplete="current-password"
@@ -91,7 +103,7 @@ const Login = () => {
           </div>
         </form>
 
-        <p className="mt-10 text-center text-sm text-gray-500">
+        <p className="mt-5 text-center text-sm text-gray-500">
           Not have account?{" "}
           <Link
             to={"/signup"}
