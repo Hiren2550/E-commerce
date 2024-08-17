@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../assets/logo.jpg";
+import { useForm } from "react-hook-form";
+
 import { Link } from "react-router-dom";
 const Signup = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const handleForm = (data) => {
+    console.log(data);
+  };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -12,7 +23,11 @@ const Signup = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" className="space-y-6">
+        <form
+          noValidate
+          className="space-y-6"
+          onSubmit={handleSubmit(handleForm)}
+        >
           <div>
             <label
               htmlFor="name"
@@ -20,16 +35,18 @@ const Signup = () => {
             >
               Name
             </label>
-            <div className="mt-2">
+            <div className="mt-1">
               <input
                 id="name"
-                name="name"
-                type="name"
-                required
-                autoComplete="name"
+                {...register("name", {
+                  required: { value: true, message: "name is required" },
+                })}
+                type="text"
+                autoComplete="off"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
+            <p className="mt-1 text-xs text-red-600">{errors.name?.message}</p>
           </div>
           <div>
             <label
@@ -38,18 +55,23 @@ const Signup = () => {
             >
               Email address
             </label>
-            <div className="mt-2">
+            <div className="mt-1">
               <input
                 id="email"
-                name="email"
+                {...register("email", {
+                  required: { value: true, message: "email is required" },
+                  pattern: {
+                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    message: "invalid email",
+                  },
+                })}
                 type="email"
-                required
                 autoComplete="email"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
+            <p className="mt-1 text-xs text-red-600">{errors.email?.message}</p>
           </div>
-
           <div>
             <div className="flex items-center justify-between">
               <label
@@ -59,16 +81,27 @@ const Signup = () => {
                 Password
               </label>
             </div>
-            <div className="mt-2">
+            <div className="mt-1">
               <input
                 id="password"
-                name="password"
+                {...register("password", {
+                  required: { value: true, message: "password is required" },
+                  pattern: {
+                    value:
+                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                    message: `- at least 8 characters\n
+                   - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n
+                   - Can contain special characters`,
+                  },
+                })}
                 type="password"
-                required
-                autoComplete="current-password"
+                autoComplete="new-password"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
+            <p className="mt-1 text-xs text-red-600">
+              {errors.password?.message}
+            </p>
           </div>
           <div>
             <div className="flex items-center justify-between">
@@ -79,15 +112,25 @@ const Signup = () => {
                 Confirm-password
               </label>
             </div>
-            <div className="mt-2">
+            <div className="mt-1">
               <input
                 id="confirm-password"
-                name="confirm-password"
+                {...register("confirmPassword", {
+                  required: {
+                    value: true,
+                    message: "confirm password is required",
+                  },
+                  validate: (value, formValues) =>
+                    value === formValues.password || "password not matching",
+                })}
                 type="password"
-                required
+                autoComplete="new-password"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
+            <p className="mt-1 text-xs text-red-600">
+              {errors.confirmPassword?.message}
+            </p>
           </div>
           <div>
             <button
