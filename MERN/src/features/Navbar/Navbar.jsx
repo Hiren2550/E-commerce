@@ -93,9 +93,11 @@ const Navbar = ({ children }) => {
                       />
                     </button>
                   </Link>
-                  <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                    {items.length}
-                  </span>
+                  {items.length > 0 && (
+                    <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                      {items.length}
+                    </span>
+                  )}
 
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
@@ -195,9 +197,11 @@ const Navbar = ({ children }) => {
                     />
                   </button>
                 </Link>
-                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                  {items.length}
-                </span>
+                {items.length > 0 && (
+                  <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                    {items.length}
+                  </span>
+                )}
               </div>
               <div className="mt-3 space-y-1 px-2">
                 {userNavigation.map((item) => (
