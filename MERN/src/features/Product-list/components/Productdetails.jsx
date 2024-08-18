@@ -41,7 +41,7 @@ const Productdetails = () => {
   const user = useSelector(selectLoggedInUser);
   const handlecart = (e) => {
     e.preventDefault();
-    dispatch(addToCartAsync({ ...product, Qty: 1, user: user.id }));
+    dispatch(addToCartAsync({ ...product, quantity: 1, user: user.id }));
   };
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));

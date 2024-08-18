@@ -4,15 +4,15 @@ import App from "./App.jsx";
 import "./index.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import productSlice from "./features/Product-list/productSlice.js";
-import authSlice from "./features/auth/authSlice.js";
-import cartSlice from "./features/cart/cartSlice.js";
+import productReducer from "./features/Product-list/productSlice.js";
+import authReducer from "./features/auth/authSlice.js";
+import cartReducer from "./features/cart/cartSlice.js";
 
 const store = configureStore({
   reducer: {
-    product: productSlice,
-    auth: authSlice,
-    cart: cartSlice,
+    product: productReducer,
+    auth: authReducer,
+    cart: cartReducer,
   },
 });
 createRoot(document.getElementById("root")).render(
