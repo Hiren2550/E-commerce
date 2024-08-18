@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { createUser } from "./authAPI";
+import { checkUser, createUser } from "./authAPI";
 
 const initialState = {
-  users: [],
+  loggedInUser: null,
   status: "idle",
+  error: null,
   count: 0,
 };
 
@@ -11,6 +12,13 @@ export const createUserAsync = createAsyncThunk(
   "product/createUser",
   async (userData) => {
     const response = await createUser(userData);
+    return response.data;
+  }
+);
+export const checkUserAsync = createAsyncThunk(
+  "product/checkUser",
+  async (loginInfo) => {
+    const response = await checkUser(loginInfo);
     return response.data;
   }
 );
@@ -30,11 +38,24 @@ const authSlice = createSlice({
       })
       .addCase(createUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.users.push(action.payload);
+        state.loggedInUser = action.payload;
+      })
+      .addCase(checkUserAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(checkUserAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.loggedInUser = action.payload;
+      })
+      .addCase(checkUserAsync.rejected, (state, action) => {
+        state.status = "idle";
+        state.error = action.error;
       });
   },
 });
 
 export const { increment } = authSlice.actions;
-// export const selectAllProducts = (state) => state.auth.products;
+export const selectLoggedInUser = (state) => state.auth.loggedInUser;
+export const selectError = (state) => state.auth.error;
+
 export default authSlice.reducer;
