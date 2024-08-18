@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteItemAsync, selectCart, updateCartAsync } from "./cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const Cart = () => {
   const [open, setOpen] = useState(true);
@@ -24,6 +25,7 @@ const Cart = () => {
   const totalQuantity = items.reduce((total, item) => item.quantity + total, 0);
   return (
     <>
+      {!items.length && <Navigate to={"/"} replace={true}></Navigate>}
       <div className="my-8 mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8 bg-white border border-gray-200">
         <h1 className="text-4xl my-2  font-semibold tracking-tight text-gray-900">
           Cart
