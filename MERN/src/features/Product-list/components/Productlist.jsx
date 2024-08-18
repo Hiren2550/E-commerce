@@ -34,6 +34,8 @@ import {
   selectCategories,
 } from "../productSlice";
 import { ITEM_PER_PAGE } from "../../../../constant";
+import { fetchCartByUserIdAsync } from "../../cart/cartSlice";
+import { selectLoggedInUser } from "../../auth/authSlice";
 
 const sortOptions = [
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
@@ -118,6 +120,12 @@ const Productlist = () => {
     dispatch(fetchAllBrandsAsync());
     dispatch(fetchAllCategoriesAsync());
   }, []);
+  const user = useSelector(selectLoggedInUser);
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCartByUserIdAsync(user.id));
+    }
+  }, [dispatch, user.id]);
 
   return (
     <div className="bg-white">

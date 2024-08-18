@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.jpg";
-
+import profile from "../../assets/profile.png";
+import { useSelector } from "react-redux";
 import {
   Disclosure,
   DisclosureButton,
@@ -10,12 +11,15 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/react";
+useSelector;
 import {
   Bars3Icon,
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { selectCart } from "../cart/cartSlice";
+import { selectLoggedInUser } from "../auth/authSlice";
 
 const user = {
   name: "Tom Cook",
@@ -30,13 +34,15 @@ const navigation = [
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Sign out", href: "/" },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const Navbar = ({ children }) => {
+  const items = useSelector(selectCart);
+  const user = useSelector(selectLoggedInUser);
   return (
     <>
       <div className="min-h-full">
@@ -55,19 +61,19 @@ const Navbar = ({ children }) => {
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    {navigation.map((item) => (
+                    {navigation.map((link) => (
                       <a
-                        key={item.name}
-                        href={item.href}
-                        aria-current={item.current ? "page" : undefined}
+                        key={link.name}
+                        href={link.href}
+                        aria-current={link.current ? "page" : undefined}
                         className={classNames(
-                          item.current
+                          link.current
                             ? "bg-gray-900 text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
                       >
-                        {item.name}
+                        {link.name}
                       </a>
                     ))}
                   </div>
@@ -88,7 +94,7 @@ const Navbar = ({ children }) => {
                     </button>
                   </Link>
                   <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                    5
+                    {items.length}
                   </span>
 
                   {/* Profile dropdown */}
@@ -98,8 +104,8 @@ const Navbar = ({ children }) => {
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
                         <img
-                          alt=""
-                          src={user.imageUrl}
+                          alt={user.name}
+                          src={profile}
                           className="h-8 w-8 rounded-full"
                         />
                       </MenuButton>
@@ -108,13 +114,13 @@ const Navbar = ({ children }) => {
                       transition
                       className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                     >
-                      {userNavigation.map((item) => (
-                        <MenuItem key={item.name}>
+                      {userNavigation.map((section) => (
+                        <MenuItem key={section.name}>
                           <a
-                            href={item.href}
+                            href={section.href}
                             className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                           >
-                            {item.name}
+                            {section.name}
                           </a>
                         </MenuItem>
                       ))}
@@ -142,20 +148,20 @@ const Navbar = ({ children }) => {
 
           <DisclosurePanel className="md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-              {navigation.map((item) => (
+              {navigation.map((link) => (
                 <DisclosureButton
-                  key={item.name}
+                  key={link.name}
                   as="a"
-                  href={item.href}
-                  aria-current={item.current ? "page" : undefined}
+                  href={link.href}
+                  aria-current={link.current ? "page" : undefined}
                   className={classNames(
-                    item.current
+                    link.current
                       ? "bg-gray-900 text-white"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                 >
-                  {item.name}
+                  {link.name}
                 </DisclosureButton>
               ))}
             </div>
@@ -163,8 +169,8 @@ const Navbar = ({ children }) => {
               <div className="flex items-center px-5">
                 <div className="flex-shrink-0">
                   <img
-                    alt=""
-                    src={user.imageUrl}
+                    alt={user.name}
+                    src={profile}
                     className="h-10 w-10 rounded-full"
                   />
                 </div>
@@ -176,7 +182,7 @@ const Navbar = ({ children }) => {
                     {user.email}
                   </div>
                 </div>
-                <Link to={"/cart"}>
+                <Link to={"/cart"} className="">
                   <button
                     type="button"
                     className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -190,7 +196,7 @@ const Navbar = ({ children }) => {
                   </button>
                 </Link>
                 <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                  5
+                  {items.length}
                 </span>
               </div>
               <div className="mt-3 space-y-1 px-2">

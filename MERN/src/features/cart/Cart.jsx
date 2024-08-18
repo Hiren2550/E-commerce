@@ -1,26 +1,16 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-  DialogTitle,
-} from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCartByUserIdAsync, selectCart } from "./cartSlice";
-import { selectLoggedInUser } from "../auth/authSlice";
+import { selectCart } from "./cartSlice";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   const [open, setOpen] = useState(true);
-  const dispatch = useDispatch();
-  const user = useSelector(selectLoggedInUser);
-  const id = user.id;
-  const products = useSelector(selectCart);
-  useEffect(() => {
-    dispatch(fetchCartByUserIdAsync(id));
-  }, []);
+
+  let items = useSelector(selectCart);
+  items = [...items].reverse();
+
   return (
     <>
       <div className="my-8 mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8 bg-white border border-gray-200">
@@ -30,50 +20,56 @@ const Cart = () => {
         <div className="mt-6">
           <div className="flow-root">
             <ul role="list" className=" divide-y divide-gray-200">
-              {products.map((product) => (
-                <li key={product.id} className="flex py-6">
-                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                    <img
-                      alt={product.title}
-                      src={product.thumbnail}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-
-                  <div className="ml-4 flex flex-1 flex-col">
-                    <div>
-                      <div className="flex justify-between text-base font-medium text-gray-900">
-                        <h3>
-                          <div>{product.title}</div>
-                        </h3>
-                        <p className="ml-4"> $ {product.price}</p>
-                      </div>
-                      <p className="mt-1 text-sm text-gray-500">
-                        {product.category}
-                      </p>
+              {items.length > 0 &&
+                items.map((item) => (
+                  <li key={item.id} className="flex py-6">
+                    <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                      <img
+                        alt={item.title}
+                        src={item.thumbnail}
+                        className="h-full w-full object-cover object-center"
+                      />
                     </div>
-                    <div className="flex flex-1 items-end justify-between text-sm">
-                      <div className="text-gray-500">
-                        <span>Qty</span>
-                        <select name="" id="" className="mx-2 rounded">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                        </select>
-                      </div>
 
-                      <div className="flex">
-                        <button
-                          type="button"
-                          className="font-medium text-indigo-600 hover:text-indigo-500"
-                        >
-                          Remove
-                        </button>
+                    <div className="ml-4 flex flex-1 flex-col">
+                      <div>
+                        <div className="flex justify-between text-base font-medium text-gray-900">
+                          <h3>
+                            <div>{item.title}</div>
+                          </h3>
+                          <p className="ml-4"> $ {item.price}</p>
+                        </div>
+                        <p className="mt-1 text-sm text-gray-500">
+                          {item.category}
+                        </p>
+                      </div>
+                      <div className="flex flex-1 items-end justify-between text-sm">
+                        <div className="text-gray-500">
+                          <span>Qty</span>
+                          <select name="" id="" className="mx-2 rounded">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </select>
+                        </div>
+
+                        <div className="flex">
+                          <button
+                            type="button"
+                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                          >
+                            Remove
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                ))}
+              {items.length == 0 && (
+                <div>
+                  <h3>No Product</h3>
+                </div>
+              )}
             </ul>
           </div>
         </div>

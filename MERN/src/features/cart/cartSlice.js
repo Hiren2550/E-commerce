@@ -12,7 +12,7 @@ export const addToCartAsync = createAsyncThunk(
   "cart/addToCart",
   async (item) => {
     const response = await addToCart(item);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   }
 );
@@ -20,7 +20,7 @@ export const fetchCartByUserIdAsync = createAsyncThunk(
   "cart/fetchCartByUserId",
   async (userId) => {
     const response = await fetchCartByUserId(userId);
-    console.log(response.data);
+    //console.log(response.data);
     return response.data;
   }
 );
