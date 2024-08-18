@@ -9,16 +9,17 @@ const initialState = {
 };
 
 export const createUserAsync = createAsyncThunk(
-  "product/createUser",
+  "auth/createUser",
   async (userData) => {
     const response = await createUser(userData);
     return response.data;
   }
 );
 export const checkUserAsync = createAsyncThunk(
-  "product/checkUser",
+  "auth/checkUser",
   async (loginInfo) => {
     const response = await checkUser(loginInfo);
+    console.log(response.data);
     return response.data;
   }
 );

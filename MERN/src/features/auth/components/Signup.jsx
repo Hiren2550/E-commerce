@@ -3,7 +3,7 @@ import logo from "../../../assets/logo.jpg";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { createUserAsync, selectLoggedInUser } from "../authSlice";
 const Signup = () => {
   const dispatch = useDispatch();

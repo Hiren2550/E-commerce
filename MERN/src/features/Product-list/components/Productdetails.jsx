@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByIdAsync, selectProduct } from "../productSlice";
 import { useParams } from "react-router-dom";
 import profile from "../../../assets/profile.png";
+import { addToCartAsync } from "../../cart/cartSlice";
+import { selectLoggedInUser } from "../../auth/authSlice";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -32,10 +34,15 @@ const Productdetails = () => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const product = useSelector(selectProduct);
-  console.log(product);
+  //console.log(product);
   const dispatch = useDispatch();
   const params = useParams();
   //console.log(params.id);
+  const user = useSelector(selectLoggedInUser);
+  const handlecart = (e) => {
+    e.preventDefault();
+    dispatch(addToCartAsync({ ...product, Qty: 1, user: user.id }));
+  };
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
   }, [dispatch, params.id]);
@@ -125,7 +132,10 @@ const Productdetails = () => {
             </h1>
             {product.tags &&
               product.tags.map((tag) => (
-                <span class="bg-blue-100 text-gray-700 text-xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400">
+                <span
+                  key={tag.length}
+                  className="bg-blue-100 text-gray-700 text-xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400"
+                >
                   {tag}
                 </span>
               ))}
@@ -313,7 +323,8 @@ const Productdetails = () => {
               </div>
 
               <button
-                type="submit"
+                type="button"
+                onClick={handlecart}
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to Cart
@@ -349,73 +360,77 @@ const Productdetails = () => {
             <div className="mt-10">
               <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
-              <div class=" mt-3 relative overflow-x-auto">
-                <table class="w-3/4 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <div className=" mt-3 relative overflow-x-auto">
+                <table className="w-3/4 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                      <th scope="col" class="px-6 py-3">
+                      <th scope="col" className="px-6 py-3">
                         Product Details
                       </th>
-                      <th scope="col" class="px-6 py-3">
+                      <th scope="col" className="px-6 py-3">
                         Description
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="bg-white border-b  dark:bg-gray-800 dark:border-gray-700">
+                    <tr className="bg-white border-b  dark:bg-gray-800 dark:border-gray-700">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         Category
                       </th>
-                      <td class="px-6 py-4">{product.category}</td>
+                      <td className="px-6 py-4">{product.category}</td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         Brand
                       </th>
-                      <td class="px-6 py-4">{product.brand}</td>
+                      <td className="px-6 py-4">{product.brand}</td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         SKU
                       </th>
-                      <td class="px-6 py-4">{product.sku}</td>
+                      <td className="px-6 py-4">{product.sku}</td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         Warranty Information
                       </th>
-                      <td class="px-6 py-4">{product.warrantyInformation}</td>
+                      <td className="px-6 py-4">
+                        {product.warrantyInformation}
+                      </td>
                     </tr>
 
-                    <tr class="bg-white dark:bg-gray-800">
+                    <tr className="bg-white dark:bg-gray-800">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         Shipping Information
                       </th>
-                      <td class="px-6 py-4">{product.shippingInformation}</td>
+                      <td className="px-6 py-4">
+                        {product.shippingInformation}
+                      </td>
                     </tr>
-                    <tr class="bg-white dark:bg-gray-800">
+                    <tr className="bg-white dark:bg-gray-800">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         Return Policy
                       </th>
-                      <td class="px-6 py-4">{product.returnPolicy}</td>
+                      <td className="px-6 py-4">{product.returnPolicy}</td>
                     </tr>
                   </tbody>
                 </table>
