@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import logo from "../../../assets/logo.jpg";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
+import { createUserAsync } from "../authSlice";
 const Signup = () => {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.auth.users);
   const {
     register,
     handleSubmit,
@@ -11,7 +15,7 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
   const handleForm = (data) => {
-    console.log(data);
+    dispatch(createUserAsync(data));
   };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-6 lg:px-8">

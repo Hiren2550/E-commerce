@@ -5,10 +5,12 @@ import "./index.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import productSlice from "./features/Product-list/productSlice.js";
+import authSlice from "./features/auth/authSlice.js";
 
 const store = configureStore({
   reducer: {
     product: productSlice,
+    auth: authSlice,
   },
 });
 createRoot(document.getElementById("root")).render(
