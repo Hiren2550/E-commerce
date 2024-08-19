@@ -6483,29 +6483,488 @@
   ],
   "users": [
     {
-      "id": "fa17",
-      "name": "Harsh",
-      "email": "Harsh23@gmail.com",
-      "password": "Harsh@123"
-    },
-    {
-      "id": "695c",
-      "name": "D1",
-      "email": "D1@gmail.com",
-      "password": "Divu@123"
-    },
-    {
-      "id": "7e5a",
-      "name": "Hiren",
+      "id": "67ac",
+      "name": "H1",
       "email": "H1@gmail.com",
-      "password": "Hiren@123"
-    },
-    {
-      "id": "7c4f",
-      "name": "Raj",
-      "email": "Raj1@gmail.com",
-      "password": "Raj@1234"
+      "password": "Hiren@123",
+      "addresses": [
+        {
+          "firstname": "Hiren",
+          "lastname": "Shah",
+          "email": "H1@gmail.co",
+          "phone": "6352270899",
+          "street": "bapunagar",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380024"
+        },
+        {
+          "firstname": "Hiren",
+          "lastname": "Shah",
+          "email": "H1@gmail.com",
+          "phone": "4567349801",
+          "street": "rajs",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380027"
+        }
+      ]
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "d78c",
+      "title": "Apple MacBook Pro 14 Inch Space Grey",
+      "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+      "category": "laptops",
+      "price": 1999.99,
+      "discountPercentage": 9.25,
+      "rating": 3.13,
+      "stock": 39,
+      "tags": [
+        "laptops",
+        "apple"
+      ],
+      "brand": "Apple",
+      "sku": "QDKO6NRJ",
+      "weight": 4,
+      "dimensions": {
+        "width": 12.38,
+        "height": 21.55,
+        "depth": 27.95
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2024-05-23T08:56:21.622Z",
+          "reviewerName": "Hunter Gordon",
+          "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2024-05-23T08:56:21.622Z",
+          "reviewerName": "Emma Wilson",
+          "reviewerEmail": "emma.wilson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2024-05-23T08:56:21.622Z",
+          "reviewerName": "David Martinez",
+          "reviewerEmail": "david.martinez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.622Z",
+        "updatedAt": "2024-05-23T08:56:21.622Z",
+        "barcode": "3883623063065",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/3.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png",
+      "quantity": 1,
+      "user": "7e5a"
+    },
+    {
+      "id": "fce0",
+      "title": "Nike Air Jordan 1 Red And Black",
+      "description": "The Nike Air Jordan 1 in Red and Black is an iconic basketball sneaker known for its stylish design and high-performance features, making it a favorite among sneaker enthusiasts and athletes.",
+      "category": "shoes",
+      "price": 149.99,
+      "discountPercentage": 15.82,
+      "rating": 2.77,
+      "stock": 15,
+      "tags": [
+        "footwear",
+        "athletic shoes"
+      ],
+      "brand": "Nike",
+      "sku": "84YC5J67",
+      "weight": 5,
+      "dimensions": {
+        "width": 19.29,
+        "height": 13.2,
+        "depth": 29.13
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Victoria McDonald",
+          "reviewerEmail": "victoria.mcdonald@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Mason Parker",
+          "reviewerEmail": "mason.parker@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Avery Perez",
+          "reviewerEmail": "avery.perez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 2,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.623Z",
+        "updatedAt": "2024-05-23T08:56:21.623Z",
+        "barcode": "0098559139691",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/1.png",
+        "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/2.png",
+        "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/3.png",
+        "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/4.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/thumbnail.png",
+      "quantity": 1,
+      "user": "7e5a"
+    },
+    {
+      "id": "5e94",
+      "title": "Apple MacBook Pro 14 Inch Space Grey",
+      "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+      "category": "laptops",
+      "price": 1999.99,
+      "discountPercentage": 9.25,
+      "rating": 3.13,
+      "stock": 39,
+      "tags": [
+        "laptops",
+        "apple"
+      ],
+      "brand": "Apple",
+      "sku": "QDKO6NRJ",
+      "weight": 4,
+      "dimensions": {
+        "width": 12.38,
+        "height": 21.55,
+        "depth": 27.95
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2024-05-23T08:56:21.622Z",
+          "reviewerName": "Hunter Gordon",
+          "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2024-05-23T08:56:21.622Z",
+          "reviewerName": "Emma Wilson",
+          "reviewerEmail": "emma.wilson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2024-05-23T08:56:21.622Z",
+          "reviewerName": "David Martinez",
+          "reviewerEmail": "david.martinez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.622Z",
+        "updatedAt": "2024-05-23T08:56:21.622Z",
+        "barcode": "3883623063065",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/3.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png",
+      "quantity": 2,
+      "user": "ff16"
+    },
+    {
+      "id": "bf51",
+      "title": "Rolex Cellini Date Black Dial",
+      "description": "The Rolex Cellini Date with Black Dial is a classic and prestigious watch. With a black dial and date complication, it exudes sophistication and is a symbol of Rolex's heritage.",
+      "category": "watches",
+      "price": 8999.99,
+      "discountPercentage": 14.28,
+      "rating": 3.61,
+      "stock": 84,
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "brand": "Rolex",
+      "sku": "J3GPKQW0",
+      "weight": 6,
+      "dimensions": {
+        "width": 12.17,
+        "height": 27.99,
+        "depth": 10.36
+      },
+      "warrantyInformation": "5 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2024-05-23T08:56:21.624Z",
+          "reviewerName": "Gavin Stanley",
+          "reviewerEmail": "gavin.stanley@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2024-05-23T08:56:21.624Z",
+          "reviewerName": "Stella Hughes",
+          "reviewerEmail": "stella.hughes@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2024-05-23T08:56:21.624Z",
+          "reviewerName": "Paisley Bell",
+          "reviewerEmail": "paisley.bell@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.624Z",
+        "updatedAt": "2024-05-23T08:56:21.624Z",
+        "barcode": "8917585155737",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/1.png",
+        "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/2.png",
+        "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/3.png",
+        "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/thumbnail.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/thumbnail.png",
+      "quantity": 1,
+      "user": "d480"
+    },
+    {
+      "id": "8dda",
+      "title": "Lenovo Yoga 920",
+      "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+      "category": "laptops",
+      "price": 1099.99,
+      "discountPercentage": 7.77,
+      "rating": 2.98,
+      "stock": 71,
+      "tags": [
+        "laptops"
+      ],
+      "brand": "Lenovo",
+      "sku": "MST9WZQY",
+      "weight": 7,
+      "dimensions": {
+        "width": 11.02,
+        "height": 14.45,
+        "depth": 24.09
+      },
+      "warrantyInformation": "Lifetime warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Very happy with my purchase!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Paisley Bell",
+          "reviewerEmail": "paisley.bell@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very pleased!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Lincoln Kelly",
+          "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Luna Russell",
+          "reviewerEmail": "luna.russell@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.623Z",
+        "updatedAt": "2024-05-23T08:56:21.623Z",
+        "barcode": "9590995785298",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/3.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png",
+      "quantity": 5,
+      "user": "d480"
+    },
+    {
+      "id": "e511",
+      "title": "Annibale Colombo Sofa",
+      "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+      "category": "furniture",
+      "price": 2499.99,
+      "discountPercentage": 18.54,
+      "rating": 3.08,
+      "stock": 16,
+      "tags": [
+        "furniture",
+        "sofas"
+      ],
+      "brand": "Annibale Colombo",
+      "sku": "LUU95CQP",
+      "weight": 3,
+      "dimensions": {
+        "width": 20.97,
+        "height": 19.11,
+        "depth": 25.81
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2024-05-23T08:56:21.620Z",
+          "reviewerName": "Tyler Davis",
+          "reviewerEmail": "tyler.davis@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2024-05-23T08:56:21.620Z",
+          "reviewerName": "Hannah Robinson",
+          "reviewerEmail": "hannah.robinson@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Waste of money!",
+          "date": "2024-05-23T08:56:21.620Z",
+          "reviewerName": "Madison Collins",
+          "reviewerEmail": "madison.collins@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.620Z",
+        "updatedAt": "2024-05-23T08:56:21.620Z",
+        "barcode": "0426785817074",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/1.png",
+        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/2.png",
+        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/3.png",
+        "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png",
+      "quantity": 1,
+      "user": "67ac"
+    },
+    {
+      "id": "d13d",
+      "title": "Chanel Coco Noir Eau De",
+      "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+      "category": "fragrances",
+      "price": 129.99,
+      "discountPercentage": 18.64,
+      "rating": 2.76,
+      "stock": 41,
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "brand": "Chanel",
+      "sku": "K71HBCGS",
+      "weight": 4,
+      "dimensions": {
+        "width": 21.27,
+        "height": 28,
+        "depth": 11.89
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Disappointing product!",
+          "date": "2024-05-23T08:56:21.619Z",
+          "reviewerName": "Lincoln Kelly",
+          "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2024-05-23T08:56:21.619Z",
+          "reviewerName": "Lincoln Kelly",
+          "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2024-05-23T08:56:21.619Z",
+          "reviewerName": "Lucas Allen",
+          "reviewerEmail": "lucas.allen@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 5,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.619Z",
+        "updatedAt": "2024-05-23T08:56:21.619Z",
+        "barcode": "1435582999795",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png",
+      "quantity": 3,
+      "user": "67ac"
+    }
+  ]
 }

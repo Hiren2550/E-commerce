@@ -20,6 +20,7 @@ const Signup = () => {
         name: data.name,
         email: data.email,
         password: data.password,
+        addresses: [],
       })
     );
   };
