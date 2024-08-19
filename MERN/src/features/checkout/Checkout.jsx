@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link, Navigate } from "react-router-dom";
@@ -11,6 +11,9 @@ import { useForm } from "react-hook-form";
 import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
 
 const Checkout = () => {
+  const user = useSelector(selectLoggedInUser);
+  const [selectedAddress, setSelectedAddress] = useState(user.addresses[0]);
+  const [paymentMethod, setPaymentMethod] = useState("cash");
   const {
     register,
     handleSubmit,
@@ -19,7 +22,6 @@ const Checkout = () => {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-  const user = useSelector(selectLoggedInUser);
 
   let items = useSelector(selectCart);
   items = [...items].reverse();
@@ -309,6 +311,9 @@ const Checkout = () => {
                             id="address"
                             name="address"
                             type="radio"
+                            value={selectedAddress}
+                            onChange={() => setSelectedAddress(address)}
+                            checked={selectedAddress == address ? true : false}
                             className="h-4 w-4 mt-2 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <div className="min-w-0 flex-auto">
@@ -350,6 +355,9 @@ const Checkout = () => {
                           <input
                             id="cash"
                             name="payments"
+                            value={"cash"}
+                            onChange={() => setPaymentMethod("cash")}
+                            checked={paymentMethod == "cash" ? true : false}
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
@@ -364,6 +372,9 @@ const Checkout = () => {
                           <input
                             id="online"
                             name="payments"
+                            value={"online"}
+                            onChange={() => setPaymentMethod("online")}
+                            checked={paymentMethod == "online" ? true : false}
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
