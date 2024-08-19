@@ -10,29 +10,12 @@ import {
 import { useForm } from "react-hook-form";
 import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
 
-const addresses = [
-  {
-    name: "John D.",
-    street: "11th Main",
-    city: "Nagar",
-    pincode: "345678",
-    state: "Delhi",
-    phone: 9909083452,
-  },
-  {
-    name: "Don wick.",
-    street: "17th Main",
-    city: "Ahmedabad",
-    pincode: "300679",
-    state: "Gujarat",
-    phone: 6345097632,
-  },
-];
 const Checkout = () => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
@@ -55,6 +38,7 @@ const Checkout = () => {
     dispatch(
       updateUserAsync({ ...user, addresses: [...user.addresses, data] })
     );
+    reset();
   };
   return (
     <>

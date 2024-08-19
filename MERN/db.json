@@ -6487,10 +6487,17 @@
       "name": "H1",
       "email": "H1@gmail.com",
       "password": "Hiren@123",
-      "addresses":[ 
-        
-        
-       
+      "addresses": [
+        {
+          "firstname": "Hiren",
+          "lastname": "Shah",
+          "email": "hirenshah2540@gmail.com",
+          "phone": "6352270452",
+          "street": "457/2670 G.H board kavinagar, Bapunagar",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380024"
+        }
       ]
     }
   ],
