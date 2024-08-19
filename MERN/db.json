@@ -6487,27 +6487,10 @@
       "name": "H1",
       "email": "H1@gmail.com",
       "password": "Hiren@123",
-      "addresses": [
-        {
-          "firstname": "Hiren",
-          "lastname": "Shah",
-          "email": "H1@gmail.co",
-          "phone": "6352270899",
-          "street": "bapunagar",
-          "city": "Ahmedabad",
-          "state": "Gujarat",
-          "pincode": "380024"
-        },
-        {
-          "firstname": "Hiren",
-          "lastname": "Shah",
-          "email": "H1@gmail.com",
-          "phone": "4567349801",
-          "street": "rajs",
-          "city": "Ahmedabad",
-          "state": "Gujarat",
-          "pincode": "380027"
-        }
+      "addresses":[ 
+        
+        
+       
       ]
     }
   ],
