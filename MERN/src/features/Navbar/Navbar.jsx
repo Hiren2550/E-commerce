@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo.jpg";
 import profile from "../../assets/profile.png";
 import { useSelector } from "react-redux";
@@ -21,15 +21,9 @@ import { Link } from "react-router-dom";
 import { selectCart } from "../cart/cartSlice";
 import { selectLoggedInUser } from "../auth/authSlice";
 
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
 const navigation = [
-  { name: "Home", link: "/", current: true },
-  { name: "About", link: "/about", current: false },
+  { name: "Home", link: "/" },
+  { name: "About", link: "/about" },
 ];
 const userNavigation = [
   { name: "Your Profile", link: "/profile" },
@@ -41,6 +35,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const Navbar = ({ children }) => {
+  const [click, setClick] = useState(false);
   const items = useSelector(selectCart);
   const user = useSelector(selectLoggedInUser);
   return (
@@ -67,9 +62,7 @@ const Navbar = ({ children }) => {
                         to={section.link}
                         aria-current={section.current ? "page" : undefined}
                         className={classNames(
-                          section.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
                       >

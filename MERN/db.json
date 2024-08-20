@@ -6532,10 +6532,10 @@
   "cart": [],
   "orders": [
     {
-      "id": "109d",
+      "id": "11d1",
       "items": [
         {
-          "id": "884b",
+          "id": "58b6",
           "title": "Powder Canister",
           "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
           "category": "Beauty",
@@ -6596,7 +6596,7 @@
             "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
           ],
           "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
-          "quantity": 4,
+          "quantity": 1,
           "user": "53b0"
         }
       ],
@@ -6628,594 +6628,190 @@
           }
         ]
       },
-      "totalAmount": 59.96,
-      "totalQuantity": 4,
-      "paymentMethod": "online",
+      "totalAmount": 14.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Hiren",
+        "lastname": "Shah",
+        "email": "hirenshah2540@gmail.com",
+        "phone": "6352270452",
+        "street": "457/2670 G.H board kavinagar, Bapunagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
+      }
+    },
+    {
+      "id": "28fb",
+      "items": [
+        {
+          "id": "2112",
+          "title": "Lenovo Yoga 920",
+          "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+          "category": "laptops",
+          "price": 1099.99,
+          "discountPercentage": 7.77,
+          "rating": 2.98,
+          "stock": 71,
+          "tags": [
+            "laptops"
+          ],
+          "brand": "Lenovo",
+          "sku": "MST9WZQY",
+          "weight": 7,
+          "dimensions": {
+            "width": 11.02,
+            "height": 14.45,
+            "depth": 24.09
+          },
+          "warrantyInformation": "Lifetime warranty",
+          "shippingInformation": "Ships in 1 week",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Paisley Bell",
+              "reviewerEmail": "paisley.bell@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very pleased!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Lincoln Kelly",
+              "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Luna Russell",
+              "reviewerEmail": "luna.russell@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 1,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.623Z",
+            "updatedAt": "2024-05-23T08:56:21.623Z",
+            "barcode": "9590995785298",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/2.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/3.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png",
+          "quantity": 1,
+          "user": "53b0"
+        },
+        {
+          "id": "df5c",
+          "title": "Blue & Black Check Shirt",
+          "description": "The Blue & Black Check Shirt is a stylish and comfortable men's shirt featuring a classic check pattern. Made from high-quality fabric, it's suitable for both casual and semi-formal occasions.",
+          "category": "shirts",
+          "price": 29.99,
+          "discountPercentage": 1.41,
+          "rating": 4.19,
+          "stock": 44,
+          "tags": [
+            "clothing",
+            "men's shirts"
+          ],
+          "brand": "Fashion Trends",
+          "sku": "6RJDTVCU",
+          "weight": 6,
+          "dimensions": {
+            "width": 17.25,
+            "height": 27.31,
+            "depth": 20.88
+          },
+          "warrantyInformation": "No warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Highly recommended!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Mason Parker",
+              "reviewerEmail": "mason.parker@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Avery Perez",
+              "reviewerEmail": "avery.perez@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Fast shipping!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Nathan Reed",
+              "reviewerEmail": "nathan.reed@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "7 days return policy",
+          "minimumOrderQuantity": 4,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.623Z",
+            "updatedAt": "2024-05-23T08:56:21.623Z",
+            "barcode": "8840720880947",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/1.png",
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/2.png",
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/3.png",
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/4.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/thumbnail.png",
+          "quantity": 6,
+          "user": "53b0"
+        }
+      ],
+      "user": {
+        "id": "53b0",
+        "name": "H1",
+        "email": "H1@gmail.com",
+        "password": "Hiren@123",
+        "addresses": [
+          {
+            "firstname": "Hiren",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "6352270452",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          },
+          {
+            "firstname": "H",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "7573867529",
+            "street": "457/2670, Nikol",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 1279.93,
+      "totalQuantity": 7,
+      "paymentMethod": "cash",
       "selectedAddress": {
         "firstname": "H",
         "lastname": "Shah",
         "email": "hirenshah2540@gmail.com",
         "phone": "7573867529",
         "street": "457/2670, Nikol",
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "pincode": "380024"
-      }
-    },
-    {
-      "id": "f92b",
-      "items": [
-        {
-          "id": "d64f",
-          "title": "Essence Mascara Lash Princess",
-          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-          "category": "Beauty",
-          "price": 9.99,
-          "discountPercentage": 7.17,
-          "rating": 4.94,
-          "stock": 5,
-          "tags": [
-            "beauty",
-            "mascara"
-          ],
-          "brand": "Essence",
-          "sku": "RCH45Q1A",
-          "weight": 2,
-          "dimensions": {
-            "width": 23.17,
-            "height": 14.43,
-            "depth": 28.01
-          },
-          "warrantyInformation": "1 month warranty",
-          "shippingInformation": "Ships in 1 month",
-          "availabilityStatus": "Low Stock",
-          "reviews": [
-            {
-              "rating": 2,
-              "comment": "Very unhappy with my purchase!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "John Doe",
-              "reviewerEmail": "john.doe@x.dummyjson.com"
-            },
-            {
-              "rating": 2,
-              "comment": "Not as described!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Nolan Gonzalez",
-              "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
-            },
-            {
-              "rating": 5,
-              "comment": "Very satisfied!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Scarlett Wright",
-              "reviewerEmail": "scarlett.wright@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "30 days return policy",
-          "minimumOrderQuantity": 24,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.618Z",
-            "updatedAt": "2024-05-23T08:56:21.618Z",
-            "barcode": "9164035109868",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
-          "quantity": 1,
-          "user": "53b0"
-        },
-        {
-          "id": "1ffa",
-          "title": "Powder Canister",
-          "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
-          "category": "Beauty",
-          "price": 14.99,
-          "discountPercentage": 18.14,
-          "rating": 3.82,
-          "stock": 59,
-          "tags": [
-            "beauty",
-            "face powder"
-          ],
-          "brand": "Velvet Touch",
-          "sku": "9EN8WLT2",
-          "weight": 8,
-          "dimensions": {
-            "width": 24.16,
-            "height": 10.7,
-            "depth": 11.07
-          },
-          "warrantyInformation": "2 year warranty",
-          "shippingInformation": "Ships in 1-2 business days",
-          "availabilityStatus": "In Stock",
-          "reviews": [
-            {
-              "rating": 5,
-              "comment": "Very happy with my purchase!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Ethan Thompson",
-              "reviewerEmail": "ethan.thompson@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Great value for money!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Levi Hicks",
-              "reviewerEmail": "levi.hicks@x.dummyjson.com"
-            },
-            {
-              "rating": 5,
-              "comment": "Highly impressed!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Hazel Gardner",
-              "reviewerEmail": "hazel.gardner@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "60 days return policy",
-          "minimumOrderQuantity": 25,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.618Z",
-            "updatedAt": "2024-05-23T08:56:21.618Z",
-            "barcode": "0516267971277",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
-          "quantity": 1,
-          "user": "53b0"
-        }
-      ],
-      "user": {
-        "id": "53b0",
-        "name": "H1",
-        "email": "H1@gmail.com",
-        "password": "Hiren@123",
-        "addresses": [
-          {
-            "firstname": "Hiren",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "6352270452",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          },
-          {
-            "firstname": "H",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "7573867529",
-            "street": "457/2670, Nikol",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          }
-        ]
-      },
-      "totalAmount": 24.98,
-      "totalQuantity": 2,
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "firstname": "Hiren",
-        "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "6352270452",
-        "street": "457/2670 G.H board kavinagar, Bapunagar",
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "pincode": "380024"
-      }
-    },
-    {
-      "id": "9f9b",
-      "items": [
-        {
-          "id": "3aab",
-          "title": "Dior J'adore",
-          "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
-          "category": "fragrances",
-          "price": 89.99,
-          "discountPercentage": 17.44,
-          "rating": 3.31,
-          "stock": 91,
-          "tags": [
-            "fragrances",
-            "perfumes"
-          ],
-          "brand": "Dior",
-          "sku": "E70NB03B",
-          "weight": 10,
-          "dimensions": {
-            "width": 21.51,
-            "height": 7,
-            "depth": 26.51
-          },
-          "warrantyInformation": "Lifetime warranty",
-          "shippingInformation": "Ships in 2 weeks",
-          "availabilityStatus": "In Stock",
-          "reviews": [
-            {
-              "rating": 5,
-              "comment": "Fast shipping!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Zoe Nicholson",
-              "reviewerEmail": "zoe.nicholson@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Excellent quality!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Addison Wright",
-              "reviewerEmail": "addison.wright@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Would buy again!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Clara Berry",
-              "reviewerEmail": "clara.berry@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "7 days return policy",
-          "minimumOrderQuantity": 8,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.619Z",
-            "updatedAt": "2024-05-23T08:56:21.619Z",
-            "barcode": "0887083199279",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png",
-            "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/2.png",
-            "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/3.png",
-            "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
-          "quantity": 1,
-          "user": "4e46"
-        }
-      ],
-      "user": {
-        "id": "4e46",
-        "name": "D1",
-        "email": "D1@gmail.com",
-        "password": "Divu@123",
-        "addresses": []
-      },
-      "totalAmount": 89.99,
-      "totalQuantity": 1,
-      "paymentMethod": "cash"
-    },
-    {
-      "id": "ef2b",
-      "items": [
-        {
-          "id": "3f23",
-          "title": "Powder Canister",
-          "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
-          "category": "Beauty",
-          "price": 14.99,
-          "discountPercentage": 18.14,
-          "rating": 3.82,
-          "stock": 59,
-          "tags": [
-            "beauty",
-            "face powder"
-          ],
-          "brand": "Velvet Touch",
-          "sku": "9EN8WLT2",
-          "weight": 8,
-          "dimensions": {
-            "width": 24.16,
-            "height": 10.7,
-            "depth": 11.07
-          },
-          "warrantyInformation": "2 year warranty",
-          "shippingInformation": "Ships in 1-2 business days",
-          "availabilityStatus": "In Stock",
-          "reviews": [
-            {
-              "rating": 5,
-              "comment": "Very happy with my purchase!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Ethan Thompson",
-              "reviewerEmail": "ethan.thompson@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Great value for money!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Levi Hicks",
-              "reviewerEmail": "levi.hicks@x.dummyjson.com"
-            },
-            {
-              "rating": 5,
-              "comment": "Highly impressed!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Hazel Gardner",
-              "reviewerEmail": "hazel.gardner@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "60 days return policy",
-          "minimumOrderQuantity": 25,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.618Z",
-            "updatedAt": "2024-05-23T08:56:21.618Z",
-            "barcode": "0516267971277",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
-          "quantity": 1,
-          "user": "4e46"
-        }
-      ],
-      "user": {
-        "id": "4e46",
-        "name": "D1",
-        "email": "D1@gmail.com",
-        "password": "Divu@123",
-        "addresses": [
-          {
-            "firstname": "D",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "1234567890",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          }
-        ]
-      },
-      "totalAmount": 14.99,
-      "totalQuantity": 1,
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "firstname": "D",
-        "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "1234567890",
-        "street": "457/2670 G.H board kavinagar, Bapunagar",
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "pincode": "380024"
-      }
-    },
-    {
-      "id": "fdd8",
-      "items": [
-        {
-          "id": "36ae",
-          "title": "Powder Canister",
-          "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
-          "category": "Beauty",
-          "price": 14.99,
-          "discountPercentage": 18.14,
-          "rating": 3.82,
-          "stock": 59,
-          "tags": [
-            "beauty",
-            "face powder"
-          ],
-          "brand": "Velvet Touch",
-          "sku": "9EN8WLT2",
-          "weight": 8,
-          "dimensions": {
-            "width": 24.16,
-            "height": 10.7,
-            "depth": 11.07
-          },
-          "warrantyInformation": "2 year warranty",
-          "shippingInformation": "Ships in 1-2 business days",
-          "availabilityStatus": "In Stock",
-          "reviews": [
-            {
-              "rating": 5,
-              "comment": "Very happy with my purchase!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Ethan Thompson",
-              "reviewerEmail": "ethan.thompson@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Great value for money!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Levi Hicks",
-              "reviewerEmail": "levi.hicks@x.dummyjson.com"
-            },
-            {
-              "rating": 5,
-              "comment": "Highly impressed!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Hazel Gardner",
-              "reviewerEmail": "hazel.gardner@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "60 days return policy",
-          "minimumOrderQuantity": 25,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.618Z",
-            "updatedAt": "2024-05-23T08:56:21.618Z",
-            "barcode": "0516267971277",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
-          "quantity": 1,
-          "user": "53b0"
-        }
-      ],
-      "user": {
-        "id": "53b0",
-        "name": "H1",
-        "email": "H1@gmail.com",
-        "password": "Hiren@123",
-        "addresses": [
-          {
-            "firstname": "Hiren",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "6352270452",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          },
-          {
-            "firstname": "H",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "7573867529",
-            "street": "457/2670, Nikol",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          }
-        ]
-      },
-      "totalAmount": 14.99,
-      "totalQuantity": 1,
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "firstname": "Hiren",
-        "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "6352270452",
-        "street": "457/2670 G.H board kavinagar, Bapunagar",
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "pincode": "380024"
-      }
-    },
-    {
-      "id": "6e22",
-      "items": [
-        {
-          "id": "12c8",
-          "title": "Eyeshadow Palette with Mirror",
-          "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
-          "category": "Beauty",
-          "price": 19.99,
-          "discountPercentage": 5.5,
-          "rating": 3.28,
-          "stock": 44,
-          "tags": [
-            "beauty",
-            "eyeshadow"
-          ],
-          "brand": "Glamour Beauty",
-          "sku": "MVCFH27F",
-          "weight": 3,
-          "dimensions": {
-            "width": 12.42,
-            "height": 8.63,
-            "depth": 29.13
-          },
-          "warrantyInformation": "1 year warranty",
-          "shippingInformation": "Ships in 2 weeks",
-          "availabilityStatus": "In Stock",
-          "reviews": [
-            {
-              "rating": 4,
-              "comment": "Very satisfied!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Liam Garcia",
-              "reviewerEmail": "liam.garcia@x.dummyjson.com"
-            },
-            {
-              "rating": 1,
-              "comment": "Very disappointed!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Nora Russell",
-              "reviewerEmail": "nora.russell@x.dummyjson.com"
-            },
-            {
-              "rating": 5,
-              "comment": "Highly impressed!",
-              "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Elena Baker",
-              "reviewerEmail": "elena.baker@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "30 days return policy",
-          "minimumOrderQuantity": 32,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.618Z",
-            "updatedAt": "2024-05-23T08:56:21.618Z",
-            "barcode": "2817839095220",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
-          "quantity": 1,
-          "user": "53b0"
-        }
-      ],
-      "user": {
-        "id": "53b0",
-        "name": "H1",
-        "email": "H1@gmail.com",
-        "password": "Hiren@123",
-        "addresses": [
-          {
-            "firstname": "Hiren",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "6352270452",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          },
-          {
-            "firstname": "H",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "7573867529",
-            "street": "457/2670, Nikol",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          }
-        ]
-      },
-      "totalAmount": 19.99,
-      "totalQuantity": 1,
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "firstname": "Hiren",
-        "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "6352270452",
-        "street": "457/2670 G.H board kavinagar, Bapunagar",
         "city": "Ahmedabad",
         "state": "Gujarat",
         "pincode": "380024"

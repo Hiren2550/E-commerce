@@ -19,7 +19,6 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Signuppage />} />
         <Route path="/login" element={<Loginpage />} />
-        <Route path="/about" element={<Aboupage />} />
         {/* <Route element={<PrivateRoute />}> */}
         <Route
           path="/"
@@ -74,6 +73,14 @@ function App() {
           element={
             <PrivateRoute>
               <Myorderpage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <PrivateRoute>
+              <Aboupage />
             </PrivateRoute>
           }
         />
