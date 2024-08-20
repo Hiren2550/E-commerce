@@ -9,7 +9,7 @@ import {
 } from "../cart/cartSlice";
 import { useForm } from "react-hook-form";
 import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
-import { createOrderAsync } from "../order/orderSlice";
+import { createOrderAsync, selectCurrentOrder } from "../order/orderSlice";
 
 const Checkout = () => {
   const user = useSelector(selectLoggedInUser);
@@ -23,7 +23,7 @@ const Checkout = () => {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-
+  const currentOrder = useSelector(selectCurrentOrder);
   let items = useSelector(selectCart);
   items = [...items].reverse();
   const handleQtyChange = (e, item) => {
@@ -58,6 +58,13 @@ const Checkout = () => {
   return (
     <>
       {!items.length && <Navigate to={"/"} replace={true}></Navigate>}
+      {currentOrder && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
+
       <div className="mx-auto max-w-6xl px-4  sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className=" mt-6 lg:col-span-3 p-3 ">

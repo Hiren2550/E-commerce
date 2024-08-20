@@ -8,6 +8,7 @@ import Checkoutpage from "./pages/Checkoutpage";
 import Productdetailspage from "./pages/Productdetailspage";
 import PrivateRoute from "./features/auth/components/PrivateRoute";
 import Pagenotfound from "./pages/Pagenotfound";
+import Ordersuccesspage from "./pages/Ordersuccesspage";
 
 function App() {
   return (
@@ -45,6 +46,14 @@ function App() {
           element={
             <PrivateRoute>
               <Productdetailspage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/order-success/:id"
+          element={
+            <PrivateRoute>
+              <Ordersuccesspage />
             </PrivateRoute>
           }
         />

@@ -4,9 +4,9 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByIdAsync, selectProduct } from "../productSlice";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import profile from "../../../assets/profile.png";
-import { addToCartAsync } from "../../cart/cartSlice";
+import { addToCartAsync, cartStatus } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
 
 const colors = [
@@ -39,6 +39,7 @@ const Productdetails = () => {
   const params = useParams();
   //console.log(params.id);
   const user = useSelector(selectLoggedInUser);
+  const productAddStaus = useSelector(cartStatus);
   const handlecart = (e) => {
     e.preventDefault();
     const newItem = { ...product, quantity: 1, user: user.id };
@@ -50,6 +51,7 @@ const Productdetails = () => {
   }, [dispatch, params.id]);
   return (
     <>
+      {productAddStaus && <Navigate to={"/checkout"} replace={true}></Navigate>}
       {product && (
         <div className="bg-white">
           <div className="pt-6">
