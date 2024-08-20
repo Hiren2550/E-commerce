@@ -116,7 +116,7 @@ const Cart = () => {
               Checkout
             </Link>
           </div>
-          <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+          <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
             <p>
               or{" "}
               <Link to={"/"}>

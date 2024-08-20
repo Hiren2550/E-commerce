@@ -6,6 +6,7 @@ const Myorderpage = () => {
   return (
     <div>
       <Navbar>
+        <h1 className="text-2xl font-bold text-center my-2">My Orders </h1>
         <Myorder />
       </Navbar>
     </div>

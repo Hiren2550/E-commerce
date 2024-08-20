@@ -500,20 +500,20 @@ const Checkout = () => {
                   Shipping and taxes calculated at checkout.
                 </p>
                 <div className="mt-6">
-                  <div
+                  <button
+                    disabled={user.addresses.length ? false : true}
                     onClick={handleOrder}
-                    className=" cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                    className=" w-full cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
                     Order Now
-                  </div>
+                  </button>
                 </div>
-                <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
                   <p>
                     or{" "}
                     <Link to={"/"}>
                       <button
                         type="button"
-                        onClick={() => setOpen(false)}
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Continue Shopping

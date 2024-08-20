@@ -4,7 +4,7 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByIdAsync, selectProduct } from "../productSlice";
-import { Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import profile from "../../../assets/profile.png";
 import { addToCartAsync } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
@@ -336,6 +336,20 @@ const Productdetails = () => {
                   >
                     Add to Cart
                   </button>
+                  <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
+                    <p>
+                      or{" "}
+                      <Link to={"/"}>
+                        <button
+                          type="button"
+                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                        >
+                          Continue Shopping
+                          <span aria-hidden="true"> &rarr;</span>
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
                 </form>
               </div>
 

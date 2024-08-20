@@ -6527,15 +6527,529 @@
           "pincode": "380024"
         }
       ]
+    },
+    {
+      "id": "ec4a",
+      "name": "Raj shah",
+      "email": "Raj1@gmail.com",
+      "password": "Raj@1234",
+      "addresses": []
+    },
+    {
+      "id": "2f64",
+      "name": "M",
+      "email": "M1@gmail.com",
+      "password": "Me@123456",
+      "addresses": [
+        {
+          "firstname": "MEENA",
+          "lastname": "KUMARI",
+          "email": "me12@gmail.com",
+          "phone": "6576893456",
+          "street": "Bapunagar",
+          "city": "Rajkot",
+          "state": "Gujarat",
+          "pincode": "456702"
+        }
+      ]
     }
   ],
   "cart": [],
   "orders": [
     {
-      "id": "11d1",
+      "id": "ccfd",
       "items": [
         {
-          "id": "58b6",
+          "id": "e29e",
+          "title": "Rolex Cellini Date Black Dial",
+          "description": "The Rolex Cellini Date with Black Dial is a classic and prestigious watch. With a black dial and date complication, it exudes sophistication and is a symbol of Rolex's heritage.",
+          "category": "watches",
+          "price": 8999.99,
+          "discountPercentage": 14.28,
+          "rating": 3.61,
+          "stock": 84,
+          "tags": [
+            "watches",
+            "luxury watches"
+          ],
+          "brand": "Rolex",
+          "sku": "J3GPKQW0",
+          "weight": 6,
+          "dimensions": {
+            "width": 12.17,
+            "height": 27.99,
+            "depth": 10.36
+          },
+          "warrantyInformation": "5 year warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Very pleased!",
+              "date": "2024-05-23T08:56:21.624Z",
+              "reviewerName": "Gavin Stanley",
+              "reviewerEmail": "gavin.stanley@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.624Z",
+              "reviewerName": "Stella Hughes",
+              "reviewerEmail": "stella.hughes@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Would buy again!",
+              "date": "2024-05-23T08:56:21.624Z",
+              "reviewerName": "Paisley Bell",
+              "reviewerEmail": "paisley.bell@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 1,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.624Z",
+            "updatedAt": "2024-05-23T08:56:21.624Z",
+            "barcode": "8917585155737",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/1.png",
+            "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/2.png",
+            "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/3.png",
+            "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/thumbnail.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/thumbnail.png",
+          "quantity": 1,
+          "user": "ec4a"
+        },
+        {
+          "id": "a945",
+          "title": "Apple MacBook Pro 14 Inch Space Grey",
+          "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+          "category": "laptops",
+          "price": 1999.99,
+          "discountPercentage": 9.25,
+          "rating": 3.13,
+          "stock": 39,
+          "tags": [
+            "laptops",
+            "apple"
+          ],
+          "brand": "Apple",
+          "sku": "QDKO6NRJ",
+          "weight": 4,
+          "dimensions": {
+            "width": 12.38,
+            "height": 21.55,
+            "depth": 27.95
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 week",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Would buy again!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "Hunter Gordon",
+              "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Would buy again!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "Emma Wilson",
+              "reviewerEmail": "emma.wilson@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very pleased!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "David Martinez",
+              "reviewerEmail": "david.martinez@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 1,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.622Z",
+            "updatedAt": "2024-05-23T08:56:21.622Z",
+            "barcode": "3883623063065",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/3.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png",
+          "quantity": 2,
+          "user": "ec4a"
+        }
+      ],
+      "user": {
+        "id": "ec4a",
+        "name": "Raj shah",
+        "email": "Raj1@gmail.com",
+        "password": "Raj@1234",
+        "addresses": [
+          {
+            "firstname": "Raj",
+            "lastname": "Shah",
+            "email": "Raj1@gmail.com",
+            "phone": "9856783465",
+            "street": "Sarkhej-Sanad circle",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380034"
+          }
+        ]
+      },
+      "totalAmount": 12999.97,
+      "totalQuantity": 3,
+      "paymentMethod": "online",
+      "selectedAddress": {
+        "firstname": "Raj",
+        "lastname": "Shah",
+        "email": "Raj1@gmail.com",
+        "phone": "9856783465",
+        "street": "Sarkhej-Sanad circle",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380034"
+      }
+    },
+    {
+      "id": "ecef",
+      "items": [
+        {
+          "id": "ad47",
+          "title": "Annibale Colombo Sofa",
+          "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+          "category": "furniture",
+          "price": 2499.99,
+          "discountPercentage": 18.54,
+          "rating": 3.08,
+          "stock": 16,
+          "tags": [
+            "furniture",
+            "sofas"
+          ],
+          "brand": "Annibale Colombo",
+          "sku": "LUU95CQP",
+          "weight": 3,
+          "dimensions": {
+            "width": 20.97,
+            "height": 19.11,
+            "depth": 25.81
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships overnight",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Tyler Davis",
+              "reviewerEmail": "tyler.davis@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Excellent quality!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Hannah Robinson",
+              "reviewerEmail": "hannah.robinson@x.dummyjson.com"
+            },
+            {
+              "rating": 3,
+              "comment": "Waste of money!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Madison Collins",
+              "reviewerEmail": "madison.collins@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "7 days return policy",
+          "minimumOrderQuantity": 1,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.620Z",
+            "updatedAt": "2024-05-23T08:56:21.620Z",
+            "barcode": "0426785817074",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/1.png",
+            "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/2.png",
+            "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/3.png",
+            "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png",
+          "quantity": 1,
+          "user": "ec4a"
+        }
+      ],
+      "user": {
+        "id": "ec4a",
+        "name": "Raj shah",
+        "email": "Raj1@gmail.com",
+        "password": "Raj@1234",
+        "addresses": [
+          {
+            "firstname": "Raj",
+            "lastname": "Shah",
+            "email": "Raj1@gmail.com",
+            "phone": "9856783465",
+            "street": "Sarkhej-Sanad circle",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380034"
+          }
+        ]
+      },
+      "totalAmount": 2499.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Raj",
+        "lastname": "Shah",
+        "email": "Raj1@gmail.com",
+        "phone": "9856783465",
+        "street": "Sarkhej-Sanad circle",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380034"
+      }
+    },
+    {
+      "id": "598c",
+      "items": [
+        {
+          "id": "7d56",
+          "title": "Men Check Shirt",
+          "description": "The Men Check Shirt is a classic and versatile shirt featuring a stylish check pattern. Suitable for various occasions, it adds a smart and polished touch to your wardrobe.",
+          "category": "shirts",
+          "price": 27.99,
+          "discountPercentage": 14.21,
+          "rating": 2.9,
+          "stock": 69,
+          "tags": [
+            "clothing",
+            "men's shirts"
+          ],
+          "brand": "Urban Chic",
+          "sku": "L902AU9L",
+          "weight": 1,
+          "dimensions": {
+            "width": 18.43,
+            "height": 6.96,
+            "depth": 20.73
+          },
+          "warrantyInformation": "3 year warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 1,
+              "comment": "Would not buy again!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Elena Long",
+              "reviewerEmail": "elena.long@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Very dissatisfied!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Mason Parker",
+              "reviewerEmail": "mason.parker@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Sofia Mitchell",
+              "reviewerEmail": "sofia.mitchell@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "90 days return policy",
+          "minimumOrderQuantity": 8,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.623Z",
+            "updatedAt": "2024-05-23T08:56:21.623Z",
+            "barcode": "1360512025227",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Men%20Check%20Shirt/1.png",
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Men%20Check%20Shirt/2.png",
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Men%20Check%20Shirt/3.png",
+            "https://cdn.dummyjson.com/products/images/mens-shirts/Men%20Check%20Shirt/4.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Men%20Check%20Shirt/thumbnail.png",
+          "quantity": 6,
+          "user": "ec4a"
+        }
+      ],
+      "user": {
+        "id": "ec4a",
+        "name": "Raj shah",
+        "email": "Raj1@gmail.com",
+        "password": "Raj@1234",
+        "addresses": [
+          {
+            "firstname": "Raj",
+            "lastname": "Shah",
+            "email": "Raj1@gmail.com",
+            "phone": "9856783465",
+            "street": "Sarkhej-Sanad circle",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380034"
+          },
+          {
+            "firstname": "Hitesh",
+            "lastname": "Sharma",
+            "email": "Hitesh12@gmail.com",
+            "phone": "9876543212",
+            "street": "Somnath Society",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "354603"
+          }
+        ]
+      },
+      "totalAmount": 167.94,
+      "totalQuantity": 6,
+      "paymentMethod": "online",
+      "selectedAddress": {
+        "firstname": "Hitesh",
+        "lastname": "Sharma",
+        "email": "Hitesh12@gmail.com",
+        "phone": "9876543212",
+        "street": "Somnath Society",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "354603"
+      }
+    },
+    {
+      "id": "34c1",
+      "items": [
+        {
+          "id": "29cf",
+          "title": "Dolce Shine Eau de",
+          "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+          "category": "fragrances",
+          "price": 69.99,
+          "discountPercentage": 11.47,
+          "rating": 2.68,
+          "stock": 3,
+          "tags": [
+            "fragrances",
+            "perfumes"
+          ],
+          "brand": "Dolce & Gabbana",
+          "sku": "1NBFK980",
+          "weight": 5,
+          "dimensions": {
+            "width": 17,
+            "height": 24.57,
+            "depth": 13.3
+          },
+          "warrantyInformation": "5 year warranty",
+          "shippingInformation": "Ships in 1-2 business days",
+          "availabilityStatus": "Low Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Xavier Wright",
+              "reviewerEmail": "xavier.wright@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Poor quality!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Mila Hernandez",
+              "reviewerEmail": "mila.hernandez@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Sophia Brown",
+              "reviewerEmail": "sophia.brown@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 9,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.619Z",
+            "updatedAt": "2024-05-23T08:56:21.619Z",
+            "barcode": "1939383392674",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/1.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/2.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/3.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png",
+          "quantity": 1,
+          "user": "ec4a"
+        }
+      ],
+      "user": {
+        "id": "ec4a",
+        "name": "Raj shah",
+        "email": "Raj1@gmail.com",
+        "password": "Raj@1234",
+        "addresses": [
+          {
+            "firstname": "Raj",
+            "lastname": "Shah",
+            "email": "Raj1@gmail.com",
+            "phone": "9856783465",
+            "street": "Sarkhej-Sanad circle",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380034"
+          },
+          {
+            "firstname": "Hitesh",
+            "lastname": "Sharma",
+            "email": "Hitesh12@gmail.com",
+            "phone": "9876543212",
+            "street": "Somnath Society",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "354603"
+          }
+        ]
+      },
+      "totalAmount": 69.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Hitesh",
+        "lastname": "Sharma",
+        "email": "Hitesh12@gmail.com",
+        "phone": "9876543212",
+        "street": "Somnath Society",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "354603"
+      }
+    },
+    {
+      "id": "5f77",
+      "items": [
+        {
+          "id": "101e",
           "title": "Powder Canister",
           "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
           "category": "Beauty",
@@ -6597,231 +7111,121 @@
           ],
           "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
           "quantity": 1,
-          "user": "53b0"
-        }
-      ],
-      "user": {
-        "id": "53b0",
-        "name": "H1",
-        "email": "H1@gmail.com",
-        "password": "Hiren@123",
-        "addresses": [
-          {
-            "firstname": "Hiren",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "6352270452",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          },
-          {
-            "firstname": "H",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "7573867529",
-            "street": "457/2670, Nikol",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
-          }
-        ]
-      },
-      "totalAmount": 14.99,
-      "totalQuantity": 1,
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "firstname": "Hiren",
-        "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "6352270452",
-        "street": "457/2670 G.H board kavinagar, Bapunagar",
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "pincode": "380024"
-      }
-    },
-    {
-      "id": "28fb",
-      "items": [
-        {
-          "id": "2112",
-          "title": "Lenovo Yoga 920",
-          "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
-          "category": "laptops",
-          "price": 1099.99,
-          "discountPercentage": 7.77,
-          "rating": 2.98,
-          "stock": 71,
-          "tags": [
-            "laptops"
-          ],
-          "brand": "Lenovo",
-          "sku": "MST9WZQY",
-          "weight": 7,
-          "dimensions": {
-            "width": 11.02,
-            "height": 14.45,
-            "depth": 24.09
-          },
-          "warrantyInformation": "Lifetime warranty",
-          "shippingInformation": "Ships in 1 week",
-          "availabilityStatus": "In Stock",
-          "reviews": [
-            {
-              "rating": 4,
-              "comment": "Very happy with my purchase!",
-              "date": "2024-05-23T08:56:21.623Z",
-              "reviewerName": "Paisley Bell",
-              "reviewerEmail": "paisley.bell@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Very pleased!",
-              "date": "2024-05-23T08:56:21.623Z",
-              "reviewerName": "Lincoln Kelly",
-              "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Great product!",
-              "date": "2024-05-23T08:56:21.623Z",
-              "reviewerName": "Luna Russell",
-              "reviewerEmail": "luna.russell@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "No return policy",
-          "minimumOrderQuantity": 1,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.623Z",
-            "updatedAt": "2024-05-23T08:56:21.623Z",
-            "barcode": "9590995785298",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png",
-            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/2.png",
-            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/3.png",
-            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png",
-          "quantity": 1,
-          "user": "53b0"
+          "user": "ec4a"
         },
         {
-          "id": "df5c",
-          "title": "Blue & Black Check Shirt",
-          "description": "The Blue & Black Check Shirt is a stylish and comfortable men's shirt featuring a classic check pattern. Made from high-quality fabric, it's suitable for both casual and semi-formal occasions.",
-          "category": "shirts",
-          "price": 29.99,
-          "discountPercentage": 1.41,
-          "rating": 4.19,
-          "stock": 44,
+          "id": "c46f",
+          "title": "Powder Canister",
+          "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+          "category": "Beauty",
+          "price": 14.99,
+          "discountPercentage": 18.14,
+          "rating": 3.82,
+          "stock": 59,
           "tags": [
-            "clothing",
-            "men's shirts"
+            "beauty",
+            "face powder"
           ],
-          "brand": "Fashion Trends",
-          "sku": "6RJDTVCU",
-          "weight": 6,
+          "brand": "Velvet Touch",
+          "sku": "9EN8WLT2",
+          "weight": 8,
           "dimensions": {
-            "width": 17.25,
-            "height": 27.31,
-            "depth": 20.88
+            "width": 24.16,
+            "height": 10.7,
+            "depth": 11.07
           },
-          "warrantyInformation": "No warranty",
-          "shippingInformation": "Ships in 1 month",
+          "warrantyInformation": "2 year warranty",
+          "shippingInformation": "Ships in 1-2 business days",
           "availabilityStatus": "In Stock",
           "reviews": [
             {
+              "rating": 5,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Ethan Thompson",
+              "reviewerEmail": "ethan.thompson@x.dummyjson.com"
+            },
+            {
               "rating": 4,
-              "comment": "Highly recommended!",
-              "date": "2024-05-23T08:56:21.623Z",
-              "reviewerName": "Mason Parker",
-              "reviewerEmail": "mason.parker@x.dummyjson.com"
+              "comment": "Great value for money!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Levi Hicks",
+              "reviewerEmail": "levi.hicks@x.dummyjson.com"
             },
             {
               "rating": 5,
               "comment": "Highly impressed!",
-              "date": "2024-05-23T08:56:21.623Z",
-              "reviewerName": "Avery Perez",
-              "reviewerEmail": "avery.perez@x.dummyjson.com"
-            },
-            {
-              "rating": 5,
-              "comment": "Fast shipping!",
-              "date": "2024-05-23T08:56:21.623Z",
-              "reviewerName": "Nathan Reed",
-              "reviewerEmail": "nathan.reed@x.dummyjson.com"
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Hazel Gardner",
+              "reviewerEmail": "hazel.gardner@x.dummyjson.com"
             }
           ],
-          "returnPolicy": "7 days return policy",
-          "minimumOrderQuantity": 4,
+          "returnPolicy": "60 days return policy",
+          "minimumOrderQuantity": 25,
           "meta": {
-            "createdAt": "2024-05-23T08:56:21.623Z",
-            "updatedAt": "2024-05-23T08:56:21.623Z",
-            "barcode": "8840720880947",
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "0516267971277",
             "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
           },
           "images": [
-            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/1.png",
-            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/2.png",
-            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/3.png",
-            "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/4.png"
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
           ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/thumbnail.png",
-          "quantity": 6,
-          "user": "53b0"
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+          "quantity": 1,
+          "user": "ec4a"
         }
       ],
       "user": {
-        "id": "53b0",
-        "name": "H1",
-        "email": "H1@gmail.com",
-        "password": "Hiren@123",
+        "id": "ec4a",
+        "name": "Raj shah",
+        "email": "Raj1@gmail.com",
+        "password": "Raj@1234",
         "addresses": [
           {
-            "firstname": "Hiren",
+            "firstname": "Raj",
             "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "6352270452",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "email": "Raj1@gmail.com",
+            "phone": "9856783465",
+            "street": "Sarkhej-Sanad circle",
             "city": "Ahmedabad",
             "state": "Gujarat",
-            "pincode": "380024"
+            "pincode": "380034"
           },
           {
-            "firstname": "H",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "7573867529",
-            "street": "457/2670, Nikol",
+            "firstname": "Hitesh",
+            "lastname": "Sharma",
+            "email": "Hitesh12@gmail.com",
+            "phone": "9876543212",
+            "street": "Somnath Society",
             "city": "Ahmedabad",
             "state": "Gujarat",
-            "pincode": "380024"
+            "pincode": "354603"
           }
         ]
       },
-      "totalAmount": 1279.93,
-      "totalQuantity": 7,
+      "totalAmount": 29.98,
+      "totalQuantity": 2,
       "paymentMethod": "cash",
       "selectedAddress": {
-        "firstname": "H",
+        "firstname": "Raj",
         "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "7573867529",
-        "street": "457/2670, Nikol",
+        "email": "Raj1@gmail.com",
+        "phone": "9856783465",
+        "street": "Sarkhej-Sanad circle",
         "city": "Ahmedabad",
         "state": "Gujarat",
-        "pincode": "380024"
+        "pincode": "380034"
       }
     },
     {
-      "id": "eeaa",
+      "id": "e5bb",
       "items": [
         {
-          "id": "1104",
+          "id": "edcf",
           "title": "Eyeshadow Palette with Mirror",
           "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
           "category": "Beauty",
@@ -6883,34 +7287,24 @@
           ],
           "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
           "quantity": 1,
-          "user": "53b0"
+          "user": "2f64"
         }
       ],
       "user": {
-        "id": "53b0",
-        "name": "H1",
-        "email": "H1@gmail.com",
-        "password": "Hiren@123",
+        "id": "2f64",
+        "name": "M",
+        "email": "M1@gmail.com",
+        "password": "Me@123456",
         "addresses": [
           {
-            "firstname": "Hiren",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "6352270452",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
-            "city": "Ahmedabad",
+            "firstname": "MEENA",
+            "lastname": "KUMARI",
+            "email": "me12@gmail.com",
+            "phone": "6576893456",
+            "street": "Bapunagar",
+            "city": "Rajkot",
             "state": "Gujarat",
-            "pincode": "380024"
-          },
-          {
-            "firstname": "H",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "7573867529",
-            "street": "457/2670, Nikol",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
+            "pincode": "456702"
           }
         ]
       },
@@ -6918,125 +7312,115 @@
       "totalQuantity": 1,
       "paymentMethod": "cash",
       "selectedAddress": {
-        "firstname": "Hiren",
-        "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "6352270452",
-        "street": "457/2670 G.H board kavinagar, Bapunagar",
-        "city": "Ahmedabad",
+        "firstname": "MEENA",
+        "lastname": "KUMARI",
+        "email": "me12@gmail.com",
+        "phone": "6576893456",
+        "street": "Bapunagar",
+        "city": "Rajkot",
         "state": "Gujarat",
-        "pincode": "380024"
+        "pincode": "456702"
       }
     },
     {
-      "id": "2a05",
+      "id": "2493",
       "items": [
         {
-          "id": "660b",
-          "title": "Essence Mascara Lash Princess",
-          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "id": "169f",
+          "title": "Eyeshadow Palette with Mirror",
+          "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
           "category": "Beauty",
-          "price": 9.99,
-          "discountPercentage": 7.17,
-          "rating": 4.94,
-          "stock": 5,
+          "price": 19.99,
+          "discountPercentage": 5.5,
+          "rating": 3.28,
+          "stock": 44,
           "tags": [
             "beauty",
-            "mascara"
+            "eyeshadow"
           ],
-          "brand": "Essence",
-          "sku": "RCH45Q1A",
-          "weight": 2,
+          "brand": "Glamour Beauty",
+          "sku": "MVCFH27F",
+          "weight": 3,
           "dimensions": {
-            "width": 23.17,
-            "height": 14.43,
-            "depth": 28.01
+            "width": 12.42,
+            "height": 8.63,
+            "depth": 29.13
           },
-          "warrantyInformation": "1 month warranty",
-          "shippingInformation": "Ships in 1 month",
-          "availabilityStatus": "Low Stock",
+          "warrantyInformation": "1 year warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
           "reviews": [
             {
-              "rating": 2,
-              "comment": "Very unhappy with my purchase!",
+              "rating": 4,
+              "comment": "Very satisfied!",
               "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "John Doe",
-              "reviewerEmail": "john.doe@x.dummyjson.com"
+              "reviewerName": "Liam Garcia",
+              "reviewerEmail": "liam.garcia@x.dummyjson.com"
             },
             {
-              "rating": 2,
-              "comment": "Not as described!",
+              "rating": 1,
+              "comment": "Very disappointed!",
               "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Nolan Gonzalez",
-              "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+              "reviewerName": "Nora Russell",
+              "reviewerEmail": "nora.russell@x.dummyjson.com"
             },
             {
               "rating": 5,
-              "comment": "Very satisfied!",
+              "comment": "Highly impressed!",
               "date": "2024-05-23T08:56:21.618Z",
-              "reviewerName": "Scarlett Wright",
-              "reviewerEmail": "scarlett.wright@x.dummyjson.com"
+              "reviewerName": "Elena Baker",
+              "reviewerEmail": "elena.baker@x.dummyjson.com"
             }
           ],
           "returnPolicy": "30 days return policy",
-          "minimumOrderQuantity": 24,
+          "minimumOrderQuantity": 32,
           "meta": {
             "createdAt": "2024-05-23T08:56:21.618Z",
             "updatedAt": "2024-05-23T08:56:21.618Z",
-            "barcode": "9164035109868",
+            "barcode": "2817839095220",
             "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
           },
           "images": [
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
           ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
           "quantity": 1,
-          "user": "53b0"
+          "user": "2f64"
         }
       ],
       "user": {
-        "id": "53b0",
-        "name": "H1",
-        "email": "H1@gmail.com",
-        "password": "Hiren@123",
+        "id": "2f64",
+        "name": "M",
+        "email": "M1@gmail.com",
+        "password": "Me@123456",
         "addresses": [
           {
-            "firstname": "Hiren",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "6352270452",
-            "street": "457/2670 G.H board kavinagar, Bapunagar",
-            "city": "Ahmedabad",
+            "firstname": "MEENA",
+            "lastname": "KUMARI",
+            "email": "me12@gmail.com",
+            "phone": "6576893456",
+            "street": "Bapunagar",
+            "city": "Rajkot",
             "state": "Gujarat",
-            "pincode": "380024"
-          },
-          {
-            "firstname": "H",
-            "lastname": "Shah",
-            "email": "hirenshah2540@gmail.com",
-            "phone": "7573867529",
-            "street": "457/2670, Nikol",
-            "city": "Ahmedabad",
-            "state": "Gujarat",
-            "pincode": "380024"
+            "pincode": "456702"
           }
         ]
       },
-      "totalAmount": 9.99,
+      "totalAmount": 19.99,
       "totalQuantity": 1,
       "paymentMethod": "cash",
       "selectedAddress": {
-        "firstname": "Hiren",
-        "lastname": "Shah",
-        "email": "hirenshah2540@gmail.com",
-        "phone": "6352270452",
-        "street": "457/2670 G.H board kavinagar, Bapunagar",
-        "city": "Ahmedabad",
+        "firstname": "MEENA",
+        "lastname": "KUMARI",
+        "email": "me12@gmail.com",
+        "phone": "6576893456",
+        "street": "Bapunagar",
+        "city": "Rajkot",
         "state": "Gujarat",
-        "pincode": "380024"
+        "pincode": "456702"
       }
     }
   ]

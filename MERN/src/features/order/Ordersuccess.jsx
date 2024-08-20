@@ -96,7 +96,7 @@ const Order = () => {
             </div>
             <div className="flex items-center space-x-4">
               <Link
-                to={"#"}
+                to={"/my-orders"}
                 className="cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
               >
                 Track your order
