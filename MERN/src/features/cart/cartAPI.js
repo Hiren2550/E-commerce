@@ -49,3 +49,16 @@ export function deleteItem(itemId) {
     resolve({ data });
   });
 }
+export function resetCart(userId) {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:8080/cart/?user=" + userId, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userId),
+    });
+    const data = await response.json();
+    resolve({ data });
+  });
+}

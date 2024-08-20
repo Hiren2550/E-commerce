@@ -3,12 +3,14 @@ import {
   addToCart,
   deleteItem,
   fetchCartByUserId,
+  resetCart,
   updateCart,
 } from "./cartAPI";
 
 const initialState = {
   items: [],
   status: "idle",
+
   error: null,
   count: 0,
 };
@@ -42,6 +44,14 @@ export const deleteItemAsync = createAsyncThunk(
   "cart/deleteItem",
   async (itemId) => {
     const response = await deleteItem(itemId);
+    // console.log(response.data);
+    return response.data.id;
+  }
+);
+export const resetCartAsync = createAsyncThunk(
+  "cart/resetCart",
+  async (userId) => {
+    const response = await resetCart(userId);
     // console.log(response.data);
     return response.data.id;
   }
