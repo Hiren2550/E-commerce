@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
-import { createOrder, fetchOrderById } from "./orderAPI";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createOrder } from "./orderAPI";
 
 const initialState = {
   orders: [],
@@ -17,21 +17,13 @@ export const createOrderAsync = createAsyncThunk(
     return response.data;
   }
 );
-export const fetchOrderByIdAsync = createAsyncThunk(
-  "order/fetchOrderById",
-  async (orderId) => {
-    const response = await fetchOrderById(orderId);
-    // console.log(response.data);
-    return response.data;
-  }
-);
 
 const orderSlice = createSlice({
   name: "order",
   initialState,
   reducers: {
-    increment(state) {
-      state.count = state.count + 69;
+    resetOrder: (state) => {
+      state.currentOrder = null;
     },
   },
   extraReducers: (builder) => {
@@ -43,18 +35,11 @@ const orderSlice = createSlice({
         state.status = "idle";
         state.orders.push(action.payload);
         state.currentOrder = action.payload;
-      })
-      .addCase(fetchOrderByIdAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchOrderByIdAsync.fulfilled, (state, action) => {
-        state.status = "idle";
-        state.currentOrder = action.payload;
       });
   },
 });
 
-export const { increment } = orderSlice.actions;
+export const { resetOrder } = orderSlice.actions;
 export const selectCurrentOrder = (state) => state.order.currentOrder;
 
 export default orderSlice.reducer;

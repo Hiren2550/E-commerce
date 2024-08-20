@@ -10,7 +10,6 @@ import {
 const initialState = {
   items: [],
   status: "idle",
-
   error: null,
   count: 0,
 };
@@ -52,8 +51,8 @@ export const resetCartAsync = createAsyncThunk(
   "cart/resetCart",
   async (userId) => {
     const response = await resetCart(userId);
-    // console.log(response.data);
-    return response.data.id;
+    //console.log(response.status);
+    return response.status;
   }
 );
 const cartSlice = createSlice({
@@ -99,6 +98,13 @@ const cartSlice = createSlice({
           (item) => item.id === action.payload
         );
         state.items.splice(index, 1);
+      })
+      .addCase(resetCartAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(resetCartAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.items = [];
       });
   },
 });

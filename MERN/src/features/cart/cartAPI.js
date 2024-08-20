@@ -42,6 +42,7 @@ export function deleteItem(itemId) {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(itemId),
     });
@@ -49,16 +50,15 @@ export function deleteItem(itemId) {
     resolve({ data });
   });
 }
+
 export function resetCart(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/cart/?user=" + userId, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userId),
-    });
-    const data = await response.json();
-    resolve({ data });
+    const response = await fetchCartByUserId(userId);
+    const items = response.data;
+    for (let item of items) {
+      const response = await deleteItem(item.id);
+      resolve(true);
+    }
+    resolve({ status: "successfully reset cart" });
   });
 }
