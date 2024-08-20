@@ -7,6 +7,7 @@ import Cartpage from "./pages/Cartpage";
 import Checkoutpage from "./pages/Checkoutpage";
 import Productdetailspage from "./pages/Productdetailspage";
 import PrivateRoute from "./features/auth/components/PrivateRoute";
+import Pagenotfound from "./pages/Pagenotfound";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<Pagenotfound />} />
         {/* </Route> */}
       </Routes>
     </BrowserRouter>
