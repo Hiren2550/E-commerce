@@ -8,11 +8,11 @@ const Order = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const [currentOrder, setCurrentOrder] = useState(null);
-  const myOrder = useSelector(selectCurrentOrder);
+  const myCurrentOrder = useSelector(selectCurrentOrder);
 
   useEffect(() => {
-    setCurrentOrder(myOrder);
-    dispatch(resetCartAsync(myOrder.user.id));
+    setCurrentOrder(myCurrentOrder);
+    dispatch(resetCartAsync(myCurrentOrder.user.id));
   }, [dispatch]);
 
   useEffect(() => {

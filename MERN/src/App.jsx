@@ -9,6 +9,9 @@ import Productdetailspage from "./pages/Productdetailspage";
 import PrivateRoute from "./features/auth/components/PrivateRoute";
 import Pagenotfound from "./pages/Pagenotfound";
 import Ordersuccesspage from "./pages/Ordersuccesspage";
+import Userprofilepage from "./pages/Userprofilepage";
+import Myorderpage from "./pages/Myorderpage";
+import Aboupage from "./pages/Aboupage";
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Signuppage />} />
         <Route path="/login" element={<Loginpage />} />
+        <Route path="/about" element={<Aboupage />} />
         {/* <Route element={<PrivateRoute />}> */}
         <Route
           path="/"
@@ -54,6 +58,22 @@ function App() {
           element={
             <PrivateRoute>
               <Ordersuccesspage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Userprofilepage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/my-orders"
+          element={
+            <PrivateRoute>
+              <Myorderpage />
             </PrivateRoute>
           }
         />

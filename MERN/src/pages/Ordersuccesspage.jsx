@@ -1,10 +1,13 @@
 import React from "react";
-import Order from "../features/order/Order";
+import Ordersuccess from "../features/order/Ordersuccess";
+import Navbar from "../features/Navbar/Navbar";
 
 const Ordersuccesspage = () => {
   return (
     <div>
-      <Order />
+      <Navbar>
+        <Ordersuccess />
+      </Navbar>
     </div>
   );
 };
