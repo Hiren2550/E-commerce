@@ -64,7 +64,7 @@ const Order = () => {
                   Total Amount
                 </dt>
                 <dd className="font-medium sm:text-end">
-                  $ {currentOrder.totalAmount}
+                  $ {Math.ceil(currentOrder.totalAmount)}
                 </dd>
               </dl>
               <dl className="sm:flex items-center justify-between gap-4">

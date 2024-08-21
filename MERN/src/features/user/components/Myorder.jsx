@@ -7,7 +7,8 @@ import { Navigate } from "react-router-dom";
 const Myorder = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
-  const userOrders = useSelector(selectUserOrders);
+  let userOrders = useSelector(selectUserOrders);
+  userOrders = [...userOrders].reverse();
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync(user.id));
   }, []);
@@ -22,7 +23,7 @@ const Myorder = () => {
                 Order #{order.id}
               </h2>
               <h6 className="font-medium text-xl leading-8 text-black ">
-                Hello,
+                Hello, {order.selectedAddress.firstname}
               </h6>
               <p className="font-normal text-lg leading-8 text-gray-500 mb-3">
                 Your order has been completed and be delivery in only two days .
@@ -41,7 +42,7 @@ const Myorder = () => {
                     Phone No.
                   </p>
                   <h6 className="font-semibold font-manrope  leading-9 text-black">
-                    {/* +91 {order.selectedAddress.phone} */}
+                    +91 {order.selectedAddress.phone}
                   </h6>
                 </div>
                 <div className="box group">
@@ -57,12 +58,13 @@ const Myorder = () => {
                     City
                   </p>
                   <h6 className="font-semibold font-manrope  leading-9 text-black">
-                    {order.selectedAddress.city}-{order.selectedAddress.pincode}
+                    {order.selectedAddress.city} -{" "}
+                    {order.selectedAddress.pincode}
                   </h6>
                 </div>
                 <div className="box group">
                   <p className="font-normal text-base leading-7 text-gray-500  transition-all duration-500 group-hover:text-gray-700">
-                    Address
+                    Shipping Address
                   </p>
                   <h6 className="font-semibold font-manrope text-nowrap leading-9 text-black">
                     {order.selectedAddress.street}
