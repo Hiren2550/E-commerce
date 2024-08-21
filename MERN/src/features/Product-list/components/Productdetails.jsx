@@ -4,10 +4,10 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByIdAsync, selectProduct } from "../productSlice";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import profile from "../../../assets/profile.png";
 import { addToCartAsync } from "../../cart/cartSlice";
-import { selectLoggedInUser } from "../../auth/authSlice";
+import { selectUserInfo } from "../../user/userSlice";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -38,7 +38,7 @@ const Productdetails = () => {
   const dispatch = useDispatch();
   const params = useParams();
   //console.log(params.id);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
 
   const handlecart = (e) => {
     e.preventDefault();

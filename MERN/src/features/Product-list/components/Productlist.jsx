@@ -20,22 +20,18 @@ import {
   MinusIcon,
   PlusIcon,
   Squares2X2Icon,
-  StarIcon,
 } from "@heroicons/react/20/solid";
 import Pagination from "../../../Pagination";
 import { Link } from "react-router-dom";
 import {
   fetchAllBrandsAsync,
   fetchAllCategoriesAsync,
-  fetchAllProductsAsync,
   fetchAllProductsByFilterAsync,
   selectAllProducts,
   selectBrands,
   selectCategories,
 } from "../productSlice";
 import { ITEM_PER_PAGE } from "../../../../constant";
-import { fetchCartByUserIdAsync } from "../../cart/cartSlice";
-import { selectLoggedInUser } from "../../auth/authSlice";
 
 const sortOptions = [
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
@@ -120,12 +116,6 @@ const Productlist = () => {
     dispatch(fetchAllBrandsAsync());
     dispatch(fetchAllCategoriesAsync());
   }, []);
-  const user = useSelector(selectLoggedInUser);
-  useEffect(() => {
-    if (user) {
-      dispatch(fetchCartByUserIdAsync(user.id));
-    }
-  }, [dispatch, user.id]);
 
   return (
     <div className="bg-white">

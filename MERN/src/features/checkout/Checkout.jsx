@@ -8,11 +8,11 @@ import {
   updateCartAsync,
 } from "../cart/cartSlice";
 import { useForm } from "react-hook-form";
-import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
 import { createOrderAsync, selectCurrentOrder } from "../order/orderSlice";
+import { selectUserInfo, updateUserAsync } from "../user/userSlice";
 
 const Checkout = () => {
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const [selectedAddress, setSelectedAddress] = useState(user.addresses[0]);
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const {

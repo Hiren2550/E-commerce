@@ -6507,6 +6507,26 @@
           "city": "Ahmedabad",
           "state": "Gujarat",
           "pincode": "380024"
+        },
+        {
+          "firstname": "RT",
+          "lastname": "Shah",
+          "email": "H1@gmail.com",
+          "phone": "2345678998",
+          "street": "Ganga nagar",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380024"
+        },
+        {
+          "firstname": "Raj",
+          "lastname": "Shah",
+          "email": "hirenshah2540@gmail.com",
+          "phone": "1245768046",
+          "street": "457/2670 G.H board kavinagar, Bapunagar",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380024"
         }
       ]
     },
@@ -6550,6 +6570,24 @@
           "city": "Rajkot",
           "state": "Gujarat",
           "pincode": "456702"
+        }
+      ]
+    },
+    {
+      "id": "d318",
+      "name": "Tina",
+      "email": "Tina1@gmail.com",
+      "password": "Tina@123",
+      "addresses": [
+        {
+          "firstname": "Tina",
+          "lastname": "Sharma",
+          "email": "Tina1@gmail.com",
+          "phone": "2468963524",
+          "street": "Ram pur",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380024"
         }
       ]
     }
@@ -7963,6 +8001,359 @@
         "email": "hirenshah2540@gmail.com",
         "phone": "6352270452",
         "street": "457/2670 G.H board kavinagar, Bapunagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
+      }
+    },
+    {
+      "id": "1b08",
+      "items": [
+        {
+          "id": "d103",
+          "title": "Eyeshadow Palette with Mirror",
+          "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+          "category": "Beauty",
+          "price": 19.99,
+          "discountPercentage": 5.5,
+          "rating": 3.28,
+          "stock": 44,
+          "tags": [
+            "beauty",
+            "eyeshadow"
+          ],
+          "brand": "Glamour Beauty",
+          "sku": "MVCFH27F",
+          "weight": 3,
+          "dimensions": {
+            "width": 12.42,
+            "height": 8.63,
+            "depth": 29.13
+          },
+          "warrantyInformation": "1 year warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Liam Garcia",
+              "reviewerEmail": "liam.garcia@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Very disappointed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Nora Russell",
+              "reviewerEmail": "nora.russell@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Elena Baker",
+              "reviewerEmail": "elena.baker@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 32,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "2817839095220",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+          "quantity": 2,
+          "user": "53b0"
+        }
+      ],
+      "user": {
+        "id": "53b0",
+        "name": "H1",
+        "email": "H1@gmail.com",
+        "password": "Hiren@123",
+        "addresses": [
+          {
+            "firstname": "Hiren",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "6352270452",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          },
+          {
+            "firstname": "H",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "7573867529",
+            "street": "457/2670, Nikol",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          },
+          {
+            "firstname": "RT",
+            "lastname": "Shah",
+            "email": "H1@gmail.com",
+            "phone": "2345678998",
+            "street": "Ganga nagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 39.98,
+      "totalQuantity": 2,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "RT",
+        "lastname": "Shah",
+        "email": "H1@gmail.com",
+        "phone": "2345678998",
+        "street": "Ganga nagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
+      }
+    },
+    {
+      "id": "8553",
+      "items": [
+        {
+          "id": "5e6f",
+          "title": "Eyeshadow Palette with Mirror",
+          "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+          "category": "Beauty",
+          "price": 19.99,
+          "discountPercentage": 5.5,
+          "rating": 3.28,
+          "stock": 44,
+          "tags": [
+            "beauty",
+            "eyeshadow"
+          ],
+          "brand": "Glamour Beauty",
+          "sku": "MVCFH27F",
+          "weight": 3,
+          "dimensions": {
+            "width": 12.42,
+            "height": 8.63,
+            "depth": 29.13
+          },
+          "warrantyInformation": "1 year warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Liam Garcia",
+              "reviewerEmail": "liam.garcia@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Very disappointed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Nora Russell",
+              "reviewerEmail": "nora.russell@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Elena Baker",
+              "reviewerEmail": "elena.baker@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 32,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "2817839095220",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+          "quantity": 1,
+          "user": "53b0"
+        }
+      ],
+      "user": {
+        "id": "53b0",
+        "name": "H1",
+        "email": "H1@gmail.com",
+        "password": "Hiren@123",
+        "addresses": [
+          {
+            "firstname": "Hiren",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "6352270452",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          },
+          {
+            "firstname": "H",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "7573867529",
+            "street": "457/2670, Nikol",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          },
+          {
+            "firstname": "RT",
+            "lastname": "Shah",
+            "email": "H1@gmail.com",
+            "phone": "2345678998",
+            "street": "Ganga nagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          },
+          {
+            "firstname": "Raj",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "1245768046",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 19.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Raj",
+        "lastname": "Shah",
+        "email": "hirenshah2540@gmail.com",
+        "phone": "1245768046",
+        "street": "457/2670 G.H board kavinagar, Bapunagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
+      }
+    },
+    {
+      "id": "af65",
+      "items": [
+        {
+          "id": "1783",
+          "title": "Apple MacBook Pro 14 Inch Space Grey",
+          "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+          "category": "laptops",
+          "price": 1999.99,
+          "discountPercentage": 9.25,
+          "rating": 3.13,
+          "stock": 39,
+          "tags": [
+            "laptops",
+            "apple"
+          ],
+          "brand": "Apple",
+          "sku": "QDKO6NRJ",
+          "weight": 4,
+          "dimensions": {
+            "width": 12.38,
+            "height": 21.55,
+            "depth": 27.95
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 week",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Would buy again!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "Hunter Gordon",
+              "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Would buy again!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "Emma Wilson",
+              "reviewerEmail": "emma.wilson@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very pleased!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "David Martinez",
+              "reviewerEmail": "david.martinez@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 1,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.622Z",
+            "updatedAt": "2024-05-23T08:56:21.622Z",
+            "barcode": "3883623063065",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/3.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png",
+          "quantity": 1,
+          "user": "d318"
+        }
+      ],
+      "user": {
+        "id": "d318",
+        "name": "Tina",
+        "email": "Tina1@gmail.com",
+        "password": "Tina@123",
+        "addresses": [
+          {
+            "firstname": "Tina",
+            "lastname": "Sharma",
+            "email": "Tina1@gmail.com",
+            "phone": "2468963524",
+            "street": "Ram pur",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 1999.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Tina",
+        "lastname": "Sharma",
+        "email": "Tina1@gmail.com",
+        "phone": "2468963524",
+        "street": "Ram pur",
         "city": "Ahmedabad",
         "state": "Gujarat",
         "pincode": "380024"

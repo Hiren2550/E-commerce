@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.jpg";
 import profile from "../../assets/profile.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Disclosure,
   DisclosureButton,
@@ -18,7 +18,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { selectCart } from "../cart/cartSlice";
+import { fetchCartByUserIdAsync, selectCart } from "../cart/cartSlice";
+import { fetchUserInfoAsync } from "../user/userSlice";
 import { selectLoggedInUser } from "../auth/authSlice";
 
 const navigation = [
@@ -35,9 +36,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const Navbar = ({ children }) => {
-  const [click, setClick] = useState(false);
   const items = useSelector(selectCart);
   const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCartByUserIdAsync(user.id));
+      dispatch(fetchUserInfoAsync(user.id));
+    }
+  }, [dispatch, user.id]);
   return (
     <>
       <div className="min-h-full">
@@ -99,7 +106,7 @@ const Navbar = ({ children }) => {
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
                         <img
-                          alt={user.name}
+                          alt={user.firstname}
                           src={profile}
                           className="h-8 w-8 rounded-full"
                         />
@@ -163,14 +170,14 @@ const Navbar = ({ children }) => {
               <div className="flex items-center px-5">
                 <div className="flex-shrink-0">
                   <img
-                    alt={user.name}
+                    alt={user.firstname}
                     src={profile}
                     className="h-10 w-10 rounded-full"
                   />
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium leading-none text-white">
-                    {user.name}
+                    {user.firstname + "" + user.lastname}
                   </div>
                   <div className="text-sm font-medium leading-none text-gray-400">
                     {user.email}
