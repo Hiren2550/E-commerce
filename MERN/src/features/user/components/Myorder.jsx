@@ -6,21 +6,22 @@ import {
   selectUserOrders,
 } from "../userSlice";
 import { Navigate } from "react-router-dom";
+import Loading from "../../../pages/Loading";
 
 const Myorder = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserInfo);
   let userOrders = useSelector(selectUserOrders);
-  userOrders = [...userOrders].reverse();
+  //userOrders = [...userOrders].reverse();
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync(user.id));
   }, [dispatch, user.id]);
   return (
     <>
-      {!userOrders.length && <Navigate to={"/"} replace={true}></Navigate>}
-      {userOrders &&
+      {!userOrders.length && <Loading />}
+      {userOrders.length &&
         userOrders.map((order, index) => (
-          <div key={order.id}>
+          <div key={index}>
             <section className="py-4 m-5 relative bg-white border rounded">
               <div className="w-full mt-2 max-w-7xl px-4 md:px-5 lg-6 mx-auto">
                 <h2 className="font-manrope font-bold text-xl sm:text-2xl leading-10 text-black mb-2">
