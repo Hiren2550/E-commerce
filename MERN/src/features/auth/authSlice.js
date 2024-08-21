@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { checkUser, createUser } from "./authAPI";
+import { deleteUser } from "../user/userAPI";
 
 const initialState = {
   loggedInUser: null,
@@ -18,6 +19,14 @@ export const checkUserAsync = createAsyncThunk(
   "auth/checkUser",
   async (loginInfo) => {
     const response = await checkUser(loginInfo);
+    //console.log(response.data);
+    return response.data;
+  }
+);
+export const deleteAsync = createAsyncThunk(
+  "auth/deleteUser",
+  async (userId) => {
+    const response = await deleteUser(userId);
     //console.log(response.data);
     return response.data;
   }
@@ -46,6 +55,13 @@ const authSlice = createSlice({
       .addCase(checkUserAsync.rejected, (state, action) => {
         state.status = "idle";
         state.error = action.error;
+      })
+      .addCase(deleteAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(deleteAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.loggedInUser = null;
       });
   },
 });

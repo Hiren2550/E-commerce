@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import profile from "../../../assets/profile.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserInfo, updateUserAsync } from "../userSlice";
+import { deleteUserAsync, selectUserInfo, updateUserAsync } from "../userSlice";
+import { useNavigate } from "react-router-dom";
+import { deleteAsync } from "../../auth/authSlice";
 
 function Userprofile() {
-  const [formData, setFormData] = useState({});
   const {
     register,
     handleSubmit,
@@ -14,11 +15,18 @@ function Userprofile() {
   } = useForm();
   const user = useSelector(selectUserInfo);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleUpdate = (data) => {
     dispatch(updateUserAsync({ ...user, name: data.name, email: data.email }));
   };
-  const handleSignout = () => {};
-  const handleDelete = () => {};
+  const handleSignout = () => {
+    //delete cookie dispatch
+  };
+  const handleDelete = () => {
+    dispatch(deleteUserAsync(user.id));
+    dispatch(deleteAsync(user.id));
+    window.location.reload();
+  };
   const handleShowOrders = () => {};
   return (
     <div className="p-3 max-w-md mx-auto">

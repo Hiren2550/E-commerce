@@ -32,3 +32,16 @@ export function updateUser(updateData) {
     resolve({ data });
   });
 }
+export function deleteUser(userId) {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:8080/users/" + userId, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userId),
+    });
+    const data = await response.json();
+    resolve({ data });
+  });
+}
