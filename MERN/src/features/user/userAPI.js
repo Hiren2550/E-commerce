@@ -45,3 +45,8 @@ export function deleteUser(userId) {
     resolve({ data });
   });
 }
+export function signOut() {
+  return new Promise(async (resolve) => {
+    resolve({ message: "sign out done" });
+  });
+}

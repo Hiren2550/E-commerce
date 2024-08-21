@@ -12,6 +12,7 @@ import Ordersuccesspage from "./pages/Ordersuccesspage";
 import Userprofilepage from "./pages/Userprofilepage";
 import Myorderpage from "./pages/Myorderpage";
 import Aboupage from "./pages/Aboupage";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
@@ -84,6 +85,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/log-out" element={<Logout />} />
         <Route path="*" element={<Pagenotfound />} />
         {/* </Route> */}
       </Routes>

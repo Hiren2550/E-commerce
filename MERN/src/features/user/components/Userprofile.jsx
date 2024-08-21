@@ -7,7 +7,7 @@ import {
   selectUserOrders,
   updateUserAsync,
 } from "../userSlice";
-import { deleteUserAsync } from "../../auth/authSlice";
+import { deleteUserAsync, signOutAsync } from "../../auth/authSlice";
 import { Link } from "react-router-dom";
 
 function Userprofile() {
@@ -27,7 +27,7 @@ function Userprofile() {
     setUpdateSuccess(true);
   };
   const handleSignout = () => {
-    //delete cookie dispatch
+    dispatch(signOutAsync());
   };
   const handleDelete = () => {
     dispatch(deleteUserAsync(user.id));
@@ -129,8 +129,11 @@ function Userprofile() {
       <div className="my-2 ">
         <h1 className="text-center mt-1 text-xl font-semibold">Addresses</h1>
         {user.addresses.map((address, index) => (
-          <div className="border border-gray-300 rounded-lg p-3 my-2">
-            <li key={address.phone} className="flex justify-between gap-x-4  ">
+          <div
+            key={address.phone}
+            className="border border-gray-300 rounded-lg p-3 my-2"
+          >
+            <li className="flex justify-between gap-x-4  ">
               <div className="flex min-w-0 gap-x-4">
                 <div className="min-w-0 flex-auto">
                   <p className="text-sm font-semibold leading-6 text-gray-900">

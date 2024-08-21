@@ -6481,7 +6481,26 @@
       "id": "abf7"
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "id": "6eb0",
+      "name": "H1",
+      "email": "H1@gmail.com",
+      "password": "Hiren@123",
+      "addresses": [
+        {
+          "firstname": "Hiren",
+          "lastname": "Shah",
+          "email": "hirenshah2540@gmail.com",
+          "phone": "1352270452",
+          "street": "457/2670 G.H board kavinagar, Bapunagar",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380024"
+        }
+      ]
+    }
+  ],
   "cart": [],
   "orders": [
     {
@@ -7002,6 +7021,208 @@
         "lastname": "Shah",
         "email": "hirenshah2540@gmail.com",
         "phone": "7352270452",
+        "street": "457/2670 G.H board kavinagar, Bapunagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
+      }
+    },
+    {
+      "id": "328b",
+      "items": [
+        {
+          "id": "e215",
+          "title": "Chanel Coco Noir Eau De",
+          "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+          "category": "fragrances",
+          "price": 129.99,
+          "discountPercentage": 18.64,
+          "rating": 2.76,
+          "stock": 41,
+          "tags": [
+            "fragrances",
+            "perfumes"
+          ],
+          "brand": "Chanel",
+          "sku": "K71HBCGS",
+          "weight": 4,
+          "dimensions": {
+            "width": 21.27,
+            "height": 28,
+            "depth": 11.89
+          },
+          "warrantyInformation": "1 week warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 1,
+              "comment": "Disappointing product!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Lincoln Kelly",
+              "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Lincoln Kelly",
+              "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Excellent quality!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Lucas Allen",
+              "reviewerEmail": "lucas.allen@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "60 days return policy",
+          "minimumOrderQuantity": 5,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.619Z",
+            "updatedAt": "2024-05-23T08:56:21.619Z",
+            "barcode": "1435582999795",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png",
+          "quantity": 4,
+          "user": "692c"
+        }
+      ],
+      "user": {
+        "id": "692c",
+        "name": "H1",
+        "email": "H1@gmail.com",
+        "password": "Hiren@123",
+        "addresses": [
+          {
+            "firstname": "Hiren",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "8352270452",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 519.96,
+      "totalQuantity": 4,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Hiren",
+        "lastname": "Shah",
+        "email": "hirenshah2540@gmail.com",
+        "phone": "8352270452",
+        "street": "457/2670 G.H board kavinagar, Bapunagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
+      }
+    },
+    {
+      "id": "ed72",
+      "items": [
+        {
+          "id": "b3f8",
+          "title": "Eyeshadow Palette with Mirror",
+          "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+          "category": "Beauty",
+          "price": 19.99,
+          "discountPercentage": 5.5,
+          "rating": 3.28,
+          "stock": 44,
+          "tags": [
+            "beauty",
+            "eyeshadow"
+          ],
+          "brand": "Glamour Beauty",
+          "sku": "MVCFH27F",
+          "weight": 3,
+          "dimensions": {
+            "width": 12.42,
+            "height": 8.63,
+            "depth": 29.13
+          },
+          "warrantyInformation": "1 year warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Liam Garcia",
+              "reviewerEmail": "liam.garcia@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Very disappointed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Nora Russell",
+              "reviewerEmail": "nora.russell@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Elena Baker",
+              "reviewerEmail": "elena.baker@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 32,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "2817839095220",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+          "quantity": 1,
+          "user": "6eb0"
+        }
+      ],
+      "user": {
+        "id": "6eb0",
+        "name": "H1",
+        "email": "H1@gmail.com",
+        "password": "Hiren@123",
+        "addresses": [
+          {
+            "firstname": "Hiren",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "1352270452",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 19.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Hiren",
+        "lastname": "Shah",
+        "email": "hirenshah2540@gmail.com",
+        "phone": "1352270452",
         "street": "457/2670 G.H board kavinagar, Bapunagar",
         "city": "Ahmedabad",
         "state": "Gujarat",
