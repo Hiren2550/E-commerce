@@ -3,13 +3,11 @@ import profile from "../../../assets/profile.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteUserAsync,
-  fetchLoggedInUserOrdersAsync,
   selectUserInfo,
   selectUserOrders,
   updateUserAsync,
 } from "../userSlice";
-import { deleteAsync } from "../../auth/authSlice";
+import { deleteUserAsync } from "../../auth/authSlice";
 import { Link } from "react-router-dom";
 
 function Userprofile() {
@@ -33,8 +31,6 @@ function Userprofile() {
   };
   const handleDelete = () => {
     dispatch(deleteUserAsync(user.id));
-    dispatch(deleteAsync(user.id));
-    window.location.reload();
   };
   let userOrders = useSelector(selectUserOrders);
   userOrders = [...userOrders].reverse();
@@ -131,7 +127,7 @@ function Userprofile() {
         <p className="text-green-500 mt-2">User is updated successfully</p>
       )}
       <div className="my-2 ">
-        <h1 className="text-center mt-2 text-xl font-semibold">Addresses</h1>
+        <h1 className="text-center mt-1 text-xl font-semibold">Addresses</h1>
         {user.addresses.map((address, index) => (
           <div className="border border-gray-300 rounded-lg p-3 my-2">
             <li key={address.phone} className="flex justify-between gap-x-4  ">

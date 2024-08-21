@@ -23,7 +23,7 @@ export const checkUserAsync = createAsyncThunk(
     return response.data;
   }
 );
-export const deleteAsync = createAsyncThunk(
+export const deleteUserAsync = createAsyncThunk(
   "auth/deleteUser",
   async (userId) => {
     const response = await deleteUser(userId);
@@ -56,10 +56,10 @@ const authSlice = createSlice({
         state.status = "idle";
         state.error = action.error;
       })
-      .addCase(deleteAsync.pending, (state) => {
+      .addCase(deleteUserAsync.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(deleteAsync.fulfilled, (state, action) => {
+      .addCase(deleteUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.loggedInUser = null;
       });

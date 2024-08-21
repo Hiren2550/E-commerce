@@ -6481,36 +6481,7 @@
       "id": "abf7"
     }
   ],
-  "users": [
-    {
-      "id": "92f6",
-      "name": "H3",
-      "email": "H1@gmail.com",
-      "password": "Hiren@123",
-      "addresses": [
-        {
-          "firstname": "Raja",
-          "lastname": "Shah",
-          "email": "raja12@gmail.com",
-          "phone": "1234567801",
-          "street": "Raipur",
-          "city": "Mumbai",
-          "state": "Mumbai",
-          "pincode": "370046"
-        },
-        {
-          "firstname": "Hiren",
-          "lastname": "Shah",
-          "email": "hirenshah2540@gmail.com",
-          "phone": "7352270452",
-          "street": "457/2670 G.H board kavinagar, Bapunagar",
-          "city": "Ahmedabad",
-          "state": "Gujarat",
-          "pincode": "380024"
-        }
-      ]
-    }
-  ],
+  "users": [],
   "cart": [],
   "orders": [
     {
@@ -6923,6 +6894,107 @@
         ]
       },
       "totalAmount": 1099.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Hiren",
+        "lastname": "Shah",
+        "email": "hirenshah2540@gmail.com",
+        "phone": "7352270452",
+        "street": "457/2670 G.H board kavinagar, Bapunagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
+      }
+    },
+    {
+      "id": "d6f9",
+      "items": [
+        {
+          "id": "a239",
+          "title": "Nike Baseball Cleats",
+          "description": "Nike Baseball Cleats are designed for maximum traction and performance on the baseball field. They provide stability and support for players during games and practices.",
+          "category": "shoes",
+          "price": 79.99,
+          "discountPercentage": 11.4,
+          "rating": 4.01,
+          "stock": 14,
+          "tags": [
+            "footwear",
+            "sports cleats"
+          ],
+          "brand": "Nike",
+          "sku": "81LRTRP5",
+          "weight": 7,
+          "dimensions": {
+            "width": 14.83,
+            "height": 19.16,
+            "depth": 28.98
+          },
+          "warrantyInformation": "No warranty",
+          "shippingInformation": "Ships overnight",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "William Gonzalez",
+              "reviewerEmail": "william.gonzalez@x.dummyjson.com"
+            },
+            {
+              "rating": 2,
+              "comment": "Not worth the price!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Sophia Brown",
+              "reviewerEmail": "sophia.brown@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Gabriel Mitchell",
+              "reviewerEmail": "gabriel.mitchell@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "7 days return policy",
+          "minimumOrderQuantity": 3,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.623Z",
+            "updatedAt": "2024-05-23T08:56:21.623Z",
+            "barcode": "0517654748946",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/1.png",
+            "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/2.png",
+            "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/3.png",
+            "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/4.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/thumbnail.png",
+          "quantity": 1,
+          "user": "92f6"
+        }
+      ],
+      "user": {
+        "id": "92f6",
+        "name": "H3",
+        "email": "H1@gmail.com",
+        "password": "Hiren@123",
+        "addresses": [
+          {
+            "firstname": "Hiren",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "7352270452",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 79.99,
       "totalQuantity": 1,
       "paymentMethod": "cash",
       "selectedAddress": {
