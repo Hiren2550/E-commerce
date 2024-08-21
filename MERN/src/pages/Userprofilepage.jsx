@@ -1,10 +1,13 @@
 import React from "react";
+import Navbar from "../features/Navbar/Navbar.jsx";
 import Userprofile from "../features/user/components/Userprofile";
 
 const Userprofilepage = () => {
   return (
     <div>
-      <Userprofile />
+      <Navbar>
+        <Userprofile />
+      </Navbar>
     </div>
   );
 };
