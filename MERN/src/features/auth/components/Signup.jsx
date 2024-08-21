@@ -46,7 +46,7 @@ const Signup = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium  text-gray-900"
               >
                 Name
               </label>
@@ -68,7 +68,7 @@ const Signup = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium  text-gray-900"
               >
                 Email address
               </label>
@@ -95,7 +95,7 @@ const Signup = () => {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium  text-gray-900"
                 >
                   Password
                 </label>
@@ -126,7 +126,7 @@ const Signup = () => {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="confirm-password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium text-gray-900"
                 >
                   Confirm-password
                 </label>
@@ -161,7 +161,7 @@ const Signup = () => {
             </div>
           </form>
 
-          <p className="mt-5 text-center text-sm text-gray-500">
+          <p className="mt-2 text-center text-sm text-gray-500">
             Already have account?{" "}
             <Link
               to={"/login"}

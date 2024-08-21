@@ -12,7 +12,7 @@ import Ordersuccesspage from "./pages/Ordersuccesspage";
 import Userprofilepage from "./pages/Userprofilepage";
 import Myorderpage from "./pages/Myorderpage";
 import Aboupage from "./pages/Aboupage";
-import Logout from "./pages/Logout";
+import Logout from "./features/auth/components/Logout";
 
 function App() {
   return (
