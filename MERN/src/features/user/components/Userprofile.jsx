@@ -13,6 +13,7 @@ import { deleteAsync } from "../../auth/authSlice";
 import { Link } from "react-router-dom";
 
 function Userprofile() {
+  const [open, setOpen] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [orders, setOrders] = useState([]);
   const {
@@ -39,7 +40,10 @@ function Userprofile() {
   userOrders = [...userOrders].reverse();
   const handleShowOrders = () => {
     setOrders(userOrders);
+    setOpen(!open);
   };
+  const handleRemoveAddress = () => {};
+  const handleEdit = () => {};
   return (
     <div className="p-3 max-w-md mx-auto">
       <h1 className="text-3xl text-center font-semibold my-4">Profile</h1>
@@ -122,6 +126,49 @@ function Userprofile() {
       {updateSuccess && (
         <p className="text-green-500 mt-2">User is updated successfully</p>
       )}
+      <div className="my-2 ">
+        <h1 className="text-center mt-2 text-xl font-semibold">Addresses</h1>
+        {user.addresses.map((address) => (
+          <div className="border border-gray-300 rounded-lg p-3 my-2">
+            <li key={address.phone} className="flex justify-between gap-x-4  ">
+              <div className="flex min-w-0 gap-x-4">
+                <div className="min-w-0 flex-auto">
+                  <p className="text-sm font-semibold leading-6 text-gray-900">
+                    {address.firstname}
+                  </p>
+                  <p className="text-sm  leading-6 text-gray-500">
+                    {address.street}
+                  </p>
+                </div>
+              </div>
+              <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                <p className="text-sm leading-6 text-gray-900">
+                  {address.phone}
+                </p>
+                <p className="text-sm leading-6 text-gray-500">
+                  <span>Pincode : </span>
+                  {address.city}
+                </p>
+              </div>
+            </li>
+            <div className="flex justify-end gap-4 mt-2">
+              <span
+                className="text-red-700 cursor-pointer"
+                onClick={handleEdit}
+              >
+                Edit
+              </span>
+              <span
+                className="text-red-700 cursor-pointer"
+                oncClick={handleRemoveAddress}
+              >
+                Remove
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <button
         type="button"
         onClick={handleShowOrders}
@@ -130,7 +177,7 @@ function Userprofile() {
         Show orders
       </button>
 
-      {orders && orders.length > 0 && (
+      {open && orders && orders.length > 0 && (
         <div className="flex flex-col gap-2">
           <h1 className="text-center mt-2 text-xl font-semibold">
             Your Previous Orders
