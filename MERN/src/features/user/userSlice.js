@@ -4,8 +4,7 @@ import { fetchLoggedInUserOrders, fetchUserInfo, updateUser } from "./userAPI";
 const initialState = {
   userOrders: [],
   userInfo: null,
-  error: null,
-  count: 0,
+  status: "idle",
 };
 
 export const fetchLoggedInUserOrdersAsync = createAsyncThunk(

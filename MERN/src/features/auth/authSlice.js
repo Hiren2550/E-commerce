@@ -5,7 +5,6 @@ const initialState = {
   loggedInUser: null,
   status: "idle",
   error: null,
-  count: 0,
 };
 
 export const createUserAsync = createAsyncThunk(
@@ -27,11 +26,7 @@ export const checkUserAsync = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    increment(state) {
-      state.count = state.count + 69;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(createUserAsync.pending, (state) => {
@@ -55,7 +50,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { increment } = authSlice.actions;
 export const selectLoggedInUser = (state) => state.auth.loggedInUser;
 export const selectError = (state) => state.auth.error;
 

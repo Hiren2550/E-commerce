@@ -54,11 +54,7 @@ export const fetchAllProductsByFilterAsync = createAsyncThunk(
 const productSlice = createSlice({
   name: "product",
   initialState,
-  reducers: {
-    increment(state) {
-      state.count++;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllProductsAsync.pending, (state) => {
@@ -99,7 +95,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { increment } = productSlice.actions;
 export const selectAllProducts = (state) => state.product.products;
 export const selectBrands = (state) => state.product.brands;
 export const selectCategories = (state) => state.product.categories;
