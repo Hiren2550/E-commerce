@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import profile from "../../../assets/profile.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUserAsync, selectUserInfo, updateUserAsync } from "../userSlice";
-import { useNavigate } from "react-router-dom";
+import {
+  deleteUserAsync,
+  fetchLoggedInUserOrdersAsync,
+  selectUserInfo,
+  selectUserOrders,
+  updateUserAsync,
+} from "../userSlice";
 import { deleteAsync } from "../../auth/authSlice";
+import { Link } from "react-router-dom";
 
 function Userprofile() {
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [orders, setOrders] = useState([]);
   const {
     register,
     handleSubmit,
@@ -15,9 +23,9 @@ function Userprofile() {
   } = useForm();
   const user = useSelector(selectUserInfo);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const handleUpdate = (data) => {
     dispatch(updateUserAsync({ ...user, name: data.name, email: data.email }));
+    setUpdateSuccess(true);
   };
   const handleSignout = () => {
     //delete cookie dispatch
@@ -27,7 +35,11 @@ function Userprofile() {
     dispatch(deleteAsync(user.id));
     window.location.reload();
   };
-  const handleShowOrders = () => {};
+  let userOrders = useSelector(selectUserOrders);
+  userOrders = [...userOrders].reverse();
+  const handleShowOrders = () => {
+    setOrders(userOrders);
+  };
   return (
     <div className="p-3 max-w-md mx-auto">
       <h1 className="text-3xl text-center font-semibold my-4">Profile</h1>
@@ -107,9 +119,9 @@ function Userprofile() {
           Sign out
         </span>
       </div>
-      {/* {updateSuccess && (
+      {updateSuccess && (
         <p className="text-green-500 mt-2">User is updated successfully</p>
-      )} */}
+      )}
       <button
         type="button"
         onClick={handleShowOrders}
@@ -118,48 +130,39 @@ function Userprofile() {
         Show orders
       </button>
 
-      {/* {userListings && userListings.length > 0 && (
-        <div className="flex flex-col gap-4">
-          <h1 className="text-center mt-7 text-2xl font-semibold">
-            Your Listings
+      {orders && orders.length > 0 && (
+        <div className="flex flex-col gap-2">
+          <h1 className="text-center mt-2 text-xl font-semibold">
+            Your Previous Orders
           </h1>
-          {userListings.map((listing) => (
+          {orders.map((order) => (
             <div
-              key={listing._id}
-              className="border border-gray-300 rounded-lg p-3 flex justify-between items-center gap-4"
+              key={order.id}
+              className="hover:opacity-75 cursor-pointer border border-gray-300 rounded-lg p-3 flex  items-center gap-2"
             >
-              <Link to={`/listing/${listing._id}`}>
+              <Link to={`/my-orders`}>
                 <img
-                  src={listing.imageUrls[0]}
-                  alt="listing cover"
-                  className="w-18 h-16 object-contain"
+                  src={order.items[0].thumbnail}
+                  alt={order.items[0].title}
+                  className="w-20 h-20 object-contain"
                 />
               </Link>
               <Link
-                to={`/listing/${listing._id}`}
+                to={`/my-orders`}
                 className="flex-1 text-slate-700 font-semibold hover:underline truncate"
               >
-                <p>{listing.name}</p>
+                <p># {order.id}</p>
               </Link>
-              <div className="flex flex-col items-center gap-4">
-                <button
-                  onClick={() => handleDeleteListing(listing._id)}
-                  className="text-red-700 uppercase"
-                  type="button"
-                >
-                  Delete
-                </button>
-
-                <Link to={`/update-listing/${listing._id}`}>
-                  <button className="text-green-700 uppercase" type="button">
-                    Edit
-                  </button>
-                </Link>
+              <div className="flex flex-col items-center gap-1">
+                <div className="text-slate-700 ">
+                  {order.totalQuantity} Items
+                </div>
+                <div className="text-slate-700 ">$ {order.totalAmount}</div>
               </div>
             </div>
           ))}
         </div>
-      )} */}
+      )}
     </div>
   );
 }
