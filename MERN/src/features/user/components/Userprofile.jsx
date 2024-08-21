@@ -42,7 +42,11 @@ function Userprofile() {
     setOrders(userOrders);
     setOpen(!open);
   };
-  const handleRemoveAddress = () => {};
+  const handleRemoveAddress = (e, index) => {
+    const newUser = { ...user, addresses: [...user.addresses] };
+    newUser.addresses.splice(index, 1);
+    dispatch(updateUserAsync(newUser));
+  };
   const handleEdit = () => {};
   return (
     <div className="p-3 max-w-md mx-auto">
@@ -128,7 +132,7 @@ function Userprofile() {
       )}
       <div className="my-2 ">
         <h1 className="text-center mt-2 text-xl font-semibold">Addresses</h1>
-        {user.addresses.map((address) => (
+        {user.addresses.map((address, index) => (
           <div className="border border-gray-300 rounded-lg p-3 my-2">
             <li key={address.phone} className="flex justify-between gap-x-4  ">
               <div className="flex min-w-0 gap-x-4">
@@ -139,28 +143,32 @@ function Userprofile() {
                   <p className="text-sm  leading-6 text-gray-500">
                     {address.street}
                   </p>
+                  <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                    <span>Phone : </span>
+                    {address.phone}
+                  </p>
                 </div>
               </div>
               <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                 <p className="text-sm leading-6 text-gray-900">
-                  {address.phone}
+                  {address.city}
                 </p>
                 <p className="text-sm leading-6 text-gray-500">
                   <span>Pincode : </span>
-                  {address.city}
+                  {address.pincode}
                 </p>
               </div>
             </li>
-            <div className="flex justify-end gap-4 mt-2">
+            <div className="flex justify-end gap-4">
               <span
                 className="text-red-700 cursor-pointer"
-                onClick={handleEdit}
+                onClick={(e) => handleEdit(e, index)}
               >
                 Edit
               </span>
               <span
                 className="text-red-700 cursor-pointer"
-                oncClick={handleRemoveAddress}
+                onClick={(e) => handleRemoveAddress(e, index)}
               >
                 Remove
               </span>

@@ -12,7 +12,7 @@ const Myorder = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserInfo);
   let userOrders = useSelector(selectUserOrders);
-  //userOrders = [...userOrders].reverse();
+  userOrders = [...userOrders].reverse();
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync(user.id));
   }, [dispatch, user.id]);
@@ -25,7 +25,8 @@ const Myorder = () => {
             <section className="py-4 m-5 relative bg-white border rounded">
               <div className="w-full mt-2 max-w-7xl px-4 md:px-5 lg-6 mx-auto">
                 <h2 className="font-manrope font-bold text-xl sm:text-2xl leading-10 text-black mb-2">
-                  Order #{order.id}
+                  Order #{order.id}{" "}
+                  <p className="text-red-700 text-sm">Order Status : Pending</p>
                 </h2>
                 <h6 className="font-medium text-xl leading-8 text-black ">
                   Hello, {order.selectedAddress.firstname}

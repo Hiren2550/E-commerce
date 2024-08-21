@@ -6489,16 +6489,6 @@
       "password": "Hiren@123",
       "addresses": [
         {
-          "firstname": "Hiren",
-          "lastname": "Shah",
-          "email": "hirenshah2540@gmail.com",
-          "phone": "6352270452",
-          "street": "457/2670 G.H board kavinagar, Bapunagar",
-          "city": "Ahmedabad",
-          "state": "Gujarat",
-          "pincode": "380024"
-        },
-        {
           "firstname": "Raja",
           "lastname": "Shah",
           "email": "raja12@gmail.com",
@@ -6507,6 +6497,16 @@
           "city": "Mumbai",
           "state": "Mumbai",
           "pincode": "370046"
+        },
+        {
+          "firstname": "Hiren",
+          "lastname": "Shah",
+          "email": "hirenshah2540@gmail.com",
+          "phone": "7352270452",
+          "street": "457/2670 G.H board kavinagar, Bapunagar",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380024"
         }
       ]
     }
@@ -6824,6 +6824,116 @@
         "city": "Mumbai",
         "state": "Mumbai",
         "pincode": "370046"
+      }
+    },
+    {
+      "id": "9e7f",
+      "items": [
+        {
+          "id": "4170",
+          "title": "Lenovo Yoga 920",
+          "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+          "category": "laptops",
+          "price": 1099.99,
+          "discountPercentage": 7.77,
+          "rating": 2.98,
+          "stock": 71,
+          "tags": [
+            "laptops"
+          ],
+          "brand": "Lenovo",
+          "sku": "MST9WZQY",
+          "weight": 7,
+          "dimensions": {
+            "width": 11.02,
+            "height": 14.45,
+            "depth": 24.09
+          },
+          "warrantyInformation": "Lifetime warranty",
+          "shippingInformation": "Ships in 1 week",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Paisley Bell",
+              "reviewerEmail": "paisley.bell@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very pleased!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Lincoln Kelly",
+              "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Luna Russell",
+              "reviewerEmail": "luna.russell@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 1,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.623Z",
+            "updatedAt": "2024-05-23T08:56:21.623Z",
+            "barcode": "9590995785298",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/2.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/3.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png",
+          "quantity": 1,
+          "user": "92f6"
+        }
+      ],
+      "user": {
+        "id": "92f6",
+        "name": "H3",
+        "email": "H1@gmail.com",
+        "password": "Hiren@123",
+        "addresses": [
+          {
+            "firstname": "Raja",
+            "lastname": "Shah",
+            "email": "raja12@gmail.com",
+            "phone": "1234567801",
+            "street": "Raipur",
+            "city": "Mumbai",
+            "state": "Mumbai",
+            "pincode": "370046"
+          },
+          {
+            "firstname": "Hiren",
+            "lastname": "Shah",
+            "email": "hirenshah2540@gmail.com",
+            "phone": "7352270452",
+            "street": "457/2670 G.H board kavinagar, Bapunagar",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380024"
+          }
+        ]
+      },
+      "totalAmount": 1099.99,
+      "totalQuantity": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Hiren",
+        "lastname": "Shah",
+        "email": "hirenshah2540@gmail.com",
+        "phone": "7352270452",
+        "street": "457/2670 G.H board kavinagar, Bapunagar",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "pincode": "380024"
       }
     }
   ]
