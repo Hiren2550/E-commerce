@@ -128,7 +128,7 @@ const Myorder = () => {
                       Subtotal
                     </p>
                     <p className="font-semibold leading-8 text-gray-900">
-                      $ {order.totalAmount}
+                      $ {Math.ceil(order.totalAmount)}
                     </p>
                   </div>
                 </div>

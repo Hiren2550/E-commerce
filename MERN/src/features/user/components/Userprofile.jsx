@@ -207,7 +207,9 @@ function Userprofile() {
                 <div className="text-slate-700 ">
                   {order.totalQuantity} Items
                 </div>
-                <div className="text-slate-700 ">$ {order.totalAmount}</div>
+                <div className="text-slate-700 ">
+                  $ {Math.ceil(order.totalAmount)}
+                </div>
               </div>
             </div>
           ))}

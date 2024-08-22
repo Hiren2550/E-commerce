@@ -6499,6 +6499,24 @@
           "pincode": "380024"
         }
       ]
+    },
+    {
+      "id": "f436",
+      "name": "Raja",
+      "email": "Raj1@gmail.com",
+      "password": "Raja@123",
+      "addresses": [
+        {
+          "firstname": "Raja",
+          "lastname": "Rao",
+          "email": "Raj1@gmail.com",
+          "phone": "0894612345",
+          "street": "NCR",
+          "city": "Delhi",
+          "state": "Delhi",
+          "pincode": "780034"
+        }
+      ]
     }
   ],
   "cart": [],
@@ -7227,6 +7245,106 @@
         "city": "Ahmedabad",
         "state": "Gujarat",
         "pincode": "380024"
+      }
+    },
+    {
+      "id": "eb0f",
+      "items": [
+        {
+          "id": "26f5",
+          "title": "Lenovo Yoga 920",
+          "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+          "category": "laptops",
+          "price": 1099.99,
+          "discountPercentage": 7.77,
+          "rating": 2.98,
+          "stock": 71,
+          "tags": [
+            "laptops"
+          ],
+          "brand": "Lenovo",
+          "sku": "MST9WZQY",
+          "weight": 7,
+          "dimensions": {
+            "width": 11.02,
+            "height": 14.45,
+            "depth": 24.09
+          },
+          "warrantyInformation": "Lifetime warranty",
+          "shippingInformation": "Ships in 1 week",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Paisley Bell",
+              "reviewerEmail": "paisley.bell@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very pleased!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Lincoln Kelly",
+              "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.623Z",
+              "reviewerName": "Luna Russell",
+              "reviewerEmail": "luna.russell@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 1,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.623Z",
+            "updatedAt": "2024-05-23T08:56:21.623Z",
+            "barcode": "9590995785298",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/2.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/3.png",
+            "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png",
+          "quantity": 6,
+          "user": "f436"
+        }
+      ],
+      "user": {
+        "id": "f436",
+        "name": "Raja",
+        "email": "Raj1@gmail.com",
+        "password": "Raja@123",
+        "addresses": [
+          {
+            "firstname": "Raja",
+            "lastname": "Rao",
+            "email": "Raj1@gmail.com",
+            "phone": "0894612345",
+            "street": "NCR",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pincode": "780034"
+          }
+        ]
+      },
+      "totalAmount": 6599.9400000000005,
+      "totalQuantity": 6,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "firstname": "Raja",
+        "lastname": "Rao",
+        "email": "Raj1@gmail.com",
+        "phone": "0894612345",
+        "street": "NCR",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pincode": "780034"
       }
     }
   ]
