@@ -52,6 +52,7 @@ const Checkout = () => {
         totalQuantity,
         paymentMethod,
         selectedAddress,
+        status: "pending",
       })
     );
   };

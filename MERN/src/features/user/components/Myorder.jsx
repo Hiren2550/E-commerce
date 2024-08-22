@@ -28,7 +28,15 @@ const Myorder = () => {
             <div className="w-full mt-2 max-w-7xl px-4 md:px-5 lg-6 mx-auto">
               <h2 className="font-manrope font-bold text-xl sm:text-2xl leading-10 text-black mb-2">
                 Order #{order.id}{" "}
-                <p className="text-red-700 text-sm">Order Status : Pending</p>
+                <p
+                  className={`${
+                    order.status !== "pending"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }  text-sm`}
+                >
+                  Order Status : {order.status}
+                </p>
               </h2>
               <h6 className="font-medium text-xl leading-8 text-black ">
                 Hello, {order.selectedAddress.firstname}
