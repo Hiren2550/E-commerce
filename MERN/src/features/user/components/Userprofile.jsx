@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import profile from "../../../assets/profile.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  fetchLoggedInUserOrdersAsync,
   selectUserInfo,
   selectUserOrders,
   updateUserAsync,
@@ -17,7 +18,6 @@ function Userprofile() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const user = useSelector(selectUserInfo);
@@ -43,6 +43,9 @@ function Userprofile() {
     newUser.addresses.splice(index, 1);
     dispatch(updateUserAsync(newUser));
   };
+  useEffect(() => {
+    dispatch(fetchLoggedInUserOrdersAsync(user.id));
+  }, [dispatch, user.id]);
   return (
     <div className="p-3 max-w-md mx-auto">
       <h1 className="text-3xl text-center font-semibold my-4">Profile</h1>

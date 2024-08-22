@@ -55,6 +55,7 @@ const authSlice = createSlice({
       .addCase(checkUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.loggedInUser = action.payload;
+        state.error = null;
       })
       .addCase(checkUserAsync.rejected, (state, action) => {
         state.status = "idle";
