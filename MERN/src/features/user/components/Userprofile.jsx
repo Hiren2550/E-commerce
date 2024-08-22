@@ -43,7 +43,6 @@ function Userprofile() {
     newUser.addresses.splice(index, 1);
     dispatch(updateUserAsync(newUser));
   };
-  const handleEdit = () => {};
   return (
     <div className="p-3 max-w-md mx-auto">
       <h1 className="text-3xl text-center font-semibold my-4">Profile</h1>
@@ -159,12 +158,6 @@ function Userprofile() {
               </div>
             </li>
             <div className="flex justify-end gap-4">
-              <span
-                className="text-red-700 cursor-pointer"
-                onClick={(e) => handleEdit(e, index)}
-              >
-                Edit
-              </span>
               <span
                 className="text-red-700 cursor-pointer"
                 onClick={(e) => handleRemoveAddress(e, index)}
