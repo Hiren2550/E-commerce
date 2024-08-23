@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByIdAsync, selectProduct } from "../productSlice";
 import { Link, useParams } from "react-router-dom";
 import profile from "../../../assets/profile.png";
-import { addToCartAsync } from "../../cart/cartSlice";
+import { addToCartAsync, selectCart } from "../../cart/cartSlice";
 import { selectUserInfo } from "../../user/userSlice";
 
 const colors = [
@@ -33,8 +33,8 @@ const Productdetails = () => {
   const [openReview, setOpenReview] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
+  const items = useSelector(selectCart);
   const product = useSelector(selectProduct);
-  //console.log(product);
   const dispatch = useDispatch();
   const params = useParams();
   //console.log(params.id);
@@ -42,9 +42,18 @@ const Productdetails = () => {
 
   const handlecart = (e) => {
     e.preventDefault();
-    const newItem = { ...product, quantity: 1, user: user.id };
-    delete newItem["id"];
-    dispatch(addToCartAsync(newItem));
+    if (items.findIndex((item) => item.productId === product.id) < 0) {
+      const newItem = {
+        ...product,
+        productId: product.id,
+        quantity: 1,
+        user: user.id,
+      };
+      delete newItem["id"];
+      dispatch(addToCartAsync(newItem));
+    } else {
+      console.log("already added");
+    }
   };
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
@@ -301,27 +310,31 @@ const Productdetails = () => {
                     </fieldset>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={handlecart}
-                    className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    Add to Cart
-                  </button>
-                  <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
-                    <p>
-                      or{" "}
-                      <Link to={"/"}>
-                        <button
-                          type="button"
-                          className="font-medium text-indigo-600 hover:text-indigo-500"
-                        >
-                          Continue Shopping
-                          <span aria-hidden="true"> &rarr;</span>
-                        </button>
-                      </Link>
-                    </p>
-                  </div>
+                  {product && product.stock > 0 && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={handlecart}
+                        className={`mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
+                      >
+                        Add to Cart
+                      </button>
+                      <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
+                        <p>
+                          or{" "}
+                          <Link to={"/"}>
+                            <button
+                              type="button"
+                              className="font-medium text-indigo-600 hover:text-indigo-500"
+                            >
+                              Continue Shopping
+                              <span aria-hidden="true"> &rarr;</span>
+                            </button>
+                          </Link>
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </form>
               </div>
 
