@@ -343,14 +343,15 @@ function Productgrid() {
   return (
     <div className="lg:col-span-3">
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-6xl lg:px-8">
           <div className="mt-2  grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
             {products.map((product) => (
               <Link
+                className=""
                 to={`/productdetails/${product.id}`}
                 key={product._id || product.id}
               >
-                <div className="group relative border-2 p-2 border-gray-300 ">
+                <div className="group relative h-full border-2 rounded-md p-2 border-gray-300 ">
                   <div className="min-h-64  aspect-h-1 aspect-w- w-full overflow-hidden  bg-gray-400 lg:aspect-none group-hover:opacity-80 lg:h-64">
                     <img
                       alt={product.title}

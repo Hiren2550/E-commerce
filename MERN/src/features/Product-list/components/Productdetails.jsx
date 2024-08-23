@@ -58,7 +58,11 @@ const Productdetails = () => {
               <ol
                 role="list"
                 className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-              ></ol>
+              >
+                <li className="text-xl text-gray-700">
+                  {product.brand} / {product.title}
+                </li>
+              </ol>
             </nav>
 
             {/* Image gallery */}
@@ -107,7 +111,7 @@ const Productdetails = () => {
                   product.tags.map((tag) => (
                     <span
                       key={tag.length}
-                      className="bg-blue-100 text-gray-700 text-xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400"
+                      className="bg-blue-100 text-gray-700 text-base font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400"
                     >
                       {tag}
                     </span>
@@ -388,7 +392,7 @@ const Productdetails = () => {
                           </td>
                         </tr>
 
-                        <tr className="bg-white dark:bg-gray-800">
+                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                           <th
                             scope="row"
                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -399,7 +403,7 @@ const Productdetails = () => {
                             {product.shippingInformation}
                           </td>
                         </tr>
-                        <tr className="bg-white dark:bg-gray-800">
+                        <tr className="bg-white border-b dark:border-gray-700 dark:bg-gray-800">
                           <th
                             scope="row"
                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
