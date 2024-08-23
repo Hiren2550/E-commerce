@@ -30,8 +30,10 @@ import {
   selectAllProducts,
   selectBrands,
   selectCategories,
+  selectProductListStatus,
 } from "../productSlice";
 import { ITEM_PER_PAGE } from "../../../../constant";
+import { Grid } from "react-loader-spinner";
 
 const sortOptions = [
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
@@ -339,60 +341,74 @@ const Productlist = () => {
 
 function Productgrid() {
   const products = useSelector(selectAllProducts);
+  const status = useSelector(selectProductListStatus);
 
   return (
     <div className="lg:col-span-3">
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-6xl lg:px-8">
           <div className="mt-2  grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
-            {products.map((product) => (
-              <Link
-                className=""
-                to={`/productdetails/${product.id}`}
-                key={product._id || product.id}
-              >
-                <div className="group relative h-full border-2 rounded-md p-2 border-gray-300 ">
-                  <div className="min-h-64  aspect-h-1 aspect-w- w-full overflow-hidden  bg-gray-400 lg:aspect-none group-hover:opacity-80 lg:h-64">
-                    <img
-                      alt={product.title}
-                      src={product.thumbnail}
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                    />
-                  </div>
-                  <div className="mt-2 flex justify-between">
-                    <div className=" px-2 py-2">
-                      <h3 className="text-sm text-gray-700">
-                        <div>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0"
-                          />
-                          <p className="hover:under text-wrap">
-                            {product.title}
-                          </p>
-                        </div>
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">
-                        {product.category}
-                      </p>
+            {status === "loading" && (
+              <Grid
+                visible={true}
+                height="80"
+                width="80"
+                color="rgb(79,70,229)"
+                ariaLabel="grid-loading"
+                radius="12.5"
+                wrapperStyle={{}}
+                wrapperClass="grid-wrapper"
+              />
+            )}
+            {products &&
+              products.map((product) => (
+                <Link
+                  className=""
+                  to={`/productdetails/${product.id}`}
+                  key={product._id || product.id}
+                >
+                  <div className="group relative h-full border-2 rounded-md p-2 border-gray-300 ">
+                    <div className="min-h-64  aspect-h-1 aspect-w- w-full overflow-hidden  bg-gray-400 lg:aspect-none group-hover:opacity-80 lg:h-64">
+                      <img
+                        alt={product.title}
+                        src={product.thumbnail}
+                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      />
                     </div>
-                    <div className="px-2 py-2 ">
-                      <p className="text-sm text-nowrap font-medium text-gray-900">
-                        <span className="m-1">$</span>
-                        {product.price}
-                      </p>
+                    <div className="mt-2 flex justify-between">
+                      <div className=" px-2 py-2">
+                        <h3 className="text-sm text-gray-700">
+                          <div>
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0"
+                            />
+                            <p className="hover:under text-wrap">
+                              {product.title}
+                            </p>
+                          </div>
+                        </h3>
+                        <p className="mt-1 text-sm text-gray-500">
+                          {product.category}
+                        </p>
+                      </div>
+                      <div className="px-2 py-2 ">
+                        <p className="text-sm text-nowrap font-medium text-gray-900">
+                          <span className="m-1">$</span>
+                          {product.price}
+                        </p>
 
-                      <p className={`m-1 text-sm text-nowrap font-bold `}>
-                        {product.brand}
-                      </p>
+                        <p className={`m-1 text-sm text-nowrap font-bold `}>
+                          {product.brand}
+                        </p>
+                      </div>
                     </div>
+                    {product.stock <= 0 && (
+                      <p className="text-red-500">Out of stock</p>
+                    )}
                   </div>
-                  {product.stock <= 0 && (
-                    <p className="text-red-500">Out of stock</p>
-                  )}
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
           </div>
         </div>
       </div>

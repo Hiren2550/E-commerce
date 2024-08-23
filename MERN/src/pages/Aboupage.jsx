@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../features/Navbar/Navbar";
+import Footer from "../features/Navbar/Footer";
 
 const Aboupage = () => {
   return (
@@ -41,6 +42,7 @@ const Aboupage = () => {
           </div>
         </section>
       </Navbar>
+      <Footer />
     </>
   );
 };
