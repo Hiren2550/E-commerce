@@ -1,11 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
-import productRouter from "./routes/product.route.js";
+import productsRouter from "./routes/product.route.js";
+import brandsRouter from "./routes/brand.route.js";
+import categoriesRouter from "./routes/category.route.js";
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded());
-app.use("/api/products", productRouter);
+app.use("/api/products", productsRouter);
+app.use("/api/brands", brandsRouter);
+app.use("/api/categories", categoriesRouter);
 
 const main = async () => {
   await mongoose.connect("mongodb://127.0.0.1:27017/test");
