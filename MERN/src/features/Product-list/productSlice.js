@@ -13,6 +13,7 @@ const initialState = {
   brands: [],
   product: {},
   error: null,
+  total: 0,
   status: "idle",
 };
 
@@ -71,7 +72,8 @@ const productSlice = createSlice({
       })
       .addCase(fetchAllProductsByFilterAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.products = action.payload;
+        state.products = action.payload.products;
+        state.total = action.payload.totalItems;
       })
       .addCase(fetchAllBrandsAsync.pending, (state) => {
         state.status = "loading";
@@ -103,4 +105,5 @@ export const selectCategories = (state) => state.product.categories;
 export const selectProduct = (state) => state.product.product;
 export const selectError = (state) => state.product.error;
 export const selectProductListStatus = (state) => state.product.status;
+export const selectTotal = (state) => state.product.total;
 export default productSlice.reducer;

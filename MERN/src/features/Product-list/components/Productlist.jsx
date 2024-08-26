@@ -31,6 +31,7 @@ import {
   selectBrands,
   selectCategories,
   selectProductListStatus,
+  selectTotal,
 } from "../productSlice";
 import { ITEM_PER_PAGE } from "../../../../constant";
 import { Grid } from "react-loader-spinner";
@@ -64,6 +65,7 @@ const Productlist = () => {
 
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
+  const totalItems = useSelector(selectTotal);
 
   const dispatch = useDispatch();
 
@@ -109,7 +111,6 @@ const Productlist = () => {
     }
     fetchData();
   }, [dispatch, filter, sort, page]);
-  const totalItems = 100;
   useEffect(() => {
     setPage(1);
   }, [totalItems, sort]);
