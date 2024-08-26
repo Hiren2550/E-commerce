@@ -1,4 +1,8 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  isRejectedWithValue,
+} from "@reduxjs/toolkit";
 import { checkUser, createUser } from "./authAPI";
 import { deleteUser, signOut } from "../user/userAPI";
 
@@ -17,10 +21,15 @@ export const createUserAsync = createAsyncThunk(
 );
 export const checkUserAsync = createAsyncThunk(
   "auth/checkUser",
-  async (loginInfo) => {
-    const response = await checkUser(loginInfo);
-    //console.log(response.data);
-    return response.data;
+  async (loginInfo, { rejectWithValue }) => {
+    try {
+      const response = await checkUser(loginInfo);
+      //console.log(response.data);
+      return response.data;
+    } catch (error) {
+      // console.log(error);
+      return rejectWithValue(error);
+    }
   }
 );
 export const deleteUserAsync = createAsyncThunk(
@@ -59,7 +68,7 @@ const authSlice = createSlice({
       })
       .addCase(checkUserAsync.rejected, (state, action) => {
         state.status = "idle";
-        state.error = action.error;
+        state.error = action.payload;
       })
       .addCase(deleteUserAsync.pending, (state) => {
         state.status = "loading";

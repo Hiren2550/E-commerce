@@ -32,7 +32,7 @@ export const deleteCategory = async (req, res) => {
   const id = req.params.id;
   try {
     const category = await Category.findByIdAndDelete(id);
-    res.status(200).json(category);
+    res.status(200).json({ result: "category is deleted" });
   } catch (error) {
     res.status(400).json(error);
   }
@@ -41,7 +41,7 @@ export const updateCategory = async (req, res) => {
   const id = req.params.id;
   const data = req.body;
   try {
-    const category = await category.findByIdAndUpdate(id, data, {
+    const category = await Category.findByIdAndUpdate(id, data, {
       new: true,
       runValidators: true,
     });

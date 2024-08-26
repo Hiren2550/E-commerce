@@ -13,6 +13,7 @@ import profile from "../../../assets/profile.png";
 import { addToCartAsync, selectCart } from "../../cart/cartSlice";
 import { selectUserInfo } from "../../user/userSlice";
 import { RotatingLines } from "react-loader-spinner";
+import { toast } from "react-toastify";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -38,28 +39,27 @@ const Productdetails = () => {
   const [openReview, setOpenReview] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
-  const items = useSelector(selectCart);
   const product = useSelector(selectProduct);
+  const items = useSelector(selectCart);
   const status = useSelector(selectProductListStatus);
-
   const dispatch = useDispatch();
   const params = useParams();
-  //console.log(params.id);
   const user = useSelector(selectUserInfo);
 
   const handlecart = (e) => {
     e.preventDefault();
-    if (items.findIndex((item) => item.productId === product.id) < 0) {
+    if (items.findIndex((item) => item.product.id === product.id) < 0) {
       const newItem = {
-        ...product,
-        productId: product.id,
+        product: product.id,
         quantity: 1,
         user: user.id,
       };
-      delete newItem["id"];
       dispatch(addToCartAsync(newItem));
     } else {
-      console.log("already added");
+      toast.info("product already added", {
+        position: "bottom-right",
+        theme: "dark",
+      });
     }
   };
   useEffect(() => {
@@ -80,7 +80,6 @@ const Productdetails = () => {
           wrapperClass=""
         />
       )}
-
       {product && (
         <div className="bg-white">
           <div className="pt-6">
@@ -89,8 +88,13 @@ const Productdetails = () => {
                 role="list"
                 className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
               >
-                <li className="text-xl text-gray-700">
-                  {product.brand} / {product.title}
+                <li className="text-sm">
+                  <div
+                    aria-current="page"
+                    className="font-medium text-2xl text-gray-500 hover:text-gray-600"
+                  >
+                    {product.category} / {product.title}
+                  </div>
                 </li>
               </ol>
             </nav>
@@ -141,7 +145,7 @@ const Productdetails = () => {
                   product.tags.map((tag) => (
                     <span
                       key={tag.length}
-                      className="bg-blue-100 text-gray-700 text-base font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400"
+                      className="bg-blue-100 text-gray-700 text-xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400"
                     >
                       {tag}
                     </span>
@@ -437,7 +441,7 @@ const Productdetails = () => {
                             {product.shippingInformation}
                           </td>
                         </tr>
-                        <tr className="bg-white border-b dark:border-gray-700 dark:bg-gray-800">
+                        <tr className="bg-white dark:bg-gray-800">
                           <th
                             scope="row"
                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"

@@ -6,13 +6,14 @@ import {
   fetchBrandById,
   updateBrand,
 } from "../controller/brand.js";
+import { verifyToken } from "../utils/verifyUser.js";
 const router = express.Router();
 
 router
-  .get("/", fetchAllBrands)
-  .post("/", createBrand)
-  .get("/:id", fetchBrandById)
-  .patch("/:id", updateBrand)
-  .delete("/:id", deleteBrand);
+  .get("/", verifyToken, fetchAllBrands)
+  .post("/", verifyToken, createBrand)
+  .get("/:id", verifyToken, fetchBrandById)
+  .patch("/:id", verifyToken, updateBrand)
+  .delete("/:id", verifyToken, deleteBrand);
 
 export default router;

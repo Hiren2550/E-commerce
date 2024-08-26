@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import logo from "../../assets/logo.jpg";
 import profile from "../../assets/profile.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,9 +38,10 @@ function classNames(...classes) {
 const Navbar = ({ children }) => {
   const items = useSelector(selectCart);
   const user = useSelector(selectLoggedInUser);
+  // console.log(user);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (user) {
+    if (user.id) {
       dispatch(fetchCartByUserIdAsync(user.id));
       dispatch(fetchUserInfoAsync(user.id));
     }

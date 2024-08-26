@@ -13,16 +13,19 @@ const Cart = () => {
   let items = useSelector(selectCart);
   items = [...items].reverse();
   const handleQtyChange = (e, item) => {
-    dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id: item.id, quantity: e.target.value }));
   };
   const handleDelete = (e, itemId) => {
+    // console.log(itemId);
     dispatch(deleteItemAsync(itemId));
   };
   const totalAmount = items.reduce(
-    (amount, item) => item.price * item.quantity + amount,
+    (amount, item) => item.product.price * item.quantity + amount,
     0
   );
+  // console.log(items);
   const totalQuantity = items.reduce((total, item) => item.quantity + total, 0);
+  // console.log(totalQuantity);
   return (
     <>
       {!items.length && <Navigate to={"/"} replace={true}></Navigate>}
@@ -38,8 +41,8 @@ const Cart = () => {
                   <li key={item.id} className="flex py-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                       <img
-                        alt={item.title}
-                        src={item.thumbnail}
+                        alt={item.product.title}
+                        src={item.product.thumbnail}
                         className="h-full w-full object-cover object-center"
                       />
                     </div>
@@ -48,12 +51,12 @@ const Cart = () => {
                       <div>
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <h3>
-                            <div>{item.title}</div>
+                            <div>{item.product.title}</div>
                           </h3>
-                          <p className="ml-4"> $ {item.price}</p>
+                          <p className="ml-4"> $ {item.product.price}</p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
-                          {item.category}
+                          {item.product.category}
                         </p>
                       </div>
                       <div className="flex flex-1 items-end justify-between text-sm">

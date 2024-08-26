@@ -192,8 +192,8 @@ function Userprofile() {
             >
               <Link to={`/my-orders`}>
                 <img
-                  src={order.items[0].thumbnail}
-                  alt={order.items[0].title}
+                  src={order.items[0].product.thumbnail}
+                  alt={order.items[0].product.title}
                   className="w-20 h-20 object-contain"
                 />
               </Link>

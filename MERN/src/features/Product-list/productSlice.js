@@ -12,6 +12,7 @@ const initialState = {
   categories: [],
   brands: [],
   product: {},
+  error: null,
   status: "idle",
 };
 
@@ -51,6 +52,7 @@ export const fetchAllProductsByFilterAsync = createAsyncThunk(
     return response.data;
   }
 );
+
 const productSlice = createSlice({
   name: "product",
   initialState,
@@ -99,5 +101,6 @@ export const selectAllProducts = (state) => state.product.products;
 export const selectBrands = (state) => state.product.brands;
 export const selectCategories = (state) => state.product.categories;
 export const selectProduct = (state) => state.product.product;
+export const selectError = (state) => state.product.error;
 export const selectProductListStatus = (state) => state.product.status;
 export default productSlice.reducer;

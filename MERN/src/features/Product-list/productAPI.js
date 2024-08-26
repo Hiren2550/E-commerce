@@ -1,27 +1,27 @@
 export function fetchAllProducts() {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/products");
+    const response = await fetch("/api/products");
     const data = await response.json();
     resolve({ data });
   });
 }
 export function fetchProductById(id) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/products/${id}`);
+    const response = await fetch(`/api/products/${id}`);
     const data = await response.json();
     resolve({ data });
   });
 }
 export function fetchAllBrands() {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/brands");
+    const response = await fetch("/api/brands");
     const data = await response.json();
     resolve({ data });
   });
 }
 export function fetchAllCategories() {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/categories");
+    const response = await fetch("/api/categories");
     const data = await response.json();
     resolve({ data });
   });
@@ -46,15 +46,10 @@ export function fetchAllProductsByFilter(filter, sort, pagination) {
     queryString += `${key}=${pagination[key]}&`;
   }
   return new Promise(async (resolve) => {
-    const q = `http://localhost:8080/products?${queryString}`;
+    const q = `/api/products?${queryString}`;
     //console.log(q);
     const response = await fetch(q);
     const data = await response.json();
     resolve({ data });
   });
 }
-// const test = async () => {
-//   const data = await fetchProductById(4);
-//   console.log(data);
-// };
-// test();

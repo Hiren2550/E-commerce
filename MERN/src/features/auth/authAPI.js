@@ -1,6 +1,6 @@
 export function createUser(userData) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/users", {
+    const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -14,20 +14,23 @@ export function createUser(userData) {
 
 export function checkUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
-    const email = loginInfo.email;
-    const password = loginInfo.password;
-    const response = await fetch("http://localhost:8080/users?email=" + email);
-    let data = await response.json();
-
-    if (data.length) {
-      if (password == data[0].password) {
-        data = data[0];
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(loginInfo),
+      });
+      if (response.ok) {
+        const data = await response.json();
         resolve({ data });
       } else {
-        reject({ message: "Wrong credentials" });
+        let error = await response.json();
+        reject(error);
       }
-    } else {
-      reject({ message: "User not found" });
+    } catch (error) {
+      reject({ error });
     }
   });
 }

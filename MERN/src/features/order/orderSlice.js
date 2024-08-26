@@ -3,6 +3,7 @@ import { createOrder } from "./orderAPI";
 
 const initialState = {
   orders: [],
+  order: null,
   status: "idle",
   currentOrder: null,
 };

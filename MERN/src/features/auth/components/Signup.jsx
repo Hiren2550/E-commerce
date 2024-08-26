@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../../assets/logo.jpg";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +21,7 @@ const Signup = () => {
         email: data.email,
         password: data.password,
         addresses: [],
-        role: "Normal User ",
+        role: "Normal User",
       })
     );
   };

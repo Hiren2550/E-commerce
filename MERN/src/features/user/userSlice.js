@@ -1,7 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchLoggedInUserOrders, fetchUserInfo, updateUser } from "./userAPI";
+import {
+  deleteUser,
+  fetchLoggedInUserOrders,
+  fetchUserInfo,
+  updateUser,
+} from "./userAPI";
 
 const initialState = {
+  users: [],
   userOrders: [],
   userInfo: null,
   status: "idle",
@@ -30,6 +36,10 @@ export const updateUserAsync = createAsyncThunk(
     return response.data;
   }
 );
+export const deleteAsync = createAsyncThunk("user/deleteUser", async (id) => {
+  const response = await deleteUser(id);
+  return response.data.id;
+});
 
 const userSlice = createSlice({
   name: "user",
@@ -57,10 +67,21 @@ const userSlice = createSlice({
       .addCase(updateUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.userInfo = action.payload;
+      })
+      .addCase(deleteAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(deleteAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        const index = state.users.findIndex(
+          (user) => user.id === action.payload
+        );
+        state.users.splice(index, 1);
       });
   },
 });
 
 export const selectUserInfo = (state) => state.user.userInfo;
+export const selectUsers = (state) => state.user.users;
 export const selectUserOrders = (state) => state.user.userOrders;
 export default userSlice.reducer;

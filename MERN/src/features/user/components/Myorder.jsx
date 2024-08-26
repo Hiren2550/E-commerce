@@ -5,43 +5,51 @@ import {
   selectUserInfo,
   selectUserOrders,
 } from "../userSlice";
-import Loading from "../../../pages/Loading";
+import { Navigate } from "react-router-dom";
 
-const chooseColor = (status) => {
-  switch (status) {
-    case "pending":
-      return "text-purple-600";
-    case "dispatched":
-      return "text-blue-600";
-    case "delivered":
-      return "text-green-600";
-    case "cancelled":
-      return "text-red-600";
-    default:
-      return "text-gray-800";
-  }
-};
 const Myorder = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserInfo);
   let userOrders = useSelector(selectUserOrders);
+  // console.log(userOrders);
   userOrders = [...userOrders].reverse();
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync(user.id));
   }, [dispatch, user.id]);
+  const chooseColor = (status) => {
+    switch (status) {
+      case "pending":
+        return "text-purple-600";
+      case "dispatched":
+        return "text-blue-600";
+      case "delivered":
+        return "text-green-600";
+      case "cancelled":
+        return "text-red-600";
+      default:
+        return "text-gray-800";
+    }
+  };
   return (
     <>
-      {!userOrders.length && <Loading />}
-      {userOrders.length &&
+      {userOrders.length < 1 && <Navigate to="/" replace={true}></Navigate>}
+      {userOrders.length < 1 && (
+        <p className="text-xl mt-10 text-center text-slate-700">
+          No more Orders
+        </p>
+      )}
+      {userOrders &&
         userOrders.map((order, index) => (
           <section
-            key={order.id}
+            key={index}
             className="py-4 m-5 relative bg-white border rounded"
           >
             <div className="w-full mt-2 max-w-7xl px-4 md:px-5 lg-6 mx-auto">
               <h2 className="font-manrope font-bold text-xl sm:text-2xl leading-10 text-black mb-2">
                 Order #{order.id}{" "}
-                <p className={`${chooseColor(order.status)} font-bold text-xl`}>
+                <p
+                  className={` ${chooseColor(order.status)} font-bold text-xl`}
+                >
                   Order Status : {order.status}
                 </p>
               </h2>
@@ -97,11 +105,14 @@ const Myorder = () => {
 
               <div className="border-b border-gray-300">
                 {order.items.map((item) => (
-                  <div className="grid grid-cols-7 w-full  py-2 border-gray-100 ">
+                  <div
+                    key={item.id}
+                    className="grid grid-cols-7 w-full  py-2 border-gray-100 "
+                  >
                     <div className="col-span-7 min-[500px]:col-span-2 md:col-span-1">
                       <img
-                        src={item.thumbnail}
-                        alt={item.title}
+                        src={item.product.thumbnail}
+                        alt={item.product.title}
                         className="w-full rounded-xl mb-2"
                       />
                     </div>
@@ -109,10 +120,10 @@ const Myorder = () => {
                       <div className="flex flex-col min-[500px]:flex-row min-[500px]:items-center justify-between">
                         <div className="flex flex-col justify-center ">
                           <h5 className="font-manrope font-semibold leading-9 text-black">
-                            {item.title}
+                            {item.product.title}
                           </h5>
                           <p className="font-normal leading-8 text-gray-500">
-                            {item.brand}
+                            {item.product.brand}
                           </p>
                           <p className="font-normal leading-8 text-gray-500">
                             Quantity : {item.quantity}
@@ -120,7 +131,7 @@ const Myorder = () => {
                         </div>
 
                         <h5 className="font-manrope font-semibold text-xl leading-10 text-black sm:text-right flex   sm:justify-center">
-                          $ {item.price}
+                          $ {item.product.price}
                         </h5>
                       </div>
                     </div>

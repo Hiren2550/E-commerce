@@ -14,13 +14,16 @@ import Myorderpage from "./pages/Myorderpage";
 import Aboupage from "./pages/Aboupage";
 import Logout from "./features/auth/components/Logout";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         <Route path="/signup" element={<Signuppage />} />
         <Route path="/login" element={<Loginpage />} />
-        {/* <Route element={<PrivateRoute />}> */}
         <Route
           path="/"
           element={
@@ -86,6 +89,8 @@ function App() {
           }
         />
         <Route path="/log-out" element={<Logout />} />
+        {/* Now the Route for Only Admin user */}
+
         <Route path="*" element={<Pagenotfound />} />
         {/* </Route> */}
       </Routes>
