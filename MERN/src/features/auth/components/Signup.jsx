@@ -4,10 +4,11 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { createUserAsync, selectLoggedInUser } from "../authSlice";
+import { createUserAsync, selectCheck, selectLoggedInUser } from "../authSlice";
 const Signup = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+  const userCheck = useSelector(selectCheck);
   const {
     register,
     handleSubmit,
@@ -27,8 +28,7 @@ const Signup = () => {
   };
   return (
     <>
-      {user && <Navigate to="/" replace={true}></Navigate>}
-
+      {userCheck && user && <Navigate to="/" replace={true}></Navigate>}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img alt="Your Company" src={logo} className="mx-auto h-20 w-20" />

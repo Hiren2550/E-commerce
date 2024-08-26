@@ -10,7 +10,7 @@ import { verifyToken } from "../utils/verifyUser.js";
 const router = express.Router();
 
 router
-  .get("/", verifyToken, fetchAllCategories)
+  .get("/", fetchAllCategories)
   .post("/", verifyToken, createCategory)
   .get("/:id", verifyToken, fetchCategoryById)
   .patch("/:id", verifyToken, updateCategory)

@@ -10,7 +10,7 @@ import { verifyToken } from "../utils/verifyUser.js";
 const router = express.Router();
 
 router
-  .get("/", verifyToken, fetchAllBrands)
+  .get("/", fetchAllBrands)
   .post("/", verifyToken, createBrand)
   .get("/:id", verifyToken, fetchBrandById)
   .patch("/:id", verifyToken, updateBrand)

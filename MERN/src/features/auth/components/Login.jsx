@@ -3,12 +3,18 @@ import logo from "../../../assets/logo.jpg";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { checkUserAsync, selectError, selectLoggedInUser } from "../authSlice";
+import {
+  checkUserAsync,
+  selectCheck,
+  selectError,
+  selectLoggedInUser,
+} from "../authSlice";
 const Login = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const error = useSelector(selectError);
+  const userCheck = useSelector(selectCheck);
   const {
     register,
     handleSubmit,
@@ -23,7 +29,7 @@ const Login = () => {
   };
   return (
     <>
-      {user && <Navigate to="/" replace={true}></Navigate>}
+      {userCheck && user && <Navigate to="/" replace={true}></Navigate>}
       {!open && (
         <div className=" h-screen flex min-h-full flex-1 flex-col justify-center items-center px-6 py-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">

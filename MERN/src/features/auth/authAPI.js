@@ -34,3 +34,21 @@ export function checkUser(loginInfo) {
     }
   });
 }
+
+export function authUser() {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch("/api/auth/checkAuth");
+      if (response.ok) {
+        const data = await response.json();
+        resolve({ data });
+      } else {
+        let data = await response.json();
+        const error = { message: "unAuthorized" };
+        reject(error);
+      }
+    } catch (error) {
+      reject({ error });
+    }
+  });
+}

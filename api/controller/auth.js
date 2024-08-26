@@ -9,7 +9,11 @@ export const createUser = async (req, res, next) => {
     const hashedpassword = bcryptjs.hashSync(password, 10);
     const user = new User({ name, email, role, password: hashedpassword });
     const doc = await user.save();
-    res.status(201).json(doc);
+    const token = jwt.sign({ id: doc.id }, process.env.JWT_SECRET);
+    res
+      .cookie("access_token", token, { httpOnly: true })
+      .status(201)
+      .json(user);
   } catch (error) {
     next(error);
   }
@@ -37,14 +41,17 @@ export const login = async (req, res, next) => {
 };
 
 export const checkAuth = async (req, res, next) => {
-  const token = req.cookies.access_token;
-  if (!token) return next(errorHandler(401, "Unauthorized"));
-  const user = jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) return next(errorHandler(403, "Forbidden"));
-    req.user = user;
-    next();
-  });
-  res.json(req.user);
+  try {
+    const token = req.cookies.access_token;
+
+    if (!token) return next(errorHandler(401, "Unauthorized"));
+    const info = jwt.verify(token, process.env.JWT_SECRET);
+    const { id } = info;
+    const user = await User.findById(id);
+    res.status(200).json(user);
+  } catch (error) {
+    next(error);
+  }
 };
 export const signout = async (req, res, next) => {
   try {
