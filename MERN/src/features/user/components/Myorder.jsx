@@ -6,16 +6,18 @@ import {
   selectUserOrders,
 } from "../userSlice";
 import { Navigate } from "react-router-dom";
+import { selectCheck } from "../../auth/authSlice";
 
 const Myorder = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserInfo);
   let userOrders = useSelector(selectUserOrders);
+  const userCheck = useSelector(selectCheck);
   // console.log(userOrders);
   userOrders = [...userOrders].reverse();
   useEffect(() => {
-    dispatch(fetchLoggedInUserOrdersAsync(user.id));
-  }, [dispatch, user.id]);
+    if (user) dispatch(fetchLoggedInUserOrdersAsync(user.id));
+  }, [dispatch, user]);
   const chooseColor = (status) => {
     switch (status) {
       case "pending":
@@ -32,13 +34,17 @@ const Myorder = () => {
   };
   return (
     <>
-      {userOrders.length < 1 && <Navigate to="/" replace={true}></Navigate>}
-      {userOrders.length < 1 && (
+      {userCheck && userOrders.length < 1 && (
+        <Navigate to="/" replace={true}></Navigate>
+      )}
+      {userCheck && userOrders.length < 1 && (
         <p className="text-xl mt-10 text-center text-slate-700">
           No more Orders
         </p>
       )}
-      {userOrders &&
+      {user &&
+        userCheck &&
+        userOrders &&
         userOrders.map((order, index) => (
           <section
             key={index}

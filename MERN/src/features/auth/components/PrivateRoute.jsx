@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
   const user = useSelector(selectLoggedInUser);
   const userCheck = useSelector(selectCheck);
-  if (!user) {
+  if (userCheck && !user) {
     return <Navigate to={"/login"} replace={true}></Navigate>;
   }
 
