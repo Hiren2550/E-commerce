@@ -1,8 +1,4 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  isRejectedWithValue,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { authUser, checkUser, createUser } from "./authAPI";
 import { deleteUser, signOut } from "../user/userAPI";
 
