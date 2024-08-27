@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchLoggedInUserOrdersAsync,
+  selectOrderCheck,
   selectUserInfo,
   selectUserOrders,
 } from "../userSlice";
@@ -15,6 +16,7 @@ const Myorder = () => {
   const userCheck = useSelector(selectCheck);
   // console.log(userOrders);
   userOrders = [...userOrders].reverse();
+  const orderCheck = useSelector(selectOrderCheck);
   useEffect(() => {
     if (user) dispatch(fetchLoggedInUserOrdersAsync(user.id));
   }, [dispatch, user]);
@@ -34,15 +36,16 @@ const Myorder = () => {
   };
   return (
     <>
-      {userCheck && userOrders.length < 1 && (
+      {userCheck && orderCheck && userOrders.length < 1 && (
         <Navigate to="/" replace={true}></Navigate>
       )}
-      {userCheck && userOrders.length < 1 && (
+      {userCheck && orderCheck && userOrders.length < 1 && (
         <p className="text-xl mt-10 text-center text-slate-700">
           No more Orders
         </p>
       )}
       {user &&
+        orderCheck &&
         userCheck &&
         userOrders &&
         userOrders.map((order, index) => (
