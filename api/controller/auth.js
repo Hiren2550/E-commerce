@@ -10,10 +10,7 @@ export const createUser = async (req, res, next) => {
     const user = new User({ name, email, role, password: hashedpassword });
     const doc = await user.save();
     const token = jwt.sign({ id: doc.id }, process.env.JWT_SECRET);
-    res
-      .cookie("access_token", token, { httpOnly: true })
-      .status(201)
-      .json(user);
+    res.cookie("access_token", token, { httpOnly: true }).status(201).json(doc);
   } catch (error) {
     next(error);
   }

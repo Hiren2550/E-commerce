@@ -26,7 +26,7 @@ app.use("/api/cart", cartRouter);
 app.use("/api/orders", ordersRouter);
 
 const main = async () => {
-  await mongoose.connect("mongodb://127.0.0.1:27017/test");
+  await mongoose.connect(process.env.MONGO_URL);
   console.log("Database connected");
 };
 main().catch((error) => console.log(error));
