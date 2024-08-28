@@ -5,16 +5,19 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import {
   checkUserAsync,
+  resetPasswordRequestAsync,
   selectCheck,
   selectError,
   selectLoggedInUser,
+  selectMailSent,
 } from "../authSlice";
 const Login = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
-  const error = useSelector(selectError);
   const userCheck = useSelector(selectCheck);
+  const mailSent = useSelector(selectMailSent);
+  const error = useSelector(selectError);
   const {
     register,
     handleSubmit,
@@ -25,7 +28,7 @@ const Login = () => {
     dispatch(checkUserAsync({ email: data.email, password: data.password }));
   };
   const handleEmail = (data) => {
-    console.log(data);
+    dispatch(resetPasswordRequestAsync({ email: data.email }));
   };
   return (
     <>
@@ -182,6 +185,9 @@ const Login = () => {
                 <p className="mt-1 text-xs text-red-600">
                   {errors.email?.message}
                 </p>
+                {mailSent && (
+                  <p className="mt-1 text-xs text-green-600">Mail Sent</p>
+                )}
               </div>
               <div>
                 <button

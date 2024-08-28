@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authUserAsync } from "./features/auth/authSlice";
+import Resetpassword from "./features/auth/components/Resetpassword";
 
 function App() {
   const dispatch = useDispatch();
@@ -98,6 +99,7 @@ function App() {
           }
         />
         <Route path="/log-out" element={<Logout />} />
+        <Route path="/reset-password" element={<Resetpassword />} />
         {/* Now the Route for Only Admin user */}
 
         <Route path="*" element={<Pagenotfound />} />
