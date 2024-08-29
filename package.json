@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node api/index.js",
     "dev": "nodemon api/index.js",
-     "build" :"npm install && npm install --prefix MERN && npm run build MERN",
+     "build" :"npm install && npm install --prefix MERN && npm run build --prefix  MERN",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
