@@ -46,10 +46,6 @@ const main = async () => {
 };
 main().catch((error) => console.log(error));
 
-app.get("/", (req, res) => {
-  res.json({ message: "API done" });
-});
-
 app.post("/api/mail", async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user) {
