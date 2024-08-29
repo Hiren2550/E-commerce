@@ -1,6 +1,6 @@
 import { Brand } from "../model/brand.model.js";
 
-export const fetchAllBrands = async (req, res) => {
+export const fetchAllBrands = async (req, res, next) => {
   try {
     const brands = await Brand.find();
     res.status(200).json(brands);

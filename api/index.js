@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import path from "path";
 import bcryptjs from "bcryptjs";
 import productsRouter from "./routes/product.route.js";
 import brandsRouter from "./routes/brand.route.js";
@@ -16,6 +17,7 @@ import crypto from "crypto";
 dotenv.config();
 
 const app = express();
+const __dirname = path.resolve();
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
@@ -105,6 +107,11 @@ app.post("/api/reset-password", async (req, res) => {
   }
 });
 
+app.use(express.static(path.join(__dirname, "MERN/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "MERN", "dist", "index.html"));
+});
 app.use((err, req, res, next) => {
   const statuscode = err.statuscode || 500;
   const message = err.message || "internal Server Error";
