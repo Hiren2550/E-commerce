@@ -1,5 +1,5 @@
 import React from "react";
-import Checkout from "../features/checkout/checkout";
+import Checkout from "../features/checkout/Checkout";
 
 const Checkoutpage = () => {
   return (
