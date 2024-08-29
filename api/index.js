@@ -55,7 +55,7 @@ app.post("/api/mail", async (req, res) => {
 
     const to = req.body.email;
     const resetPageLink =
-      "http://localhost:5173/reset-password?token=" +
+      "https://e-commerce-15i5.onrender.com/reset-password?token=" +
       token +
       "&email=" +
       req.body.email;
