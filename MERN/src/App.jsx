@@ -20,6 +20,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authUserAsync } from "./features/auth/authSlice";
 import Resetpassword from "./features/auth/components/Resetpassword";
+import Paymentsuccess from "./features/payment/Paymentsuccess";
+import Paymentcancel from "./features/payment/Paymentcancel";
 
 function App() {
   const dispatch = useDispatch();
@@ -95,6 +97,22 @@ function App() {
           element={
             <PrivateRoute>
               <Aboupage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/payment-success"
+          element={
+            <PrivateRoute>
+              <Paymentsuccess />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/payment-cancel"
+          element={
+            <PrivateRoute>
+              <Paymentcancel />
             </PrivateRoute>
           }
         />

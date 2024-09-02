@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { createOrderAsync, selectCurrentOrder } from "../order/orderSlice";
 import { selectUserInfo, updateUserAsync } from "../user/userSlice";
 import { toast } from "react-toastify";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Checkout = () => {
   const user = useSelector(selectUserInfo);
@@ -66,10 +67,48 @@ const Checkout = () => {
       });
     }
   };
+  const tempOrder = {
+    items,
+    user: user.id,
+    totalAmount: Math.ceil(totalAmount),
+    totalQuantity,
+    paymentMethod,
+    selectedAddress,
+    status: "pending",
+  };
+  const makepayment = async () => {
+    if (paymentMethod === "online") {
+      handleOrder();
+      const stripe = await loadStripe(
+        "pk_test_51PuIfZ05kO4vvSCr5vtSSp8RMhe8XzzbYLzbOpOFvkXqU2LrYakSpSm8gJMAxce7kASfk3IKMCoZT8FUt44GgVfR00u8Ld0kCa"
+      );
+      const body = {
+        order: tempOrder,
+      };
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      const response = await fetch("/api/payment", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      });
+      const session = await response.json();
+      const result = stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      if (result.error) {
+        console.log(result.error);
+      }
+    } else {
+      handleOrder();
+    }
+  };
+
   return (
     <>
       {!items.length && <Navigate to={"/"} replace={true}></Navigate>}
-      {currentOrder && (
+      {paymentMethod === "cash" && currentOrder && (
         <Navigate
           to={`/order-success/${currentOrder.id}`}
           replace={true}
@@ -513,7 +552,7 @@ const Checkout = () => {
                 <div className="mt-6">
                   <button
                     // disabled={user.addresses.length ? false : true}
-                    onClick={handleOrder}
+                    onClick={makepayment}
                     className=" w-full cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
                     Order Now

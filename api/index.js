@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import Stripe from "stripe";
 import path from "path";
 import bcryptjs from "bcryptjs";
 import productsRouter from "./routes/product.route.js";
@@ -17,6 +18,7 @@ import crypto from "crypto";
 dotenv.config();
 
 const app = express();
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const __dirname = path.resolve();
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -102,7 +104,33 @@ app.post("/api/reset-password", async (req, res) => {
     res.status(400).json({ message: "Invalid User" });
   }
 });
+app.post("/api/payment", async (req, res) => {
+  const order = req.body.order;
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: "Products",
+            },
+            unit_amount: order.totalAmount * 100, // Amount in cents (e.g., $20.00)
+          },
+          quantity: order.totalQuantity,
+        },
+      ],
+      mode: "payment",
+      success_url: "https://e-commerce-15i5.onrender.com/payment-success",
+      cancel_url: "https://e-commerce-15i5.onrender.com/payment-cancel",
+    });
 
+    res.status(200).json({ id: session.id });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 app.use(express.static(path.join(__dirname, "MERN/dist")));
 
 app.get("*", (req, res) => {

@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node api/index.js",
     "dev": "nodemon api/index.js",
-     "build" :"npm install && npm install --prefix MERN && npm run build --prefix  MERN",
+    "build": "npm install && npm install --prefix MERN && npm run build --prefix  MERN",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -21,6 +21,7 @@
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.4",
-    "nodemailer": "^6.9.14"
+    "nodemailer": "^6.9.14",
+    "stripe": "^16.9.0"
   }
 }
