@@ -12,6 +12,7 @@ import Ordersuccesspage from "./pages/Ordersuccesspage";
 import Userprofilepage from "./pages/Userprofilepage";
 import Myorderpage from "./pages/Myorderpage";
 import Aboupage from "./pages/Aboupage";
+import Contactpage from "./pages/Contactpage";
 import Logout from "./features/auth/components/Logout";
 
 import { ToastContainer } from "react-toastify";
@@ -97,6 +98,14 @@ function App() {
           element={
             <PrivateRoute>
               <Aboupage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PrivateRoute>
+              <Contactpage />
             </PrivateRoute>
           }
         />

@@ -6,181 +6,171 @@ import {
   selectUserInfo,
   selectUserOrders,
 } from "../userSlice";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { selectCheck } from "../../auth/authSlice";
+import {
+  ShoppingBagIcon,
+  CheckCircleIcon,
+  ClockIcon,
+  TruckIcon,
+  XCircleIcon,
+} from "@heroicons/react/24/outline";
 
 const Myorder = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserInfo);
   let userOrders = useSelector(selectUserOrders);
   const userCheck = useSelector(selectCheck);
-  // console.log(userOrders);
   userOrders = [...userOrders].reverse();
   const orderCheck = useSelector(selectOrderCheck);
+
   useEffect(() => {
-    if (user) dispatch(fetchLoggedInUserOrdersAsync(user.id));
+    if (user?.id) dispatch(fetchLoggedInUserOrdersAsync(user.id));
   }, [dispatch, user]);
-  const chooseColor = (status) => {
+
+  const getStatusBadge = (status) => {
     switch (status) {
-      case "pending":
-        return "text-purple-600";
-      case "dispatched":
-        return "text-blue-600";
       case "delivered":
-        return "text-green-600";
+        return {
+          bg: "bg-emerald-50 text-emerald-700 border-emerald-200",
+          icon: CheckCircleIcon,
+        };
+      case "dispatched":
+        return {
+          bg: "bg-blue-50 text-blue-700 border-blue-200",
+          icon: TruckIcon,
+        };
       case "cancelled":
-        return "text-red-600";
+        return {
+          bg: "bg-rose-50 text-rose-700 border-rose-200",
+          icon: XCircleIcon,
+        };
       default:
-        return "text-gray-800";
+        return {
+          bg: "bg-amber-50 text-amber-700 border-amber-200",
+          icon: ClockIcon,
+        };
     }
   };
-  return (
-    <>
-      {userCheck && orderCheck && userOrders.length < 1 && (
-        <Navigate to="/" replace={true}></Navigate>
-      )}
-      {userCheck && orderCheck && userOrders.length < 1 && (
-        <p className="text-xl mt-10 text-center text-slate-700">
-          No more Orders
-        </p>
-      )}
-      {user &&
-        orderCheck &&
-        userCheck &&
-        userOrders &&
-        userOrders.map((order, index) => (
-          <section
-            key={index}
-            className="py-4 m-5 relative bg-white border rounded"
-          >
-            <div className="w-full mt-2 max-w-7xl px-4 md:px-5 lg-6 mx-auto">
-              <h2 className="font-manrope font-bold text-xl sm:text-2xl leading-10 text-black mb-2">
-                Order #{order.id}{" "}
-                <p
-                  className={` ${chooseColor(order.status)} font-bold text-xl`}
-                >
-                  Order Status : {order.status}
-                </p>
-              </h2>
-              <h6 className="font-medium text-xl leading-8 text-black ">
-                Hello, {order.selectedAddress.firstname}
-              </h6>
-              <p className="font-normal text-lg leading-8 text-gray-500 mb-3">
-                Your order has been completed and be delivery in only two days .
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 py-2 my-2 border-y border-gray-300">
-                <div className="box group">
-                  <p className="font-normal text-base leading-7 text-gray-500 transition-all duration-500 group-hover:text-gray-700">
-                    Order
-                  </p>
-                  <h6 className="font-semibold font-manrope  leading-9 text-black">
-                    # {order.id}
-                  </h6>
-                </div>
-                <div className="box group">
-                  <p className="font-normal text-base leading-7 text-gray-500 transition-all duration-500 group-hover:text-gray-700">
-                    Phone No.
-                  </p>
-                  <h6 className="font-semibold font-manrope  leading-9 text-black">
-                    +91 {order.selectedAddress.phone}
-                  </h6>
-                </div>
-                <div className="box group">
-                  <p className="font-normal text-base leading-7 text-gray-500 transition-all duration-500 group-hover:text-gray-700">
-                    Payment Method
-                  </p>
-                  <h6 className="font-semibold font-manrope  leading-9 text-black">
-                    {order.paymentMethod}
-                  </h6>
-                </div>
-                <div className="box group">
-                  <p className="font-normal text-base leading-7 text-gray-500 transition-all duration-500 group-hover:text-gray-700">
-                    City
-                  </p>
-                  <h6 className="font-semibold font-manrope  leading-9 text-black">
-                    {order.selectedAddress.city} -{" "}
-                    {order.selectedAddress.pincode}
-                  </h6>
-                </div>
-                <div className="box group">
-                  <p className="font-normal text-base leading-7 text-gray-500  transition-all duration-500 group-hover:text-gray-700">
-                    Shipping Address
-                  </p>
-                  <h6 className="font-semibold font-manrope text-nowrap leading-9 text-black">
-                    {order.selectedAddress.street}
-                  </h6>
-                </div>
-              </div>
 
-              <div className="border-b border-gray-300">
-                {order.items.map((item) => (
-                  <div
-                    key={item.id}
-                    className="grid grid-cols-7 w-full  py-2 border-gray-100 "
-                  >
-                    <div className="col-span-7 min-[500px]:col-span-2 md:col-span-1">
-                      <img
-                        src={item.product.thumbnail}
-                        alt={item.product.title}
-                        className="w-full rounded-xl mb-2"
-                      />
-                    </div>
-                    <div className="col-span-7 min-[500px]:col-span-5 md:col-span-6 min-[500px]:pl-5 max-sm:mt-5 flex flex-col justify-center">
-                      <div className="flex flex-col min-[500px]:flex-row min-[500px]:items-center justify-between">
-                        <div className="flex flex-col justify-center ">
-                          <h5 className="font-manrope font-semibold leading-9 text-black">
-                            {item.product.title}
-                          </h5>
-                          <p className="font-normal leading-8 text-gray-500">
-                            {item.product.brand}
-                          </p>
-                          <p className="font-normal leading-8 text-gray-500">
-                            Quantity : {item.quantity}
-                          </p>
+  return (
+    <div className="w-full max-w-5xl mx-auto py-6">
+      {userCheck && orderCheck && userOrders.length < 1 ? (
+        <div className="rounded-3xl bg-white border border-dashed border-slate-300 p-12 text-center my-8">
+          <ShoppingBagIcon className="mx-auto h-16 w-16 text-slate-300" />
+          <h2 className="mt-4 text-lg font-bold text-slate-800">No Orders Found</h2>
+          <p className="mt-1 text-sm text-slate-500 max-w-sm mx-auto">
+            You haven't placed any orders yet. Browse our catalog and start shopping!
+          </p>
+          <div className="mt-6">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/30 hover:bg-indigo-500 transition"
+            >
+              Explore Products
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className="space-y-6">
+          {userOrders.map((order, index) => {
+            const badge = getStatusBadge(order.status);
+            const BadgeIcon = badge.icon;
+
+            return (
+              <div
+                key={order.id || index}
+                className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm space-y-6"
+              >
+                {/* Order Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">
+                      Order ID
+                    </span>
+                    <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
+                      #{order.id}
+                    </h2>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border capitalize ${badge.bg}`}
+                    >
+                      <BadgeIcon className="h-4 w-4" />
+                      {order.status}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Delivery & Summary Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                  <div>
+                    <span className="text-slate-400 font-semibold block">Customer</span>
+                    <span className="font-bold text-slate-800 text-sm">
+                      {order.selectedAddress?.firstname} {order.selectedAddress?.lastname}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 font-semibold block">Payment Method</span>
+                    <span className="font-bold text-slate-800 text-sm uppercase">
+                      {order.paymentMethod}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 font-semibold block">Shipping Address</span>
+                    <span className="font-medium text-slate-700 block truncate">
+                      {order.selectedAddress?.street}, {order.selectedAddress?.city}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 font-semibold block">Total Amount</span>
+                    <span className="font-black text-indigo-600 text-base">
+                      ${Math.ceil(order.totalAmount)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Order Item Thumbnails */}
+                <div className="space-y-3">
+                  <h3 className="text-xs uppercase font-bold tracking-wider text-slate-400">
+                    Items in this order ({order.items?.length || 0})
+                  </h3>
+                  <div className="divide-y divide-slate-100">
+                    {order.items?.map((item, idx) => (
+                      <div key={idx} className="py-3 flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-4">
+                          <img
+                            src={item.product?.thumbnail}
+                            alt={item.product?.title}
+                            className="h-14 w-14 rounded-2xl object-cover border border-slate-200"
+                          />
+                          <div>
+                            <Link
+                              to={`/productdetails/${item.product?.id}`}
+                              className="text-sm font-bold text-slate-900 hover:text-indigo-600 line-clamp-1"
+                            >
+                              {item.product?.title}
+                            </Link>
+                            <p className="text-xs text-slate-500">
+                              Qty: {item.quantity} × ${item.product?.price}
+                            </p>
+                          </div>
                         </div>
 
-                        <h5 className="font-manrope font-semibold text-xl leading-10 text-black sm:text-right flex   sm:justify-center">
-                          $ {item.product.price}
-                        </h5>
+                        <span className="text-sm font-extrabold text-slate-900">
+                          ${(item.product?.price * item.quantity).toFixed(2)}
+                        </span>
                       </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex items-center justify-center sm:justify-end w-full mb-2 mt-2">
-                <div className=" w-full">
-                  <div className="flex items-center justify-between">
-                    <p className="font-normal  leading-8 text-gray-500">
-                      Total Quantity
-                    </p>
-                    <p className="font-semibold  leading-8 text-gray-900">
-                      {order.totalQuantity} Items
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p className="font-normal leading-8 text-gray-500">
-                      Subtotal
-                    </p>
-                    <p className="font-semibold leading-8 text-gray-900">
-                      $ {Math.ceil(order.totalAmount)}
-                    </p>
+                    ))}
                   </div>
                 </div>
               </div>
-              <div className="data ">
-                <p className="font-normal text-lg leading-8 text-gray-500 ">
-                  We'll be sending a shipping confirmation email when the items
-                  shipped successfully.
-                </p>
-                <h6 className="font-manrope font-bold text-xl leading-9 text-black mb-2">
-                  Thank you for shopping with us!
-                </h6>
-              </div>
-            </div>
-          </section>
-        ))}
-    </>
+            );
+          })}
+        </div>
+      )}
+    </div>
   );
 };
 

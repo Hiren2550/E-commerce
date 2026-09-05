@@ -11,222 +11,229 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/react";
-useSelector;
 import {
   Bars3Icon,
   ShoppingCartIcon,
   XMarkIcon,
+  UserCircleIcon,
+  ShoppingBagIcon,
+  ArrowRightOnRectangleIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { fetchCartByUserIdAsync, selectCart } from "../cart/cartSlice";
 import { fetchUserInfoAsync } from "../user/userSlice";
 import { selectCheck, selectLoggedInUser } from "../auth/authSlice";
 
 const navigation = [
-  { name: "Home", link: "/" },
+  { name: "Explore", link: "/" },
   { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" },
 ];
+
 const userNavigation = [
-  { name: "Profile", link: "/profile" },
-  { name: "My Orders", link: "/my-orders" },
-  { name: "Sign out", link: "/log-out" },
+  { name: "My Profile", link: "/profile", icon: UserCircleIcon },
+  { name: "My Orders", link: "/my-orders", icon: ShoppingBagIcon },
+  { name: "Sign out", link: "/log-out", icon: ArrowRightOnRectangleIcon },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
 const Navbar = ({ children }) => {
   const items = useSelector(selectCart);
   const user = useSelector(selectLoggedInUser);
   const userCheck = useSelector(selectCheck);
-  // console.log(user);
   const dispatch = useDispatch();
+  const location = useLocation();
+
   useEffect(() => {
-    if (user) {
+    if (user?.id) {
       dispatch(fetchCartByUserIdAsync(user.id));
       dispatch(fetchUserInfoAsync(user.id));
     }
   }, [dispatch, user]);
+
+  const totalCartCount = items.reduce((acc, item) => acc + (item.quantity || 1), 0);
+
   return (
     <>
       {userCheck && user && (
-        <div className="min-h-full">
-          <Disclosure as="nav" className="bg-gray-800">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex h-16 items-center justify-between">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <Link to={"/"}>
-                      <img
-                        alt="Your Company"
-                        src={logo}
-                        className="h-8 w-8 border rounded"
-                      />
-                    </Link>
+        <div className="min-h-screen flex flex-col bg-slate-50">
+          <Disclosure as="nav" className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/80 shadow-md">
+            {({ open }) => (
+              <>
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                  <div className="flex h-16 items-center justify-between">
+                    {/* Left: Brand Logo & Links */}
+                    <div className="flex items-center gap-8">
+                      <Link to="/" className="flex items-center gap-3 group">
+                        <div className="relative flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-200">
+                          <SparklesIcon className="h-5 w-5 text-white" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-200 bg-clip-text text-transparent">
+                            AuraStore
+                          </span>
+                          <span className="text-[10px] tracking-wider uppercase font-semibold text-indigo-400 -mt-1">
+                            Premium Shop
+                          </span>
+                        </div>
+                      </Link>
+
+                      <div className="hidden md:flex items-center space-x-1">
+                        {navigation.map((section) => {
+                          const isActive = location.pathname === section.link;
+                          return (
+                            <Link
+                              key={section.name}
+                              to={section.link}
+                              className={classNames(
+                                isActive
+                                  ? "bg-indigo-600/20 text-indigo-300 font-semibold border border-indigo-500/30"
+                                  : "text-slate-300 hover:bg-slate-800/60 hover:text-white",
+                                "rounded-lg px-3.5 py-2 text-sm transition-all duration-200"
+                              )}
+                            >
+                              {section.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Right: Cart & User Menu */}
+                    <div className="hidden md:flex items-center gap-4">
+                      {/* Cart Icon */}
+                      <Link
+                        to="/cart"
+                        className="relative group p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200"
+                        title="Shopping Cart"
+                      >
+                        <ShoppingCartIcon className="h-6 w-6 transition-transform group-hover:scale-110" />
+                        {items.length > 0 && (
+                          <span className="absolute -top-1 -right-1 flex h-5 min-w-[20px] px-1 items-center justify-center rounded-full bg-indigo-500 text-[11px] font-bold text-white shadow-lg shadow-indigo-500/40 animate-pulse">
+                            {totalCartCount}
+                          </span>
+                        )}
+                      </Link>
+
+                      {/* User Profile dropdown */}
+                      <Menu as="div" className="relative ml-1">
+                        <div>
+                          <MenuButton className="relative flex items-center gap-3 rounded-full pl-2 pr-3 py-1 bg-slate-800/80 border border-slate-700/80 hover:border-slate-600 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900">
+                            <img
+                              alt={user.name || "Profile"}
+                              src={profile}
+                              className="h-8 w-8 rounded-full ring-2 ring-indigo-500/50 object-cover"
+                            />
+                            <span className="text-xs font-semibold text-slate-200 max-w-[100px] truncate">
+                              {user.name || "My Account"}
+                            </span>
+                          </MenuButton>
+                        </div>
+                        <MenuItems
+                          transition
+                          className="absolute right-0 z-50 mt-2 w-56 origin-top-right rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-black/5 focus:outline-none transition data-[closed]:scale-95 data-[closed]:opacity-0"
+                        >
+                          <div className="px-3 py-2 border-b border-slate-100 mb-1">
+                            <p className="text-xs text-slate-400">Signed in as</p>
+                            <p className="text-sm font-bold text-slate-800 truncate">{user.email}</p>
+                          </div>
+                          {userNavigation.map((section) => {
+                            const Icon = section.icon;
+                            return (
+                              <MenuItem key={section.name}>
+                                <Link
+                                  to={section.link}
+                                  className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                                >
+                                  {Icon && <Icon className="h-4 w-4 text-slate-400 group-hover:text-indigo-600" />}
+                                  {section.name}
+                                </Link>
+                              </MenuItem>
+                            );
+                          })}
+                        </MenuItems>
+                      </Menu>
+                    </div>
+
+                    {/* Mobile menu and cart button */}
+                    <div className="flex md:hidden items-center gap-2">
+                      <Link
+                        to="/cart"
+                        className="relative p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                      >
+                        <ShoppingCartIcon className="h-6 w-6" />
+                        {items.length > 0 && (
+                          <span className="absolute -top-1 -right-1 flex h-5 min-w-[20px] px-1 items-center justify-center rounded-full bg-indigo-500 text-[11px] font-bold text-white shadow">
+                            {totalCartCount}
+                          </span>
+                        )}
+                      </Link>
+
+                      <DisclosureButton className="inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-slate-800 hover:text-white focus:outline-none">
+                        <span className="sr-only">Open main menu</span>
+                        {open ? (
+                          <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                        ) : (
+                          <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                        )}
+                      </DisclosureButton>
+                    </div>
                   </div>
-                  <div className="hidden md:block">
-                    <div className="ml-10 flex items-baseline space-x-4">
-                      {navigation.map((section) => (
-                        <Link
-                          key={section.name}
-                          to={section.link}
-                          aria-current={section.current ? "page" : undefined}
+                </div>
+
+                {/* Mobile Dropdown Panel */}
+                <DisclosurePanel className="md:hidden border-t border-slate-800 bg-slate-900 px-4 pt-3 pb-5 space-y-3">
+                  <div className="space-y-1">
+                    {navigation.map((section) => (
+                      <Link to={section.link} key={section.name}>
+                        <DisclosureButton
                           className={classNames(
-                            "text-gray-300 hover:bg-gray-700 hover:text-white",
-                            "rounded-md px-3 py-2 text-sm font-medium"
+                            location.pathname === section.link
+                              ? "bg-indigo-600 text-white font-semibold"
+                              : "text-slate-300 hover:bg-slate-800 hover:text-white",
+                            "block w-full text-left rounded-xl px-4 py-2.5 text-base font-medium transition"
                           )}
                         >
                           {section.name}
+                        </DisclosureButton>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="border-t border-slate-800 pt-4 mt-4">
+                    <div className="flex items-center gap-3 px-2 mb-3">
+                      <img
+                        alt={user.name}
+                        src={profile}
+                        className="h-10 w-10 rounded-full ring-2 ring-indigo-500/50"
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-sm font-bold text-white">{user.name || "User"}</span>
+                        <span className="text-xs text-slate-400 truncate">{user.email}</span>
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      {userNavigation.map((section) => (
+                        <Link to={section.link} key={section.name}>
+                          <DisclosureButton className="block w-full text-left rounded-xl px-4 py-2 text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition">
+                            {section.name}
+                          </DisclosureButton>
                         </Link>
                       ))}
                     </div>
                   </div>
-                </div>
-                <div className="hidden md:block">
-                  <div className="ml-4 flex items-center md:ml-6">
-                    <Link to={"/cart"}>
-                      <button
-                        type="button"
-                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none"
-                      >
-                        <span className="absolute -inset-1.5" />
-                        <ShoppingCartIcon
-                          aria-hidden="true"
-                          className="h-8 w-8 mb-0"
-                        />
-                      </button>
-                    </Link>
-                    {items.length > 0 && (
-                      <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                        {items.length}
-                      </span>
-                    )}
-
-                    {/* Profile dropdown */}
-                    <Menu as="div" className="relative ml-3">
-                      <div>
-                        <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                          <span className="absolute -inset-1.5" />
-                          <span className="sr-only">Open user menu</span>
-                          <img
-                            alt={user.name}
-                            src={profile}
-                            className="h-8 w-8 rounded-full"
-                          />
-                        </MenuButton>
-                      </div>
-                      <MenuItems
-                        transition
-                        className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-                      >
-                        {userNavigation.map((section) => (
-                          <MenuItem key={section.name}>
-                            <Link
-                              to={section.link}
-                              className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                            >
-                              {section.name}
-                            </Link>
-                          </MenuItem>
-                        ))}
-                      </MenuItems>
-                    </Menu>
-                  </div>
-                </div>
-                <div className="-mr-2 flex md:hidden">
-                  {/* Mobile menu button */}
-                  <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    <span className="absolute -inset-0.5" />
-                    <span className="sr-only">Open main menu</span>
-                    <Bars3Icon
-                      aria-hidden="true"
-                      className="block h-6 w-6 group-data-[open]:hidden"
-                    />
-                    <XMarkIcon
-                      aria-hidden="true"
-                      className="hidden h-6 w-6 group-data-[open]:block"
-                    />
-                  </DisclosureButton>
-                </div>
-              </div>
-            </div>
-
-            <DisclosurePanel className="md:hidden">
-              <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                {navigation.map((section) => (
-                  <Link to={section.link} key={section.name}>
-                    <DisclosureButton
-                      aria-current={section.current ? "page" : undefined}
-                      className={classNames(
-                        section.current
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                        "block rounded-md px-3 py-2 text-base font-medium"
-                      )}
-                    >
-                      {section.name}
-                    </DisclosureButton>
-                  </Link>
-                ))}
-              </div>
-              <div className="border-t border-gray-700 pb-3 pt-4">
-                <div className="flex items-center px-5">
-                  <div className="flex-shrink-0">
-                    <img
-                      alt={user.name}
-                      src={profile}
-                      className="h-10 w-10 rounded-full"
-                    />
-                  </div>
-                  <div className="ml-3">
-                    <div className="text-base font-medium leading-none text-white">
-                      {user.firstname + "" + user.lastname}
-                    </div>
-                    <div className="text-sm font-medium leading-none text-gray-400">
-                      {user.email}
-                    </div>
-                  </div>
-                  <Link to={"/cart"} className="">
-                    <button
-                      type="button"
-                      className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    >
-                      <span className="absolute -inset-1.5" />
-
-                      <ShoppingCartIcon
-                        aria-hidden="true"
-                        className="h-8 w-8 mb-0"
-                      />
-                    </button>
-                  </Link>
-                  {items.length > 0 && (
-                    <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs  relative mb-5 -ml-4 font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                      {items.length}
-                    </span>
-                  )}
-                </div>
-                <div className="mt-3 space-y-1 px-2">
-                  {userNavigation.map((section) => (
-                    <Link to={section.link} key={section.name}>
-                      <DisclosureButton className="w-full text-start block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
-                        {section.name}
-                      </DisclosureButton>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </DisclosurePanel>
+                </DisclosurePanel>
+              </>
+            )}
           </Disclosure>
 
-          {/* <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              E-commerce
-            </h1>
-          </div>
-        </header> */}
-          <main>
-            <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+          {/* Main content viewport */}
+          <main className="flex-1 w-full">
+            <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
               {children}
             </div>
           </main>

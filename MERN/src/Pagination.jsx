@@ -3,75 +3,103 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ITEM_PER_PAGE } from "../constant";
 
 const Pagination = ({ handlePage, page, setPage, totalItems }) => {
-  const totalPages = Math.ceil(totalItems / ITEM_PER_PAGE);
+  const totalPages = Math.ceil(totalItems / ITEM_PER_PAGE) || 1;
+  const startItem = (page - 1) * ITEM_PER_PAGE + 1;
+  const endItem = Math.min(page * ITEM_PER_PAGE, totalItems);
+
   return (
-    <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-      <div className="flex flex-1 justify-between sm:hidden">
-        <div
-          onClick={(e) => handlePage(page > 1 ? page - 1 : page)}
-          className=" cursor-pointer relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-white border border-slate-200/80 px-4 py-3.5 shadow-sm sm:px-6">
+      {/* Mobile pager */}
+      <div className="flex w-full justify-between sm:hidden">
+        <button
+          type="button"
+          disabled={page <= 1}
+          onClick={() => handlePage(page > 1 ? page - 1 : 1)}
+          className={`px-4 py-2 text-xs font-bold rounded-xl border border-slate-200 transition ${
+            page <= 1
+              ? "opacity-50 cursor-not-allowed bg-slate-50 text-slate-400"
+              : "bg-white text-slate-700 hover:bg-slate-50 shadow-sm"
+          }`}
         >
           Previous
-        </div>
-        <a
-          onClick={(e) => handlePage(page < totalPages ? page : page + 1)}
-          className=" cursor-pointer relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+        </button>
+        <span className="text-xs font-semibold text-slate-500 self-center">
+          Page {page} of {totalPages}
+        </span>
+        <button
+          type="button"
+          disabled={page >= totalPages}
+          onClick={() => handlePage(page < totalPages ? page + 1 : totalPages)}
+          className={`px-4 py-2 text-xs font-bold rounded-xl border border-slate-200 transition ${
+            page >= totalPages
+              ? "opacity-50 cursor-not-allowed bg-slate-50 text-slate-400"
+              : "bg-white text-slate-700 hover:bg-slate-50 shadow-sm"
+          }`}
         >
           Next
-        </a>
+        </button>
       </div>
+
+      {/* Desktop pagination summary */}
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm text-gray-700">
-            Showing{" "}
-            <span className="font-medium">
-              {(page - 1) * ITEM_PER_PAGE + 1}
-            </span>
-            to{" "}
-            <span className="font-medium">
-              {page * ITEM_PER_PAGE > totalItems
-                ? totalItems
-                : page * ITEM_PER_PAGE > totalItems}
-            </span>{" "}
-            of <span className="font-medium">{totalItems}</span> results
+          <p className="text-xs font-medium text-slate-500">
+            Showing <span className="font-bold text-slate-800">{totalItems > 0 ? startItem : 0}</span> to{" "}
+            <span className="font-bold text-slate-800">{endItem}</span> of{" "}
+            <span className="font-bold text-slate-800">{totalItems}</span> results
           </p>
         </div>
+
+        {/* Desktop Page Numbers */}
         <div>
-          <nav
-            aria-label="Pagination"
-            className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-          >
-            <div
-              onClick={(e) => handlePage(page > 1 ? page - 1 : page)}
-              className=" cursor-pointer relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+          <nav aria-label="Pagination" className="inline-flex items-center gap-1">
+            <button
+              type="button"
+              disabled={page <= 1}
+              onClick={() => handlePage(page > 1 ? page - 1 : 1)}
+              className={`p-2 rounded-xl border border-slate-200 text-slate-500 transition ${
+                page <= 1
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-slate-50 hover:text-slate-700 hover:border-slate-300"
+              }`}
             >
               <span className="sr-only">Previous</span>
-              <ChevronLeftIcon aria-hidden="true" className="h-5 w-5" />
-            </div>
-            {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+              <ChevronLeftIcon aria-hidden="true" className="h-4 w-4" />
+            </button>
 
-            {Array.from({ length: totalPages }).map((el, index) => (
-              <div
-                key={index}
-                onClick={(e) => handlePage(index + 1)}
-                aria-current="page"
-                className={` cursor-pointer relative z-10 inline-flex items-center ${
-                  index + 1 === page
-                    ? "bg-indigo-600 text-white"
-                    : " text-black bg-gray-600"
-                } px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
-              >
-                {index + 1}
-              </div>
-            ))}
+            {Array.from({ length: totalPages }).map((_, index) => {
+              const pageNum = index + 1;
+              const isCurrent = pageNum === page;
+              return (
+                <button
+                  key={pageNum}
+                  type="button"
+                  onClick={() => handlePage(pageNum)}
+                  aria-current={isCurrent ? "page" : undefined}
+                  className={`h-8 w-8 rounded-xl text-xs font-bold transition-all duration-200 flex items-center justify-center ${
+                    isCurrent
+                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30 scale-105"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  }`}
+                >
+                  {pageNum}
+                </button>
+              );
+            })}
 
-            <div
-              onClick={(e) => handlePage(page < totalPages ? page + 1 : page)}
-              className=" cursor-pointer relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+            <button
+              type="button"
+              disabled={page >= totalPages}
+              onClick={() => handlePage(page < totalPages ? page + 1 : totalPages)}
+              className={`p-2 rounded-xl border border-slate-200 text-slate-500 transition ${
+                page >= totalPages
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-slate-50 hover:text-slate-700 hover:border-slate-300"
+              }`}
             >
               <span className="sr-only">Next</span>
-              <ChevronRightIcon aria-hidden="true" className="h-5 w-5" />
-            </div>
+              <ChevronRightIcon aria-hidden="true" className="h-4 w-4" />
+            </button>
           </nav>
         </div>
       </div>

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,21 +13,25 @@ import { addToCartAsync, selectCart } from "../../cart/cartSlice";
 import { selectUserInfo } from "../../user/userSlice";
 import { RotatingLines } from "react-loader-spinner";
 import { toast } from "react-toastify";
+import {
+  ShieldCheckIcon,
+  TruckIcon,
+  ArrowPathIcon,
+  ShoppingCartIcon,
+  CheckBadgeIcon,
+} from "@heroicons/react/24/outline";
 
 const colors = [
-  { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
-  { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
-  { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+  { name: "Slate White", class: "bg-white", selectedClass: "ring-slate-400" },
+  { name: "Cool Gray", class: "bg-slate-300", selectedClass: "ring-slate-500" },
+  { name: "Midnight Black", class: "bg-slate-900", selectedClass: "ring-slate-900" },
 ];
+
 const sizes = [
-  { name: "XXS", inStock: false },
-  { name: "XS", inStock: true },
   { name: "S", inStock: true },
   { name: "M", inStock: true },
   { name: "L", inStock: true },
   { name: "XL", inStock: true },
-  { name: "2XL", inStock: true },
-  { name: "3XL", inStock: true },
 ];
 
 function classNames(...classes) {
@@ -37,8 +40,9 @@ function classNames(...classes) {
 
 const Productdetails = () => {
   const [openReview, setOpenReview] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const [selectedSize, setSelectedSize] = useState(sizes[2]);
+  const [selectedSize, setSelectedSize] = useState(sizes[1]);
   const product = useSelector(selectProduct);
   const items = useSelector(selectCart);
   const status = useSelector(selectProductListStatus);
@@ -48,418 +52,281 @@ const Productdetails = () => {
 
   const handlecart = (e) => {
     e.preventDefault();
-    if (items.findIndex((item) => item.product.id === product.id) < 0) {
+    if (items.findIndex((item) => item.product?.id === product.id) < 0) {
       const newItem = {
         product: product.id,
         quantity: 1,
-        user: user.id,
+        user: user?.id,
       };
       dispatch(addToCartAsync(newItem));
+      toast.success("Added to your shopping cart!", {
+        position: "bottom-right",
+        theme: "colored",
+      });
     } else {
-      toast.info("product already added", {
+      toast.info("Item is already in your cart", {
         position: "bottom-right",
         theme: "dark",
       });
     }
   };
+
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
   }, [dispatch, params.id]);
-  return (
-    <>
-      {status === "loading" && (
+
+  if (status === "loading") {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px]">
         <RotatingLines
           visible={true}
-          height="96"
-          width="96"
-          color="grey"
-          strokeWidth="5"
+          height="64"
+          width="64"
+          strokeColor="#4f46e5"
+          strokeWidth="4"
           animationDuration="0.75"
-          ariaLabel="rotating-lines-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
         />
-      )}
-      {product && (
-        <div className="bg-white">
-          <div className="pt-6">
-            <nav aria-label="Breadcrumb">
-              <ol
-                role="list"
-                className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-              >
-                <li className="text-sm">
-                  <div
-                    aria-current="page"
-                    className="font-medium text-2xl text-gray-500 hover:text-gray-600"
-                  >
-                    {product.category} / {product.title}
-                  </div>
-                </li>
-              </ol>
-            </nav>
+        <p className="mt-4 text-sm font-semibold text-slate-500">Loading product details...</p>
+      </div>
+    );
+  }
 
-            {/* Image gallery */}
-            {product.images && (
-              <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-                <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-                  <img
-                    alt={product.title}
-                    src={product.images[0]}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-                <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-                  <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                    <img
-                      alt={product.title}
-                      src={product.images[1]}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                  <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                    <img
-                      alt={product.title}
-                      src={product.images[2]}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                </div>
-                <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-                  <img
-                    alt={product.title}
-                    src={product.images[3]}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-              </div>
-            )}
+  if (!product) {
+    return null;
+  }
 
-            {/* Product info */}
-            <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-              <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                <h1 className="text-2xl mb-2 font-bold tracking-tight text-gray-900 sm:text-3xl">
-                  {product.title}
-                </h1>
-                {product.tags &&
-                  product.tags.map((tag) => (
-                    <span
-                      key={tag.length}
-                      className="bg-blue-100 text-gray-700 text-xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg--500  border border-gray-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-              </div>
+  const galleryImages = product.images?.length > 0 ? product.images : [product.thumbnail];
 
-              {/* Options */}
-              <div className="mt-4 lg:row-span-3 lg:mt-0">
-                <h2 className="sr-only">Product information</h2>
-                <p className="text-3xl tracking-tight text-gray-900">
-                  $ {product.price}
-                </p>
+  return (
+    <div className="w-full max-w-7xl mx-auto py-6">
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="mb-6">
+        <ol className="flex items-center space-x-2 text-xs font-semibold text-slate-500">
+          <li>
+            <Link to="/" className="hover:text-indigo-600">Home</Link>
+          </li>
+          <li>/</li>
+          <li className="capitalize">{product.category}</li>
+          <li>/</li>
+          <li className="text-slate-900 font-bold truncate max-w-[200px] sm:max-w-md">
+            {product.title}
+          </li>
+        </ol>
+      </nav>
 
-                {/* Reviews */}
-                {product.reviews && (
-                  <div className="mt-6">
-                    <h3 className="sr-only">Reviews</h3>
-                    <div className="flex items-center">
-                      <div className="flex items-center">
-                        {[0, 1, 2, 3, 4].map((rating) => (
-                          <StarIcon
-                            key={rating}
-                            aria-hidden="true"
-                            className={classNames(
-                              product.reviews[0].rating > rating
-                                ? "text-gray-900"
-                                : "text-gray-200",
-                              "h-5 w-5 flex-shrink-0"
-                            )}
-                          />
-                        ))}
-                      </div>
-                      <p className="sr-only">
-                        {product.reviews[0].rating} out of 5 stars
-                      </p>
-                      <div
-                        onClick={(e) => setOpenReview(!openReview)}
-                        className=" cursor-pointer ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        {product.reviews.length} reviews
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {openReview && (
-                  <div className="mt-4">
-                    {product.reviews &&
-                      product.reviews.map((review) => (
-                        <article className="p-6 m-1 text-base bg-white border-t rounded-md border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                          <footer className="flex justify-between items-center mb-2">
-                            <div className="flex items-center">
-                              <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-                                <img
-                                  className="mr-2 w-6 h-6 rounded-full"
-                                  src={profile}
-                                  alt={review.reviewerName}
-                                />
-                                {review.reviewerName}
-                              </p>
-                            </div>
-                          </footer>
-                          <p className="text-gray-500 dark:text-gray-400">
-                            {review.comment}
-                          </p>
-
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
-                            <time
-                              pubdate=""
-                              dateTime="2022-06-23"
-                              title="June 23rd, 2022"
-                            >
-                              Date : {review.date}
-                            </time>
-                          </p>
-                        </article>
-                      ))}
-                  </div>
-                )}
-
-                <p
-                  className={`mt-3 ${
-                    product.stock > 10 ? "text-green-500" : "text-red-500"
+      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-6 sm:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+          {/* Left Column: Image Viewer */}
+          <div className="lg:col-span-7 flex flex-col-reverse sm:flex-row gap-4">
+            {/* Thumbnail selector */}
+            <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto max-h-[480px]">
+              {galleryImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setActiveImage(idx)}
+                  className={`h-20 w-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 bg-slate-100 transition-all ${
+                    activeImage === idx
+                      ? "border-indigo-600 ring-2 ring-indigo-600/20 scale-105"
+                      : "border-slate-200 hover:border-slate-300 opacity-80 hover:opacity-100"
                   }`}
                 >
-                  {product.stock} available in stock
-                </p>
+                  <img src={img} alt={`View ${idx}`} className="h-full w-full object-cover" />
+                </button>
+              ))}
+            </div>
 
-                <form className="mt-5">
-                  {/* Colors */}
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-900">Color</h3>
+            {/* Featured Image */}
+            <div className="flex-1 aspect-square rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 relative flex items-center justify-center">
+              <img
+                src={galleryImages[activeImage] || product.thumbnail}
+                alt={product.title}
+                className="max-h-full max-w-full object-contain p-4 transition-all duration-300"
+              />
+              {product.discountPercentage > 0 && (
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-rose-500 text-white text-xs font-bold shadow-md">
+                  {Math.round(product.discountPercentage)}% OFF
+                </span>
+              )}
+            </div>
+          </div>
 
-                    <fieldset aria-label="Choose a color" className="mt-4">
-                      <RadioGroup
-                        value={selectedColor}
-                        onChange={setSelectedColor}
-                        className="flex items-center space-x-3"
-                      >
-                        {colors &&
-                          colors.map((color) => (
-                            <Radio
-                              key={color.name}
-                              value={color}
-                              aria-label={color.name}
-                              className={classNames(
-                                color.selectedClass,
-                                "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1"
-                              )}
-                            >
-                              <span
-                                aria-hidden="true"
-                                className={classNames(
-                                  color.class,
-                                  "h-8 w-8 rounded-full border border-black border-opacity-10"
-                                )}
-                              />
-                            </Radio>
-                          ))}
-                      </RadioGroup>
-                    </fieldset>
-                  </div>
-
-                  {/* Sizes */}
-                  <div className="mt-10">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-medium text-gray-900">
-                        Size
-                      </h3>
-                      <a
-                        href="#"
-                        className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        Size guide
-                      </a>
-                    </div>
-
-                    <fieldset aria-label="Choose a size" className="mt-4">
-                      <RadioGroup
-                        value={selectedSize}
-                        onChange={setSelectedSize}
-                        className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
-                      >
-                        {sizes &&
-                          sizes.map((size) => (
-                            <Radio
-                              key={size.name}
-                              value={size}
-                              disabled={!size.inStock}
-                              className={classNames(
-                                size.inStock
-                                  ? "cursor-pointer bg-white text-gray-900 shadow-sm"
-                                  : "cursor-not-allowed bg-gray-50 text-gray-200",
-                                "group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6"
-                              )}
-                            >
-                              <span>{size.name}</span>
-                              {size.inStock ? (
-                                <span
-                                  aria-hidden="true"
-                                  className="pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-indigo-500"
-                                />
-                              ) : (
-                                <span
-                                  aria-hidden="true"
-                                  className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                                >
-                                  <svg
-                                    stroke="currentColor"
-                                    viewBox="0 0 100 100"
-                                    preserveAspectRatio="none"
-                                    className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
-                                  >
-                                    <line
-                                      x1={0}
-                                      x2={100}
-                                      y1={100}
-                                      y2={0}
-                                      vectorEffect="non-scaling-stroke"
-                                    />
-                                  </svg>
-                                </span>
-                              )}
-                            </Radio>
-                          ))}
-                      </RadioGroup>
-                    </fieldset>
-                  </div>
-
-                  {product && product.stock > 0 && (
-                    <>
-                      <button
-                        type="button"
-                        onClick={handlecart}
-                        className={`mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
-                      >
-                        Add to Cart
-                      </button>
-                      <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
-                        <p>
-                          or{" "}
-                          <Link to={"/"}>
-                            <button
-                              type="button"
-                              className="font-medium text-indigo-600 hover:text-indigo-500"
-                            >
-                              Continue Shopping
-                              <span aria-hidden="true"> &rarr;</span>
-                            </button>
-                          </Link>
-                        </p>
-                      </div>
-                    </>
-                  )}
-                </form>
+          {/* Right Column: Product Info & Purchase Action */}
+          <div className="lg:col-span-5 flex flex-col">
+            <div className="border-b border-slate-100 pb-6">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                  {product.brand && product.brand !== "No" ? product.brand : "Curated Brand"}
+                </span>
+                <span
+                  className={`text-xs font-bold px-3 py-1 rounded-full ${
+                    product.stock > 0
+                      ? "bg-emerald-50 text-emerald-700 border border-emerald-200/50"
+                      : "bg-rose-50 text-rose-700"
+                  }`}
+                >
+                  {product.stock > 0 ? `${product.stock} in Stock` : "Out of Stock"}
+                </span>
               </div>
 
-              <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
-                {/* Description and details */}
-                <div>
-                  <h3 className="sr-only">Description</h3>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                {product.title}
+              </h1>
 
-                  <div className="space-y-6">
-                    <p className="text-base text-gray-900">
-                      {product.description}
-                    </p>
-                  </div>
+              {/* Reviews & Ratings */}
+              <div className="mt-3 flex items-center gap-3">
+                <div className="flex items-center">
+                  {[0, 1, 2, 3, 4].map((rating) => (
+                    <StarIcon
+                      key={rating}
+                      className={classNames(
+                        (product.rating || 4) > rating
+                          ? "text-amber-400"
+                          : "text-slate-200",
+                        "h-4 w-4 flex-shrink-0"
+                      )}
+                    />
+                  ))}
                 </div>
+                <span className="text-xs font-bold text-slate-700">
+                  {product.rating || 4.5}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setOpenReview(!openReview)}
+                  className="text-xs font-semibold text-indigo-600 hover:text-indigo-500 underline"
+                >
+                  {product.reviews?.length || 0} reviews
+                </button>
+              </div>
 
-                <div className="mt-10">
-                  <h2 className="text-sm font-medium text-gray-900">Details</h2>
+              {/* Price */}
+              <div className="mt-5 flex items-baseline gap-3">
+                <span className="text-3xl font-black text-slate-900">
+                  ${product.price}
+                </span>
+                {product.discountPercentage > 0 && (
+                  <span className="text-sm font-semibold text-slate-400 line-through">
+                    ${Math.round(product.price * (1 + product.discountPercentage / 100))}
+                  </span>
+                )}
+              </div>
+            </div>
 
-                  <div className=" mt-3 relative overflow-x-auto">
-                    <table className="w-3/4 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                          <th scope="col" className="px-6 py-3">
-                            Product Details
-                          </th>
-                          <th scope="col" className="px-6 py-3">
-                            Description
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white border-b  dark:bg-gray-800 dark:border-gray-700">
-                          <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                          >
-                            Category
-                          </th>
-                          <td className="px-6 py-4">{product.category}</td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                          <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                          >
-                            Brand
-                          </th>
-                          <td className="px-6 py-4">{product.brand}</td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                          <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                          >
-                            SKU
-                          </th>
-                          <td className="px-6 py-4">{product.sku}</td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                          <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                          >
-                            Warranty Information
-                          </th>
-                          <td className="px-6 py-4">
-                            {product.warrantyInformation}
-                          </td>
-                        </tr>
+            {/* Color & Size Selectors */}
+            <div className="py-6 space-y-5 border-b border-slate-100">
+              <div>
+                <h3 className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-2">
+                  Select Color: <span className="text-slate-900 font-semibold">{selectedColor.name}</span>
+                </h3>
+                <RadioGroup value={selectedColor} onChange={setSelectedColor} className="flex gap-3">
+                  {colors.map((color) => (
+                    <Radio
+                      key={color.name}
+                      value={color}
+                      className={({ checked }) =>
+                        classNames(
+                          color.selectedClass,
+                          checked ? "ring-2 ring-indigo-600 ring-offset-2 scale-110" : "opacity-80",
+                          "relative flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none transition-all"
+                        )
+                      }
+                    >
+                      <span className={classNames(color.class, "h-7 w-7 rounded-full border border-slate-300 shadow-inner")} />
+                    </Radio>
+                  ))}
+                </RadioGroup>
+              </div>
 
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                          <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                          >
-                            Shipping Information
-                          </th>
-                          <td className="px-6 py-4">
-                            {product.shippingInformation}
-                          </td>
-                        </tr>
-                        <tr className="bg-white dark:bg-gray-800">
-                          <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                          >
-                            Return Policy
-                          </th>
-                          <td className="px-6 py-4">{product.returnPolicy}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+              <div>
+                <h3 className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-2">
+                  Select Size: <span className="text-slate-900 font-semibold">{selectedSize.name}</span>
+                </h3>
+                <RadioGroup value={selectedSize} onChange={setSelectedSize} className="grid grid-cols-4 gap-2">
+                  {sizes.map((size) => (
+                    <Radio
+                      key={size.name}
+                      value={size}
+                      className={({ checked }) =>
+                        classNames(
+                          checked
+                            ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
+                            : "bg-slate-50 text-slate-800 hover:bg-slate-100 border border-slate-200",
+                          "flex items-center justify-center rounded-xl py-2.5 text-xs font-bold uppercase cursor-pointer transition-all"
+                        )
+                      }
+                    >
+                      {size.name}
+                    </Radio>
+                  ))}
+                </RadioGroup>
+              </div>
+            </div>
+
+            {/* Add to Cart CTA */}
+            <div className="py-6 space-y-4">
+              <button
+                type="button"
+                disabled={product.stock <= 0}
+                onClick={handlecart}
+                className="w-full flex items-center justify-center gap-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 py-4 px-6 text-base font-bold text-white shadow-lg shadow-indigo-600/30 hover:-translate-y-0.5 transition-all"
+              >
+                <ShoppingCartIcon className="h-5 w-5" />
+                <span>{product.stock > 0 ? "Add to Cart" : "Out of Stock"}</span>
+              </button>
+
+              <div className="grid grid-cols-3 gap-2 pt-2 text-center">
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+                  <TruckIcon className="h-5 w-5 text-indigo-600 mb-1" />
+                  <span className="text-[11px] font-bold text-slate-800">Free Express</span>
+                  <span className="text-[10px] text-slate-400">On all orders</span>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+                  <ShieldCheckIcon className="h-5 w-5 text-indigo-600 mb-1" />
+                  <span className="text-[11px] font-bold text-slate-800">1 Year Warranty</span>
+                  <span className="text-[10px] text-slate-400">100% Genuine</span>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+                  <ArrowPathIcon className="h-5 w-5 text-indigo-600 mb-1" />
+                  <span className="text-[11px] font-bold text-slate-800">30-Day Return</span>
+                  <span className="text-[10px] text-slate-400">Hassle free</span>
                 </div>
               </div>
             </div>
+
+            {/* Description */}
+            <div className="pt-2 text-sm text-slate-600 leading-relaxed">
+              <h3 className="text-xs uppercase font-bold tracking-wider text-slate-900 mb-2">
+                Description
+              </h3>
+              <p>{product.description}</p>
+            </div>
+
+            {/* Reviews Collapsible Drawer */}
+            {openReview && product.reviews && (
+              <div className="mt-6 pt-6 border-t border-slate-100 space-y-4">
+                <h3 className="text-sm font-bold text-slate-900">Customer Feedback</h3>
+                <div className="space-y-3 max-h-60 overflow-y-auto pr-2">
+                  {product.reviews.map((rev, i) => (
+                    <div key={i} className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-900">{rev.reviewerName}</span>
+                        <div className="flex text-amber-400">
+                          {Array.from({ length: rev.rating || 5 }).map((_, r) => (
+                            <StarIcon key={r} className="h-3 w-3" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-xs text-slate-600">{rev.comment}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 

@@ -35,7 +35,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Health check endpoint for external cron pingers & uptime monitors

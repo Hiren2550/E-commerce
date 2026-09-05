@@ -14,228 +14,220 @@ import {
   signOutAsync,
 } from "../../auth/authSlice";
 import { Link } from "react-router-dom";
+import {
+  UserCircleIcon,
+  EnvelopeIcon,
+  TrashIcon,
+  ArrowRightOnRectangleIcon,
+  MapPinIcon,
+  ShoppingBagIcon,
+  CheckBadgeIcon,
+} from "@heroicons/react/24/outline";
 
 function Userprofile() {
   const [open, setOpen] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
-  const [orders, setOrders] = useState([]);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const user = useSelector(selectUserInfo);
   const dispatch = useDispatch();
+
   const handleUpdate = (data) => {
     dispatch(updateUserAsync({ ...user, name: data.name, email: data.email }));
     setUpdateSuccess(true);
+    setTimeout(() => setUpdateSuccess(false), 4000);
   };
+
   const handleSignout = () => {
     dispatch(signOutAsync());
   };
+
   const handleDelete = () => {
-    dispatch(deleteUserAsync(user.id));
+    if (window.confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+      dispatch(deleteUserAsync(user.id));
+    }
   };
+
   let userOrders = useSelector(selectUserOrders);
   const userCheck = useSelector(selectCheck);
   userOrders = [...userOrders].reverse();
-  const handleShowOrders = () => {
-    setOrders(userOrders);
-    setOpen(!open);
-  };
+
   const handleRemoveAddress = (e, index) => {
     const newUser = { ...user, addresses: [...user.addresses] };
     newUser.addresses.splice(index, 1);
     dispatch(updateUserAsync(newUser));
   };
+
   useEffect(() => {
-    if (user) {
+    if (user?.id) {
       dispatch(fetchLoggedInUserOrdersAsync(user.id));
     }
   }, [dispatch, user]);
+
   return (
     <>
       {userCheck && user && (
-        <div className="p-3 max-w-md mx-auto">
-          <h1 className="text-3xl text-center font-semibold my-4">Profile</h1>
-
-          <form
-            onSubmit={handleSubmit(handleUpdate)}
-            noValidate
-            method="POST"
-            className="flex flex-col gap-4"
-          >
-            <img
-              className="rounded-full border-gray-300 h-24 w-24 object-cover cursor-pointer self-center mt-2"
-              src={profile}
-              alt="Profile"
-            />
-
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Name
-              </label>
-              <div className="mt-1">
-                <input
-                  id="name"
-                  {...register("name", {
-                    required: { value: true, message: "name is required" },
-                  })}
-                  type="text"
-                  defaultValue={user.name}
-                  autoComplete="off"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        <div className="w-full max-w-4xl mx-auto py-8 px-4">
+          <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-10 shadow-sm space-y-8">
+            {/* Header & Avatar */}
+            <div className="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-slate-100">
+              <div className="relative">
+                <img
+                  className="rounded-3xl border-4 border-indigo-100 h-24 w-24 object-cover shadow-md"
+                  src={profile}
+                  alt="Profile"
                 />
+                <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full bg-emerald-500 ring-2 ring-white" />
               </div>
-              <p className="mt-1 text-xs text-red-600">
-                {errors.name?.message}
-              </p>
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Email address
-              </label>
-              <div className="mt-1">
-                <input
-                  id="email"
-                  {...register("email", {
-                    required: { value: true, message: "email is required" },
-                    pattern: {
-                      value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                      message: "invalid email",
-                    },
-                  })}
-                  type="email"
-                  defaultValue={user.email}
-                  autoComplete="off"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+              <div className="text-center sm:text-left space-y-1">
+                <h1 className="text-2xl font-black text-slate-900">{user.name || "User Profile"}</h1>
+                <p className="text-sm font-medium text-slate-500">{user.email}</p>
+                <span className="inline-block px-3 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wide">
+                  {user.role || "Member"}
+                </span>
               </div>
-              <p className="mt-1 text-xs text-red-600">
-                {errors.email?.message}
-              </p>
             </div>
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Update
-              </button>
-            </div>
-          </form>
-          <div className="flex justify-between mt-2">
-            <span
-              className="text-red-700 cursor-pointer"
-              onClick={handleDelete}
+
+            {/* Profile Update Form */}
+            <form
+              onSubmit={handleSubmit(handleUpdate)}
+              noValidate
+              className="space-y-5"
             >
-              Delete account
-            </span>
-            <span
-              className="text-red-700 cursor-pointer"
-              onClick={handleSignout}
-            >
-              Sign out
-            </span>
-          </div>
-          {updateSuccess && (
-            <p className="text-green-500 mt-2">User is updated successfully</p>
-          )}
-          <div className="my-2 ">
-            <h1 className="text-center mt-1 text-xl font-semibold">
-              Addresses
-            </h1>
-            {user.addresses.map((address, index) => (
-              <div
-                key={address.phone}
-                className="border border-gray-300 rounded-lg p-3 my-2"
-              >
-                <li className="flex justify-between gap-x-4  ">
-                  <div className="flex min-w-0 gap-x-4">
-                    <div className="min-w-0 flex-auto">
-                      <p className="text-sm font-semibold leading-6 text-gray-900">
-                        {address.firstname}
-                      </p>
-                      <p className="text-sm  leading-6 text-gray-500">
-                        {address.street}
-                      </p>
-                      <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                        <span>Phone : </span>
-                        {address.phone}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                    <p className="text-sm leading-6 text-gray-900">
-                      {address.city}
-                    </p>
-                    <p className="text-sm leading-6 text-gray-500">
-                      <span>Pincode : </span>
-                      {address.pincode}
-                    </p>
-                  </div>
-                </li>
-                <div className="flex justify-end gap-4">
-                  <span
-                    className="text-red-700 cursor-pointer"
-                    onClick={(e) => handleRemoveAddress(e, index)}
-                  >
-                    Remove
-                  </span>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">
+                Personal Information
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-xs font-bold text-slate-700 mb-1">
+                    Display Name
+                  </label>
+                  <input
+                    id="name"
+                    {...register("name", {
+                      required: { value: true, message: "Name is required" },
+                    })}
+                    type="text"
+                    defaultValue={user.name}
+                    className="w-full rounded-2xl border-slate-200 py-3 px-4 text-sm text-slate-900 focus:border-indigo-500 focus:ring-indigo-500"
+                  />
+                  {errors.name && (
+                    <p className="mt-1 text-xs text-rose-500 font-medium">{errors.name.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-xs font-bold text-slate-700 mb-1">
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    {...register("email", {
+                      required: { value: true, message: "Email is required" },
+                    })}
+                    type="email"
+                    defaultValue={user.email}
+                    className="w-full rounded-2xl border-slate-200 py-3 px-4 text-sm text-slate-900 focus:border-indigo-500 focus:ring-indigo-500"
+                  />
+                  {errors.email && (
+                    <p className="mt-1 text-xs text-rose-500 font-medium">{errors.email.message}</p>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
 
-          <button
-            type="button"
-            onClick={handleShowOrders}
-            className="p-2 text-green-700 w-full"
-          >
-            Show orders
-          </button>
+              {updateSuccess && (
+                <div className="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold flex items-center gap-2">
+                  <CheckBadgeIcon className="h-4 w-4" />
+                  Profile updated successfully!
+                </div>
+              )}
 
-          {open && orders && orders.length > 0 && (
-            <div className="flex flex-col gap-2">
-              <h1 className="text-center mt-2 text-xl font-semibold">
-                Your Previous Orders
-              </h1>
-              {orders.map((order) => (
-                <div
-                  key={order.id}
-                  className="hover:opacity-75 cursor-pointer border border-gray-300 rounded-lg p-3 flex  items-center gap-2"
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  className="rounded-2xl bg-indigo-600 hover:bg-indigo-500 py-3 px-6 text-xs font-bold text-white shadow-md shadow-indigo-600/30 transition"
                 >
-                  <Link to={`/my-orders`}>
-                    <img
-                      src={order.items[0].product.thumbnail}
-                      alt={order.items[0].product.title}
-                      className="w-20 h-20 object-contain"
-                    />
-                  </Link>
-                  <Link
-                    to={`/my-orders`}
-                    className="flex-1 text-slate-700 font-semibold hover:underline truncate"
-                  >
-                    <p># {order.id}</p>
-                  </Link>
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="text-slate-700 ">
-                      {order.totalQuantity} Items
+                  Save Profile Changes
+                </button>
+              </div>
+            </form>
+
+            {/* Saved Addresses Section */}
+            <div className="pt-6 border-t border-slate-100 space-y-4">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">
+                Saved Delivery Addresses ({user.addresses?.length || 0})
+              </h2>
+
+              {(!user.addresses || user.addresses.length === 0) ? (
+                <p className="text-xs text-slate-400">No saved addresses yet. You can add one during checkout.</p>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {user.addresses.map((address, index) => (
+                    <div
+                      key={index}
+                      className="p-4 rounded-2xl border border-slate-200 bg-slate-50 relative flex flex-col justify-between"
+                    >
+                      <div className="space-y-1 text-xs">
+                        <div className="flex items-center justify-between">
+                          <p className="font-bold text-slate-900 text-sm">
+                            {address.firstname} {address.lastname}
+                          </p>
+                          <button
+                            type="button"
+                            onClick={(e) => handleRemoveAddress(e, index)}
+                            className="text-slate-400 hover:text-rose-600 p-1"
+                            title="Remove address"
+                          >
+                            <TrashIcon className="h-4 w-4" />
+                          </button>
+                        </div>
+                        <p className="text-slate-600">{address.street}</p>
+                        <p className="text-slate-500">
+                          {address.city} - {address.pincode}
+                        </p>
+                        <p className="text-slate-500 font-semibold">Phone: +91 {address.phone}</p>
+                      </div>
                     </div>
-                    <div className="text-slate-700 ">
-                      $ {Math.ceil(order.totalAmount)}
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
-          )}
+
+            {/* Quick Actions / Account Danger Zone */}
+            <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <Link
+                to="/my-orders"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 transition"
+              >
+                <ShoppingBagIcon className="h-4 w-4" />
+                View All My Orders
+              </Link>
+
+              <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+                <button
+                  type="button"
+                  onClick={handleSignout}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition"
+                >
+                  <ArrowRightOnRectangleIcon className="h-4 w-4" />
+                  Sign out
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDelete}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl border border-rose-200 text-xs font-bold text-rose-600 hover:bg-rose-50 transition"
+                >
+                  <TrashIcon className="h-4 w-4" />
+                  Delete Account
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </>
