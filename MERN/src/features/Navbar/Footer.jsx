@@ -30,6 +30,16 @@ const Footer = () => {
               </Link>
             </li>
             <li>
+              <Link to="/tracking" className="hover:text-white transition">
+                Track Shipment
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className="hover:text-white transition">
+                FAQ & Help
+              </Link>
+            </li>
+            <li>
               <Link to="/contact" className="hover:text-white transition">
                 Contact
               </Link>
@@ -54,11 +64,15 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} AuraStore. All rights reserved. Built with MERN Stack.
           </span>
           <div className="flex items-center gap-4">
-            <span className="hover:text-slate-400 cursor-pointer">Privacy Policy</span>
+            <Link to="/terms-privacy" className="hover:text-slate-400 cursor-pointer">
+              Privacy Policy & Terms
+            </Link>
             <span>&bull;</span>
-            <span className="hover:text-slate-400 cursor-pointer">Terms of Service</span>
+            <Link to="/faq" className="hover:text-slate-400 cursor-pointer">
+              Support
+            </Link>
             <span>&bull;</span>
-            <span className="hover:text-slate-400 cursor-pointer">Security</span>
+            <span className="hover:text-slate-400">256-Bit SSL Encrypted</span>
           </div>
         </div>
       </div>

@@ -28,6 +28,8 @@ import { selectCheck, selectLoggedInUser } from "../auth/authSlice";
 const navigation = [
   { name: "Explore", link: "/" },
   { name: "About", link: "/about" },
+  { name: "Track Order", link: "/tracking" },
+  { name: "FAQ", link: "/faq" },
   { name: "Contact", link: "/contact" },
 ];
 

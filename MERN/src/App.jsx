@@ -13,6 +13,9 @@ import Userprofilepage from "./pages/Userprofilepage";
 import Myorderpage from "./pages/Myorderpage";
 import Aboupage from "./pages/Aboupage";
 import Contactpage from "./pages/Contactpage";
+import Faqpage from "./pages/Faqpage";
+import Trackingpage from "./pages/Trackingpage";
+import TermsAndPrivacypage from "./pages/TermsAndPrivacypage";
 import Logout from "./features/auth/components/Logout";
 
 import { ToastContainer } from "react-toastify";
@@ -106,6 +109,30 @@ function App() {
           element={
             <PrivateRoute>
               <Contactpage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <PrivateRoute>
+              <Faqpage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/tracking"
+          element={
+            <PrivateRoute>
+              <Trackingpage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/terms-privacy"
+          element={
+            <PrivateRoute>
+              <TermsAndPrivacypage />
             </PrivateRoute>
           }
         />
