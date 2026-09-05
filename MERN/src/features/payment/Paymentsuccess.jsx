@@ -4,55 +4,62 @@ import { resetCartAsync } from "../cart/cartSlice";
 import { resetOrder } from "../order/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCheck, selectLoggedInUser } from "../auth/authSlice";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Navbar/Footer";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 const Paymentsuccess = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const userCheck = useSelector(selectCheck);
   useEffect(() => {
-    if (userCheck) {
+    if (userCheck && user?.id) {
       dispatch(resetCartAsync(user.id));
     }
-  }, [dispatch, userCheck]);
+  }, [dispatch, userCheck, user]);
 
   useEffect(() => {
     dispatch(resetOrder());
   }, [dispatch]);
+
   return (
-    <>
-      {userCheck && (
-        <div className="bg-gray-100 h-screen">
-          <div className="bg-white p-6  md:mx-auto">
-            <svg
-              viewBox="0 0 24 24"
-              className="text-green-600 w-16 h-16 mx-auto my-6"
-            >
-              <path
-                fill="currentColor"
-                d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
-              ></path>
-            </svg>
-            <div className="text-center">
-              <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-                Payment Done!
-              </h3>
-              <p className="text-gray-600 my-2">
-                Thank you for completing your secure online payment.
-              </p>
-              <p> Have a great day!</p>
-              <div className="py-10 text-center">
-                <Link
-                  to={"/"}
-                  className="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3"
-                >
-                  GO BACK
-                </Link>
-              </div>
+    <div>
+      <Navbar>
+        <div className="min-h-[70vh] flex items-center justify-center py-16 px-4">
+          <div className="max-w-md w-full bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-10 text-center shadow-xl">
+            <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-emerald-50 text-emerald-600 mb-6 shadow-inner">
+              <CheckCircleIcon className="h-12 w-12 text-emerald-600" />
+            </div>
+
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-600">
+              Payment Successful
+            </span>
+            <h2 className="mt-2 text-2xl sm:text-3xl font-black text-slate-900">
+              Thank you for your order!
+            </h2>
+            <p className="mt-3 text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Your transaction has been securely processed. A confirmation email with receipt details has been sent to your inbox.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                to="/"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold py-3.5 px-6 shadow-md shadow-indigo-600/30 transition-all hover:-translate-y-0.5"
+              >
+                Continue Shopping
+              </Link>
+              <Link
+                to="/my-orders"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold py-3.5 px-6 transition"
+              >
+                View My Orders
+              </Link>
             </div>
           </div>
         </div>
-      )}
-    </>
+      </Navbar>
+      <Footer />
+    </div>
   );
 };
 

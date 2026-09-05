@@ -119,7 +119,7 @@ const Productdetails = () => {
           {/* Left Column: Image Viewer */}
           <div className="lg:col-span-7 flex flex-col-reverse sm:flex-row gap-4">
             {/* Thumbnail selector */}
-            <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto max-h-[480px]">
+            <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto max-h-[480px] no-scrollbar py-1">
               {galleryImages.map((img, idx) => (
                 <button
                   key={idx}

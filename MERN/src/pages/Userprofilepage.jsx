@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../features/Navbar/Navbar.jsx";
 import Userprofile from "../features/user/components/Userprofile";
+import Footer from "../features/Navbar/Footer";
 
 const Userprofilepage = () => {
   return (
@@ -8,6 +9,7 @@ const Userprofilepage = () => {
       <Navbar>
         <Userprofile />
       </Navbar>
+      <Footer />
     </div>
   );
 };
