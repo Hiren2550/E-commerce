@@ -22,9 +22,20 @@ import {
 
 const Checkout = () => {
   const user = useSelector(selectUserInfo);
-  const [selectedAddress, setSelectedAddress] = useState(user?.addresses?.[0]);
+  const [selectedAddress, setSelectedAddress] = useState(user?.addresses?.[0] || null);
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const [showAddressForm, setShowAddressForm] = useState(false);
+
+  // Sync selected address when user profile loads asynchronously
+  useEffect(() => {
+    if (user?.addresses?.length > 0) {
+      if (!selectedAddress) {
+        setSelectedAddress(user.addresses[0]);
+      }
+    } else if (user && (!user.addresses || user.addresses.length === 0)) {
+      setShowAddressForm(true);
+    }
+  }, [user]);
 
   const {
     register,
@@ -155,40 +166,64 @@ const Checkout = () => {
               </button>
             </div>
 
+            {/* If no addresses yet, show informational alert */}
+            {(!user?.addresses || user.addresses.length === 0) && !showAddressForm && (
+              <div className="mt-5 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-xs">
+                <p className="font-bold">No saved addresses found</p>
+                <p className="mt-1 text-amber-700">Please click "Add New Address" above to enter your delivery destination.</p>
+              </div>
+            )}
+
             {/* Existing Address Radio Options */}
             {user?.addresses && user.addresses.length > 0 && !showAddressForm && (
               <div className="mt-5 grid grid-cols-1 gap-3">
-                {user.addresses.map((address, index) => (
-                  <label
-                    key={index}
-                    onClick={() => setSelectedAddress(address)}
-                    className={`flex items-start gap-4 p-4 rounded-2xl border-2 cursor-pointer transition ${
-                      selectedAddress === address
-                        ? "border-indigo-600 bg-indigo-50/40"
-                        : "border-slate-200 hover:border-slate-300"
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="selected-address"
-                      checked={selectedAddress === address}
-                      onChange={() => setSelectedAddress(address)}
-                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 mt-1 border-slate-300"
-                    />
-                    <div className="flex-1 text-xs sm:text-sm">
-                      <p className="font-bold text-slate-900">
-                        {address.firstname} {address.lastname}
-                      </p>
-                      <p className="text-slate-600 mt-0.5">{address.street}</p>
-                      <p className="text-slate-500 mt-0.5">
-                        {address.city}, {address.state} - {address.pincode}
-                      </p>
-                      <p className="text-slate-500 font-semibold mt-1">
-                        Phone: +91 {address.phone}
-                      </p>
-                    </div>
-                  </label>
-                ))}
+                {user.addresses.map((address, index) => {
+                  const isSelected =
+                    selectedAddress &&
+                    (selectedAddress === address ||
+                      (selectedAddress.street === address.street &&
+                        selectedAddress.pincode === address.pincode &&
+                        selectedAddress.phone === address.phone));
+
+                  return (
+                    <label
+                      key={index}
+                      onClick={() => setSelectedAddress(address)}
+                      className={`flex items-start gap-4 p-4 rounded-2xl border-2 cursor-pointer transition ${
+                        isSelected
+                          ? "border-indigo-600 bg-indigo-50/40 shadow-sm"
+                          : "border-slate-200 hover:border-slate-300 bg-white"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="selected-address"
+                        checked={Boolean(isSelected)}
+                        onChange={() => setSelectedAddress(address)}
+                        className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 mt-1 border-slate-300"
+                      />
+                      <div className="flex-1 text-xs sm:text-sm">
+                        <div className="flex items-center justify-between">
+                          <p className="font-bold text-slate-900">
+                            {address.firstname} {address.lastname}
+                          </p>
+                          {isSelected && (
+                            <span className="px-2 py-0.5 rounded-full bg-indigo-600 text-white text-[10px] font-bold">
+                              Selected
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-slate-600 mt-0.5">{address.street}</p>
+                        <p className="text-slate-500 mt-0.5">
+                          {address.city}, {address.state} - {address.pincode}
+                        </p>
+                        <p className="text-slate-500 font-semibold mt-1">
+                          Phone: +91 {address.phone}
+                        </p>
+                      </div>
+                    </label>
+                  );
+                })}
               </div>
             )}
 
@@ -398,10 +433,24 @@ const Checkout = () => {
           <button
             type="button"
             onClick={paymentMethod === "online" ? makepayment : handleOrder}
-            className="w-full rounded-2xl bg-indigo-600 hover:bg-indigo-500 py-4 px-4 text-sm font-bold text-white shadow-lg shadow-indigo-600/30 hover:-translate-y-0.5 transition-all"
+            className={`w-full rounded-2xl py-4 px-4 text-sm font-bold text-white shadow-lg transition-all ${
+              selectedAddress
+                ? "bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/30 hover:-translate-y-0.5 cursor-pointer"
+                : "bg-slate-400 shadow-none cursor-not-allowed opacity-80"
+            }`}
           >
-            {paymentMethod === "online" ? "Proceed to Stripe Payment" : "Confirm Order"}
+            {selectedAddress
+              ? paymentMethod === "online"
+                ? "Proceed to Stripe Payment"
+                : "Confirm Order"
+              : "Select Delivery Address First"}
           </button>
+
+          {!selectedAddress && (
+            <p className="text-center text-[11px] text-rose-500 font-medium">
+              * Please choose or add a delivery address to complete your order
+            </p>
+          )}
 
           <div className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-400">
             <ShieldCheckIcon className="h-4 w-4 text-indigo-500" />
