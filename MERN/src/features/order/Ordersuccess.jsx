@@ -20,19 +20,24 @@ const Order = () => {
   useEffect(() => {
     if (myCurrentOrder) {
       setCurrentOrder(myCurrentOrder);
-      if (myCurrentOrder.user?.id) {
-        dispatch(resetCartAsync(myCurrentOrder.user.id));
+      const userId = myCurrentOrder.user?.id || myCurrentOrder.user;
+      if (userId) {
+        dispatch(resetCartAsync(userId));
       }
     }
   }, [dispatch, myCurrentOrder]);
 
   useEffect(() => {
-    dispatch(resetOrder());
+    return () => {
+      dispatch(resetOrder());
+    };
   }, [dispatch]);
+
+  const displayOrderId = currentOrder?.id || currentOrder?._id || params?.id;
 
   return (
     <div className="w-full max-w-3xl mx-auto py-10 px-4">
-      {currentOrder && (
+      {currentOrder ? (
         <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-10 shadow-xl space-y-8 text-center">
           {/* Success Checkmark */}
           <div className="flex flex-col items-center">
@@ -46,7 +51,7 @@ const Order = () => {
               Thank you for your order!
             </h1>
             <p className="mt-2 text-xs sm:text-sm text-slate-500 max-w-md">
-              Your order <span className="font-bold text-slate-900">#{currentOrder.id}</span> is confirmed and will be delivered to your address within 2 business days.
+              Your order <span className="font-bold text-slate-900">#{displayOrderId}</span> is confirmed and will be delivered to your address within 2 business days.
             </p>
           </div>
 
@@ -105,6 +110,33 @@ const Order = () => {
             >
               <span>Continue Shopping</span>
               <ArrowRightIcon className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-xl text-center space-y-6">
+          <div className="h-20 w-20 rounded-full bg-emerald-50 border-4 border-emerald-100 flex items-center justify-center text-emerald-600 shadow-inner mx-auto">
+            <CheckCircleIcon className="h-10 w-10 text-emerald-600" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900">
+            Order Processed Successfully!
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+            Your order reference <span className="font-bold text-slate-900">#{displayOrderId}</span> has been saved to your account.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <Link
+              to="/my-orders"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold py-3.5 px-6 shadow-md transition"
+            >
+              <TruckIcon className="h-4 w-4" />
+              <span>View In My Orders</span>
+            </Link>
+            <Link
+              to="/"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold py-3.5 px-6 transition"
+            >
+              <span>Return Home</span>
             </Link>
           </div>
         </div>

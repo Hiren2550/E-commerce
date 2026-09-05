@@ -11,8 +11,6 @@ const orderSchema = new Schema({
   selectedAddress: { type: Schema.Types.Mixed, required: true },
 });
 
-export const Order = mongoose.model("Order", orderSchema);
-
 const virtual = orderSchema.virtual("id");
 virtual.get(function () {
   return this._id;
@@ -24,3 +22,5 @@ orderSchema.set("toJSON", {
     delete ret._id;
   },
 });
+
+export const Order = mongoose.model("Order", orderSchema);
