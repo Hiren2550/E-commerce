@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import Stripe from "stripe";
 import path from "path";
 import bcryptjs from "bcryptjs";
+import dns from "dns";
 import productsRouter from "./routes/product.route.js";
 import brandsRouter from "./routes/brand.route.js";
 import categoriesRouter from "./routes/category.route.js";
@@ -16,6 +17,9 @@ import nodemailer from "nodemailer";
 import { User } from "./model/user.model.js";
 import crypto from "crypto";
 dotenv.config();
+
+// Use reliable public DNS servers to avoid MongoDB Atlas SRV lookup issues
+dns.promises.setServers(["8.8.8.8", "1.1.1.1"]);
 
 const app = express();
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
@@ -33,6 +37,21 @@ const transporter = nodemailer.createTransport({
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cookieParser());
+
+// Health check endpoint for external cron pingers & uptime monitors
+app.get("/api/health", async (req, res) => {
+  try {
+    const isDbConnected = mongoose.connection.readyState === 1;
+    res.status(200).json({
+      status: "online",
+      service: "Ecommerce",
+      database: isDbConnected ? "connected" : "disconnected",
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+});
 
 app.use("/api/products", productsRouter);
 app.use("/api/brands", brandsRouter);
@@ -55,17 +74,13 @@ app.post("/api/mail", async (req, res) => {
     user.resetPasswordToken = token;
     await user.save();
 
-    const to = req.body.email;
-    const resetPageLink =
-      "https://e-commerce-15i5.onrender.com/reset-password?token=" +
-      token +
-      "&email=" +
-      req.body.email;
+    const appUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
+    const resetPageLink = `${appUrl}/reset-password?token=${token}&email=${encodeURIComponent(req.body.email)}`;
     const subject = "Reset password for Ecommerce website user";
     const html = `<P>Click <a style='color:blue' href='${resetPageLink}'>here</a> to Reset your password</p>`;
     const text = "This is reset password action";
     const info = await transporter.sendMail({
-      from: '"MERN:Ecommerce Website" <dummyhiren090@gmail.com>', // sender address
+      from: `"MERN:Ecommerce Website" <${process.env.MAIL_USER}>`, // sender address from env
       to,
       subject,
       html,
@@ -93,7 +108,7 @@ app.post("/api/reset-password", async (req, res) => {
     const html = `<P>Click <a style='color:blue' href={'/'}>here</a> go to login</p>`;
     const text = "This is  success reset password action";
     const info = await transporter.sendMail({
-      from: '"MERN:Ecommerce Website" <dummyhiren090@gmail.com>', // sender address
+      from: `"MERN:Ecommerce Website" <${process.env.MAIL_USER}>`, // sender address from env
       to,
       subject,
       html,
@@ -122,8 +137,8 @@ app.post("/api/payment", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: "https://e-commerce-15i5.onrender.com/payment-success",
-      cancel_url: "https://e-commerce-15i5.onrender.com/payment-cancel",
+      success_url: `${process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`}/payment-success`,
+      cancel_url: `${process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`}/payment-cancel`,
     });
 
     res.status(200).json({ id: session.id });
@@ -142,6 +157,9 @@ app.use((err, req, res, next) => {
   return res.status(statuscode).json({ success: false, statuscode, message });
 });
 
-app.listen(8000, () => {
-  console.log("server started");
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server running at Port ${PORT}!!`);
 });
+
+
